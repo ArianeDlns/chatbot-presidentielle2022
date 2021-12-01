@@ -1,11 +1,12 @@
-# chatbot-presidentielle2022
-Project @CentraleSupélec 
+# Chatbot Presidentielle 2022
+Project @CentraleSupélec made with rasa
 
 ## Installation
-1- Activate venv  
 ```bash 
 source venv/bin/activate
 ```
+
+rasa
 
 ## Usage
 
