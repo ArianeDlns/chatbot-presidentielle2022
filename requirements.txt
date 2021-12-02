@@ -2,3 +2,4 @@ rasa
 beautifulsoup4
 pandas
 lxml  
+spacysour
