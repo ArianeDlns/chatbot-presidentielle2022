@@ -6,7 +6,16 @@ Project @CentraleSupélec made with rasa
 source venv/bin/activate
 ```
 
-rasa
+```bash 
+cd rasa-chatbot/
+rasa run
+rasa interactive (?)
+```
+
+```bash 
+ngrok http 5005
+python -m spacy download fr_core_news_md
+```
 
 ## Usage
 
