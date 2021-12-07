@@ -1,0 +1,33 @@
+version: "2.0"
+
+stories:
+
+- story: bonne humeur
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_humeur
+  - action: utter_humeur
+  - intent: bonne_humeur
+  - action: utter_bonne_humeur
+  - action: utter_demande_question
+
+- story: mauvaise humeur
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_humeur
+  - action: utter_humeur
+  - intent: mauvaise_humeur
+  - action: utter_mauvaise_humeur
+  - action: utter_demande_question
+
+- story: demande identite
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_identite
+  - action: utter_identite
+  - action: utter_demande_question
+
+
