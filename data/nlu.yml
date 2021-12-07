@@ -1,0 +1,45 @@
+version: "2.0"
+
+nlu:
+- intent: salutations
+  examples: |
+    - hey
+    - hello
+    - bonjour
+    - salut
+    - enchanté
+    - yo
+    - coucou
+
+- intent: demande_humeur
+  examples: |
+    - comment allez-vous ?
+    - ça va ?
+    - comment tu vas ?
+    - est-ce que vous allez bien ?
+
+- intent: bonne_humeur
+  examples: |
+    - ça va bien
+    - très bien merci
+    - super
+    - au top
+    - je vais bien
+
+- intent: mauvaise_humeur
+  examples: |
+    - bof
+    - ça pourrait mieux aller
+    - ça va pas bien
+    - je suis triste
+    - pas terrible
+
+- intent: demande_identite
+  examples: |
+    - qui etes-vous ?
+    - est-ce que vous etes un robot ?
+    - est-tu humain ?
+    - as-tu une conscience ?
+    - t'es un chatbot ?
+
+
