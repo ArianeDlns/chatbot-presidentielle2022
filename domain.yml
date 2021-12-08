@@ -6,6 +6,16 @@ intents:
   - bonne_humeur
   - mauvaise_humeur
   - demande_identite
+  - demande_candidats
+  - demande_parti_candidat
+
+entities:
+  - candidate_name
+  - candidate_party
+
+actions:
+  - action_get_candidates
+  - action_get_party_from_candidate
 
 responses:
   utter_salutations:
