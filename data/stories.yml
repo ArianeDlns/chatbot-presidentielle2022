@@ -35,5 +35,10 @@ stories:
   - intent: demande_candidats
   - action: action_get_candidates
 
+- story: demande parti candidat
+  steps:
+  - intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+
 
 
