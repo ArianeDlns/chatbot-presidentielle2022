@@ -1,0 +1,60 @@
+version: "2.0"
+
+nlu:
+- intent: salutations
+  examples: |
+    - hey
+    - hello
+    - bonjour
+    - salut
+    - enchanté
+    - yo
+    - coucou
+
+- intent: demande_humeur
+  examples: |
+    - comment allez-vous ?
+    - ça va ?
+    - comment tu vas ?
+    - est-ce que vous allez bien ?
+
+- intent: bonne_humeur
+  examples: |
+    - ça va bien
+    - très bien merci
+    - super
+    - au top
+    - je vais bien
+
+- intent: mauvaise_humeur
+  examples: |
+    - bof
+    - ça pourrait mieux aller
+    - ça va pas bien
+    - je suis triste
+    - pas terrible
+
+- intent: demande_identite
+  examples: |
+    - qui etes-vous ?
+    - est-ce que vous etes un robot ?
+    - est-tu humain ?
+    - as-tu une conscience ?
+    - t'es un chatbot ?
+
+- intent: demande_candidats
+  examples: |
+    - Peux-tu me donner la liste des candidats ?
+    - Donne-moi la liste des candidats ?
+    - Quels sont les candidats à l'élection présidentielle de 2022 ?
+    - Qui est candidat ?
+    - Qui participe aux élections présidentielles ?
+    - A quel parti politique appartient chaque candidat ?
+
+- intent: demande_parti_candidat
+  examples: |
+    - A quel parti politique appartient [Macron](candidate_name) ?
+    - quel est le parti de [Jean Lassalle](candidate_name)
+    - parti de [Poutou](candidate_name)
+    - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
+
