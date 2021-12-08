@@ -1,0 +1,14 @@
+version: "2.0"
+
+rules:
+
+- rule: Répondre bonjour et présenter le chatbot quand l'utilisateur dit bonjour
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+
+- rule: out-of-scope
+  steps:
+  - intent: nlu_fallback
+  - action: utter_out_of_scope
+

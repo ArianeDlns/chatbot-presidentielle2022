@@ -1,0 +1,45 @@
+version: "2.0"
+
+intents:
+  - salutations
+  - demande_humeur
+  - bonne_humeur
+  - mauvaise_humeur
+  - demande_identite
+  - demande_candidats
+  - demande_parti_candidat
+
+entities:
+  - candidate_name
+  - candidate_party
+
+actions:
+  - action_get_candidates
+  - action_get_party_from_candidate
+
+responses:
+  utter_salutations:
+  - text: "Bonjour ! Je suis un chatbot développé par Ariane, Théo et Samuel. Avez-vous une question à propos des élections présidentielles de 2022 ?"
+
+  utter_demande_question:
+  - text: "Avez-vous une question ?"
+
+  utter_humeur:
+  - text: "Je vais bien merci ! Comment allez-vous ?"
+
+  utter_bonne_humeur:
+  - text: "Je m'en réjoui !"
+
+  utter_mauvaise_humeur:
+  - text: "J'en suis navré... Voici quelque chose pour vous égayer :"
+    image: "https://www.sudinfo.be/sites/default/files/dpistyles_v2/ena_sp_16_9_illustration_principale/2021/11/27/node_430187/49784626/public/2021/11/27/B9729146942Z.1_20211127182424_000+G5LJDTTLH.2-0.jpg?itok=JFWUbF751638034873"
+
+  utter_identite:
+  - text: "Je suis un chatbot, c'est-à-dire un agent conversationnel. Je peux dialoguer avec un utilisateur, mais je n'ai pas de conscience propre."
+
+  utter_out_of_scope:
+  - text: "Désolé, je n'ai pas compris votre question."
+
+session_config:
+  session_expiration_time: 600
+  carry_over_slots_to_new_session: true
