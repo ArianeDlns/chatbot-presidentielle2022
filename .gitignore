@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 #Secrets
-rasa-chatbot/credentials.yml
+credentials.yml
