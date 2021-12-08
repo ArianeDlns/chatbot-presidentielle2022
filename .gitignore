@@ -130,3 +130,6 @@ dmypy.json
 
 #Secrets
 credentials.yml
+
+#vscode
+.vscode/
