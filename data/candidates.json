@@ -1,0 +1,60 @@
+{
+    "candidates": [
+        {
+            "name": "Nathalie Arthaud",
+            "party": "Lutte ouvrière"
+        },
+        {
+            "name": "François Asselineau",
+            "party": "Union populaire républicaine"
+        },
+        {
+            "name": "Nicolas Dupont-Aignan",
+            "party": "Debout la France"
+        },
+        {
+            "name": "Anne Hidalgo",
+            "party": "Parti socialiste"
+        },
+        {
+            "name": "Yannick Jadot",
+            "party": "Europe Écologie Les Verts"
+        },
+        {
+            "name": "Jean Lassalle",
+            "party": "Résistons"
+        },
+        {
+            "name": "Marine Le Pen",
+            "party": "Rassemblement National"
+        },
+        {
+            "name": "Jean-Luc Mélenchon",
+            "party": "La France Insoumise"
+        },
+        {
+            "name": "Arnaud Montebourg",
+            "party": "L'Engagement"
+        },
+        {
+            "name": "Valérie Pécresse",
+            "party": "Les Républicains"
+        },
+        {
+            "name": "Philippe Poutou",
+            "party": "Nouveau Parti anticapitaliste"
+        },
+        {
+            "name": "Fabien Roussel",
+            "party": "Parti communiste français"
+        },
+        {
+            "name": "Antoine Waechter",
+            "party": "Mouvement écologiste indépendant"
+        },
+        {
+            "name": "Éric Zemmour",
+            "party": "Reconquête"
+        }
+    ]
+}

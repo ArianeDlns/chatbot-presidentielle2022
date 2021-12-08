@@ -30,4 +30,10 @@ stories:
   - action: utter_identite
   - action: utter_demande_question
 
+- story: demande candidats
+  steps:
+  - intent: demande_candidats
+  - action: action_get_candidates
+
+
 

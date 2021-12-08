@@ -42,4 +42,19 @@ nlu:
     - as-tu une conscience ?
     - t'es un chatbot ?
 
+- intent: demande_candidats
+  examples: |
+    - Peux-tu me donner la liste des candidats ?
+    - Donne-moi la liste des candidats ?
+    - Quels sont les candidats à l'élection présidentielle de 2022 ?
+    - Qui est candidat ?
+    - Qui participe aux élections présidentielles ?
+    - A quel parti politique appartient chaque candidat ?
+
+- intent: demande_parti_candidat
+  examples: |
+    - A quel parti politique appartient [Macron](candidate_name) ?
+    - quel est le parti de [Jean Lassalle](candidate_name)
+    - parti de [Poutou](candidate_name)
+    - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
 
