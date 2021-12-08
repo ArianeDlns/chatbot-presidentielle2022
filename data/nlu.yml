@@ -24,6 +24,7 @@ nlu:
     - très bien merci
     - super
     - au top
+    - bien
     - je vais bien
 
 - intent: mauvaise_humeur
@@ -57,4 +58,3 @@ nlu:
     - quel est le parti de [Jean Lassalle](candidate_name)
     - parti de [Poutou](candidate_name)
     - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
-

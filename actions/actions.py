@@ -43,6 +43,8 @@ class ActionGetPartyFromCandidate(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'candidate_name':
