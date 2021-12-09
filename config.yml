@@ -17,7 +17,7 @@ pipeline:
    - name: DIETClassifier
      epochs: 100
      constrain_similarities: True
-     entity_recognition: False
+     entity_recognition: True
      model_confidence: linear_norm
 #   - name: EntitySynonymMapper
 #   - name: ResponseSelector

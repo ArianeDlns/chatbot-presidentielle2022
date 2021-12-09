@@ -35,5 +35,37 @@ stories:
   - intent: demande_candidats
   - action: action_get_candidates
 
+- story: demande sondage candidat
+  steps:
+  - intent: demande_sondage_candidat
+  - action: action_get_sondage_candidat
 
 
+
+
+- story: interactive_story_1
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_sondage_candidat
+  - action: action_get_sondage_candidat
+  - intent: demande_sondage_candidat
+
+- story: interactive_story_1
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_sondage_candidat
+    entities:
+    - candidate_name: Zemmour
+  - action: action_get_sondage_candidat
+  - intent: demande_sondage_candidat
+    entities:
+    - candidate_name: Zemmour
+  - action: action_get_sondage_candidat
+  - intent: demande_sondage_candidat
+  - action: action_get_sondage_candidat
+  - intent: demande_sondage_candidat
+    entities:
+    - candidate_name: Eric Zemmour
+  - action: action_get_sondage_candidat

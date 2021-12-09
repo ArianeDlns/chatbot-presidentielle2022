@@ -7,7 +7,9 @@ source venv/bin/activate
 ```
 
 ```bash 
-rasa run
+rasa run 
+rasa run actions
+rasa shell
 rasa interactive (?)
 ```
 
@@ -32,5 +34,5 @@ Please make sure to update tests as appropriate.
 In development - project deadline: 13 April 22'
 
 ## References
-[1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021
+[1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021  
 [2] Miller, A.~H. and Feng, W. and Fisch, A. and Lu, J. and Batra, D. and Bordes, ParlAI: A Dialog Research Software Platform, [arXiv preprint arXiv:1705.06476](https://arxiv.org/abs/2004.13637), 2017
