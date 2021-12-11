@@ -3,4 +3,4 @@ beautifulsoup4
 pandas
 lxml  
 spacysour
-spacy
+nltk

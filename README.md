@@ -10,7 +10,6 @@ source venv/bin/activate
 rasa run 
 rasa run actions
 rasa shell
-rasa interactive (?)
 ```
 
 ```bash 
@@ -19,6 +18,7 @@ python -m spacy download fr_core_news_md
 ```
 
 ## Usage
+This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
 ## Roadmap
 
