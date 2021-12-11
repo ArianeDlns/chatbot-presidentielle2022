@@ -43,15 +43,21 @@ def set_date(df):
     df['Date'] = df.apply(lambda x: x['Date'].replace('1er','1') + ' 2021', axis=1)
     return df 
 
+def candidate_names_in_cols(df):
+    """Set columns as candidate name"""
+    columns = [col.split('(')[0] for col in df.columns]
+    df.columns = columns
+    return df 
+
 def apply_transformations(sondages):
     """
     Apply transformations to deal with scrapped data
     """
-    #Useful for multi LR candidates
     #sondages['ChoixLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[-1], axis=1)
     #sondages['CandidatLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[0], axis=1)
     #sondages = remove_percent(sondages)
     sondages = set_date(sondages)
+    sondages = candidate_names_in_cols(sondages)
     return sondages
 
 def get_sondages(url):

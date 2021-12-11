@@ -12,6 +12,7 @@ from pathlib import Path
 import json
 
 from utils.scrapping_sondages import *
+from utils.candidate_names import *
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -69,13 +70,14 @@ class ActionGetPartyFromCandidate(Action):
 
 
 class ActionGetPartyFromCandidate(Action):
+    """
+    Answering questions like 'Ou est [candidat_name] dans les sondages ?'
+    """
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
     candidates_data = json.loads(Path("data/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
-    candidates_party = [candidate['party']
-                        for candidate in candidates_data['candidates']]
 
     def name(self) -> Text:
         return "action_get_sondage_candidat"
@@ -88,13 +90,11 @@ class ActionGetPartyFromCandidate(Action):
 
             if blob['entity'] == 'candidate_name':
                 name = blob['value']
-                if name in self.candidates_name:
-                    name_value = name.split(
-                        ' ')[-1] + "(" + self.candidates_party[self.candidates_name.index(name)] + ")"
-                    poll_value = self.candidates_data_sondage.iloc[0][name_value]
-                    dispatcher.utter_message(
-                        text=f"{name} est à {poll_value} dans le dernier sondage")
-                else:
-                    dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
-                        f"({self.candidates_name[i]})\n" for i in range(len(self.candidates_name))))
+                name_value = ' '.join(real_name(name).split(' ')[1:])
+                poll_value = self.candidates_data_sondage.iloc[0][name_value]
+                dispatcher.utter_message(
+                    text=f"{real_name(name)} est à {poll_value} dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']})")
+            else:
+                dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
+                    f"({self.candidates_name[i]})\n" for i in range(len(self.candidates_name))))
         return []
