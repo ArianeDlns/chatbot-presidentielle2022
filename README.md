@@ -14,7 +14,6 @@ rasa shell
 
 ```bash 
 ngrok http 5005
-python -m spacy download fr_core_news_md
 ```
 
 ## Usage

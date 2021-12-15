@@ -76,3 +76,10 @@ stories:
     entities:
     - candidate_name: Eric Zemmour
   - action: action_get_sondage_candidat
+
+- story: interactive_story_1
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_sondage
+  - action: action_get_sondage_all_candidat

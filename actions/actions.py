@@ -124,7 +124,7 @@ class ActionGetSondageAllCandidates(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         candidates_poll_value = [
-            f"{candidates_name[i]} ({self.candidates_data_sondage.iloc[0][candidates_name[i].split(' ')[1:]]})\n" for i in range(len(candidates_name))]
+            f"{candidates_name[i]} ({self.candidates_data_sondage.iloc[0][ ' '.join(candidates_name[i].split(' ')[1:])]})\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")

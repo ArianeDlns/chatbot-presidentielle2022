@@ -3,25 +3,26 @@ session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true
 intents:
-- demande_sondage_candidat
 - salutations
+- demande_sondage
+- demande_sondage_candidat
 - demande_humeur
 - bonne_humeur
 - mauvaise_humeur
 - demande_identite
 - demande_candidats
 - demande_parti_candidat
-- demande_sondage
 entities:
 - candidate_name
 - candidate_party
 slots:
   candidate_name:
     type: categorical
+    influence_conversation: true
     values:
-    - Valérie Pécresse
-    - Éric Zemmour
-    - Emmanuel Macron
+    - valérie pécresse
+    - éric zemmour
+    - emmanuel macron
 responses:
   utter_salutations:
   - text: Bonjour ! Je suis un chatbot développé par Ariane, Théo et Samuel. Avez-vous une question à propos des élections présidentielles de 2022 ?
@@ -41,6 +42,6 @@ responses:
 actions:
 - action_get_candidates
 - action_get_party_from_candidate
-- action_get_sondage_candidat
 - action_get_sondage_all_candidat
+- action_get_sondage_candidat
 - utter_salutations
