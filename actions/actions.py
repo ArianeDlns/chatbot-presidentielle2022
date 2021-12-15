@@ -71,7 +71,7 @@ class ActionGetPartyFromCandidate(Action):
         return []
 
 
-class ActionGetPartyFromCandidate(Action):
+class ActionGetSondageFromCandidate(Action):
     """
     Answering questions like 'Ou est [candidat_name] dans les sondages ?'
     """
