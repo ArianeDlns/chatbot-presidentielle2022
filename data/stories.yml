@@ -34,15 +34,17 @@ stories:
   steps:
   - intent: demande_candidats
   - action: action_get_candidates
-
+  
+- story: demande parti candidat
+  steps:
+  - intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+  
 - story: demande sondage candidat
   steps:
   - intent: demande_sondage_candidat
   - action: action_get_sondage_candidat
-
-
-
-
+  
 - story: interactive_story_1
   steps:
   - intent: salutations

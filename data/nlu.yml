@@ -33,6 +33,7 @@ nlu:
     - très bien merci
     - super
     - au top
+    - bien
     - je vais bien
 - intent: mauvaise_humeur
   examples: |
