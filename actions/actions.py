@@ -53,7 +53,7 @@ class ActionGetPartyFromCandidate(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            
+
         dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         for blob in tracker.latest_message['entities']:
@@ -69,6 +69,10 @@ class ActionGetPartyFromCandidate(Action):
                         text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ?")
 
         return []
+
+# --------------------------------------------------
+# POLL ACTIONS
+# --------------------------------------------------
 
 
 class ActionGetSondageFromCandidate(Action):
@@ -99,4 +103,30 @@ class ActionGetSondageFromCandidate(Action):
             else:
                 dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
                     f"({self.candidates_name[i]})\n" for i in range(len(self.candidates_name))))
+        return []
+
+
+class ActionGetSondageAllCandidates(Action):
+    """
+    Answering questions like 'Quel est le résultat du dernier sondage ?'
+    """
+    candidates_data_sondage = get_sondages(
+        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+    candidates_data = json.loads(Path("data/candidates.json").read_text())
+    candidates_name = [candidate['name']
+                       for candidate in candidates_data['candidates']]
+
+    def name(self) -> Text:
+        return "action_get_sondage_all_candidat"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        candidates_poll_value = [
+            f"{candidates_name[i]} ({self.candidates_data_sondage.iloc[0][candidates_name[i].split(' ')[1:]]})\n" for i in range(len(candidates_name))]
+
+        dispatcher.utter_message(
+            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
+
         return []

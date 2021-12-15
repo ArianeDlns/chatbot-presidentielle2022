@@ -11,6 +11,7 @@ intents:
 - demande_identite
 - demande_candidats
 - demande_parti_candidat
+- demande_sondage
 entities:
 - candidate_name
 - candidate_party
@@ -41,4 +42,5 @@ actions:
 - action_get_candidates
 - action_get_party_from_candidate
 - action_get_sondage_candidat
+- action_get_sondage_all_candidat
 - utter_salutations

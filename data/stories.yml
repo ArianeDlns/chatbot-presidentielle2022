@@ -44,6 +44,11 @@ stories:
   steps:
   - intent: demande_sondage_candidat
   - action: action_get_sondage_candidat
+
+- story: demande sondage
+  steps:
+  - intent: demande_sondage
+  - action: action_get_sondage_all_candidat
   
 - story: interactive_story_1
   steps:
