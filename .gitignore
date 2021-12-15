@@ -133,3 +133,6 @@ credentials.yml
 
 #vscode
 .vscode/
+
+#remove models
+models/

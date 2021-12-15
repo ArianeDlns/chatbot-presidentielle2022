@@ -63,6 +63,7 @@ nlu:
     - quel est le parti de [Jean Lassalle](candidate_name)
     - parti de [Poutou](candidate_name)
     - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
+    - Quel est le parti de [Pecresse](candidate_name)
 - intent: demande_sondage_candidat
   examples: |
     - Où en est [Macron](candidate_name) dans les sondages ?
