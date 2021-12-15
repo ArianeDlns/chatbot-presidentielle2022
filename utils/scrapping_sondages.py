@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import locale
 
+locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
 
 def scrape_table(url):
     """
@@ -42,19 +43,29 @@ def set_date(df):
     df['Date'] = df.apply(lambda x: x['Date'].replace('1er','1') + ' 2021', axis=1)
     return df 
 
+def candidate_names_in_cols(df):
+    """Set columns as candidate name"""
+    columns = [col.split('(')[0] for col in df.columns]
+    df.columns = columns
+    return df 
+
 def apply_transformations(sondages):
     """
     Apply transformations to deal with scrapped data
     """
-    sondages['ChoixLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[-1], axis=1)
-    sondages['CandidatLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[0], axis=1)
-    sondages = remove_percent(sondages)
+    #sondages['ChoixLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[-1], axis=1)
+    #sondages['CandidatLR'] = sondages.apply(lambda x: x.CandidatLR.split('%')[0], axis=1)
+    #sondages = remove_percent(sondages)
     sondages = set_date(sondages)
+    sondages = candidate_names_in_cols(sondages)
+    return sondages
+
+def get_sondages(url):
+    df = scrape_table(url)
+    sondages = clean_sondages(df)
+    sondages = apply_transformations(sondages)
     return sondages
 
 if __name__ =="__main__":
+    df = get_sondages("https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
-    locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
-    df = scrape_table("https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-    sondages = clean_sondages(df)
-    sondages = apply_transformations(sondages)

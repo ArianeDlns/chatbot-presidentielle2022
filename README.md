@@ -7,8 +7,9 @@ source venv/bin/activate
 ```
 
 ```bash 
-rasa run
-rasa interactive (?)
+rasa run 
+rasa run actions
+rasa shell
 ```
 
 ```bash 
@@ -17,6 +18,7 @@ python -m spacy download fr_core_news_md
 ```
 
 ## Usage
+This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
 ## Roadmap
 
@@ -32,5 +34,5 @@ Please make sure to update tests as appropriate.
 In development - project deadline: 13 April 22'
 
 ## References
-[1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021
+[1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021  
 [2] Miller, A.~H. and Feng, W. and Fisch, A. and Lu, J. and Batra, D. and Bordes, ParlAI: A Dialog Research Software Platform, [arXiv preprint arXiv:1705.06476](https://arxiv.org/abs/2004.13637), 2017
