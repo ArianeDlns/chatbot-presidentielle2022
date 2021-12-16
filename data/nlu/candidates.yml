@@ -3,7 +3,7 @@ nlu:
 - intent: demande_candidats
   examples: |
     - Peux-tu me donner la liste des candidats ?
-    - Donne-moi la liste des candidats ?
+    - Donne-moi la liste des candidats
     - Quels sont les candidats à l'élection présidentielle de 2022 ?
     - Qui est candidat ?
     - Qui participe aux élections présidentielles ?

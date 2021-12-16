@@ -1,0 +1,43 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: bonne humeur
+  steps:
+  - user: |
+      bonjour chatbot
+    intent: salutations
+  - action: utter_salutations
+  - user: |
+      comment ça va?
+    intent: demande_humeur
+  - action: utter_humeur
+  - user: |
+      je vais plutôt bien merci
+    intent: bonne_humeur
+  - action: utter_bonne_humeur
+  - action: utter_demande_question
+
+- story: bonne humeur
+  steps:
+  - user: |
+      salyt !
+    intent: salutations
+  - action: utter_salutations
+  - user: |
+      est-ce que tu va bien ?
+    intent: demande_humeur
+  - action: utter_humeur
+  - user: |
+      ça pourrait être mieux
+    intent: mauvaise_humeur
+  - action: utter_mauvaise_humeur
+  - action: utter_demande_question
+
+- story: demande identite
+  steps:
+  - user: |
+      est ce que tu es un ordinateur ?
+    intent: demande_identite
+  - action: utter_identite
+  - action: utter_demande_question
