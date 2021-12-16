@@ -40,3 +40,9 @@ nlu:
     - est-tu humain ?
     - as-tu une conscience ?
     - t'es un chatbot ?
+- intent: demande_blague
+  examples: |
+    - raconte moi une blague ! 
+    - donne moi une histoire 
+    - est-ce que tu as une blague pour moi ? 
+    - donne une histoire 

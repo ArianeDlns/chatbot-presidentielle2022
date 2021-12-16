@@ -12,17 +12,11 @@ intents:
 - demande_identite
 - demande_candidats
 - demande_parti_candidat
+- demande_blague
+- demande_evolution
 entities:
 - candidate_name
 - candidate_party
-slots:
-  candidate_name:
-    type: categorical
-    influence_conversation: true
-    values:
-    - valérie pécresse
-    - éric zemmour
-    - emmanuel macron
 responses:
   utter_salutations:
   - text: Bonjour ! Je suis un chatbot développé par Ariane, Théo et Samuel. Avez-vous une question à propos des élections présidentielles de 2022 ?
@@ -39,9 +33,14 @@ responses:
   - text: Je suis un chatbot, c'est-à-dire un agent conversationnel. Je peux dialoguer avec un utilisateur, mais je n'ai pas de conscience propre.
   utter_out_of_scope:
   - text: Désolé, je n'ai pas compris votre question.
+  utter_blague:
+  - text: "Je ne suis pas un chatbot très drôle, mais voici de quoi vous distaire:"
+    image: https://rigolotes.fr/img/normal/20200312/34Q/20200312.jpg
+
 actions:
 - action_get_candidates
 - action_get_party_from_candidate
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
+- action_get_evolution_graph_candidat
 - utter_salutations

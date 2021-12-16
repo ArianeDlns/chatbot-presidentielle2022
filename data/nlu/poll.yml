@@ -8,7 +8,9 @@ nlu:
     - Quel est le score de [Eric Zemmour](candidate_name) ?
     - Où est [Zemmour](candidate_name) dans les sondages ?
     - Où est [Eric Zemmour](candidate_name) dans les sondages ?
+    - Comment est situé [Le Pen](candidate_name)?
     - Quel est le score de [Valérie Pecresse](candidate_name)
+    - Quel est le score de [Marine Le Pen](candidate_name)
 - intent: demande_sondage
   examples: |
     - Quel est le résultat du dernier sondage ? 
@@ -17,3 +19,9 @@ nlu:
     - Qui en est où dans les sondages
     - Quel est le score dans les sonndages 
     - Quelles sont les prédictions pour les présidentielles ?
+- intent: demande_evolution
+  examples: |
+    - Comment a évolué [Macron](candidate_name) ? 
+    - Quelle est la tendance de [Le Pen](candidate_name) dans les sondages ? 
+    - Quelle est l'évolution de [Macron](candidate_name) et [Le Pen](candidate_name) ? 
+    - 
