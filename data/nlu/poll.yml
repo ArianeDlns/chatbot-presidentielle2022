@@ -18,6 +18,7 @@ nlu:
     - Quel est le score ? 
     - Qui en est où dans les sondages
     - Quel est le score dans les sonndages 
+    - Quelles sont les prédictions pour les présidentielles ?
 - intent: demande_evolution
   examples: |
     - Comment a évolué [Macron](candidate_name) ? 

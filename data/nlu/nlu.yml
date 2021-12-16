@@ -10,6 +10,8 @@ nlu:
     - yo
     - coucou
     - Bonjour
+    - salut chatbot
+    - bonjour mr le chatbot
 - intent: demande_humeur
   examples: |
     - comment allez-vous ?

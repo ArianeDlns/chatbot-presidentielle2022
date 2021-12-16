@@ -136,3 +136,6 @@ credentials.yml
 
 #remove models
 models/
+
+#remove test results
+results/

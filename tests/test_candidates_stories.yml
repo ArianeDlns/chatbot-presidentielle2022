@@ -1,0 +1,31 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: demande liste candidats
+  steps:
+  - user: |
+      qui se présente aux élections 2022 ?
+    intent: demande_candidats
+  - action: action_get_candidates
+
+- story: demande liste candidats 2
+  steps:
+  - user: |
+      quel est le parti de chaque candidat ?
+    intent: demande_candidats
+  - action: action_get_candidates
+  
+- story: demande parti candidat
+  steps:
+  - user: |
+      quel est le parti de [eric zemmour]{"entity": "candidate_name"} ?
+    intent: demande_parti_candidat
+  - action: action_get_party_from_candidates
+
+- story: demande parti candidat 2
+  steps:
+  - user: |
+      donne moi le parti politique de [jean lassale]{"entity": "candidate_name"} ?
+    intent: demande_parti_candidat
+  - action: action_get_party_from_candidates
