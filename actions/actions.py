@@ -13,13 +13,15 @@ import json
 
 from utils.scrapping_sondages import *
 from utils.candidate_names import *
+from utils.plot_formatting import *
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
 class ActionGetCandidates(Action):
-    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
+    candidates_data = json.loads(
+        Path("data/data_candidates/candidates.json").read_text())
 
     def name(self) -> Text:
         return "action_get_candidates"
@@ -41,7 +43,8 @@ class ActionGetCandidates(Action):
 
 
 class ActionGetPartyFromCandidate(Action):
-    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
+    candidates_data = json.loads(
+        Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
     candidates_party = [candidate['party']
@@ -81,7 +84,8 @@ class ActionGetSondageFromCandidate(Action):
     """
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
+    candidates_data = json.loads(
+        Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 
@@ -99,7 +103,7 @@ class ActionGetSondageFromCandidate(Action):
                 name_value = ' '.join(real_name(name).split(' ')[1:])
                 poll_value = self.candidates_data_sondage.iloc[0][name_value]
                 dispatcher.utter_message(
-                    text=f"{real_name(name)} est à {poll_value} dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']})")
+                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']})")
             else:
                 dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
                     f"({self.candidates_name[i]})\n" for i in range(len(self.candidates_name))))
@@ -112,7 +116,8 @@ class ActionGetSondageAllCandidates(Action):
     """
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
+    candidates_data = json.loads(
+        Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 
@@ -123,8 +128,44 @@ class ActionGetSondageAllCandidates(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        candidates_poll_df = pd.DataFrame([[candidates_name[i], self.candidates_data_sondage.iloc[0][' '.join(
+            candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
+        
         candidates_poll_value = [
-            f"{candidates_name[i]} ({self.candidates_data_sondage.iloc[0][ ' '.join(candidates_name[i].split(' ')[1:])]})\n" for i in range(len(candidates_name))]
+            f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
+
+        dispatcher.utter_message(
+            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
+
+        #HTML Table displaying 
+        #dispatcher.utter_message(json_message={'text': HTML_table_from_df(
+        #    candidates_poll_df), 'parse_mode': 'HTML'})
+
+        return []
+
+class ActionGetEvolutionGraphCandidates(Action):
+    """
+    Answering questions like 'Quel est le résultat du dernier sondage ?'
+    """
+    candidates_data_sondage = get_sondages(
+        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+    candidates_data = json.loads(
+        Path("data/data_candidates/candidates.json").read_text())
+    candidates_name = [candidate['name']
+                       for candidate in candidates_data['candidates']]
+
+    def name(self) -> Text:
+        return "action_get_evolution_graph_candidat"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        candidates_poll_df = pd.DataFrame([[candidates_name[i], self.candidates_data_sondage.iloc[0][' '.join(
+            candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
+        
+        candidates_poll_value = [
+            f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
