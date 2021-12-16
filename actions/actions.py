@@ -19,7 +19,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 
 class ActionGetCandidates(Action):
-    candidates_data = json.loads(Path("data/candidates.json").read_text())
+    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
 
     def name(self) -> Text:
         return "action_get_candidates"
@@ -41,7 +41,7 @@ class ActionGetCandidates(Action):
 
 
 class ActionGetPartyFromCandidate(Action):
-    candidates_data = json.loads(Path("data/candidates.json").read_text())
+    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
     candidates_party = [candidate['party']
@@ -81,7 +81,7 @@ class ActionGetSondageFromCandidate(Action):
     """
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-    candidates_data = json.loads(Path("data/candidates.json").read_text())
+    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 
@@ -112,7 +112,7 @@ class ActionGetSondageAllCandidates(Action):
     """
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-    candidates_data = json.loads(Path("data/candidates.json").read_text())
+    candidates_data = json.loads(Path("data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 

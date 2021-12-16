@@ -1,0 +1,12 @@
+version: "2.0"
+nlu:
+- lookup: candidate_name
+  examples: |
+    - Eric Zemmour
+    - Zemmour
+    - Macron
+    - Emmanuel
+    - Emmanuel Macron
+    - Pecresse
+    - Valérie Pecresse
+    - Valérie Pécresse

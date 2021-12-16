@@ -1,0 +1,18 @@
+version: "2.0"
+nlu:
+- intent: demande_sondage_candidat
+  examples: |
+    - Où en est [Macron](candidate_name) dans les sondages ?
+    - Où en est [Emmanuel Macron](candidate_name) dans les sondages ?
+    - Quel est le pourcentage de chance de [Jean Lassalle](candidate_name)
+    - Quel est le score de [Eric Zemmour](candidate_name) ?
+    - Où est [Zemmour](candidate_name) dans les sondages ?
+    - Où est [Eric Zemmour](candidate_name) dans les sondages ?
+    - Quel est le score de [Valérie Pecresse](candidate_name)
+- intent: demande_sondage
+  examples: |
+    - Quel est le résultat du dernier sondage ? 
+    - Ou en sont les scores ? 
+    - Quel est le score ? 
+    - Qui en est où dans les sondages
+    - Quel est le score dans les sonndages 
