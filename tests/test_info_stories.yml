@@ -26,7 +26,7 @@ stories:
 - story: report 2
   steps:
   - user: |
-      une annulation des élections est-elle possible ?
+      est-il possible que les élections soient annulées ?
     intent: report
   - action: utter_report
 
@@ -47,7 +47,7 @@ stories:
 - story: formalites candidats
   steps:
   - user: |
-      y a-t-il des formalités pour les candidats ?
+      quelles sont les formalités pour devenir candidat ?
     intent: formalites_candidats
   - action: utter_formalites_candidats
 

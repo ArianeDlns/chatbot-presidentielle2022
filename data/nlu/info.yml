@@ -15,6 +15,7 @@ nlu:
     - est-ce qu'il peut y avoir un report de l'élection ?
     - dans quels cas peut-il y avoir un report ?
     - l'élection peut-elle être annulée ?
+    - une annulation des élections est-elle possible ?
 - intent: conditions_candidats
   examples: |
     - quelles sont les conditions pour être candidat ?
@@ -29,6 +30,7 @@ nlu:
     - quelles sont les règles autour des parrainages ?
     - quelles sont les démarches que les candidats doivent suivre ?
     - combien de parrainages doivent obtenir les candidats ?
+    - y a-t-il des formalités pour les candidats ?
 - intent: declaration_patrimoine_candidats
   examples: |
     - qu'est-ce que la déclaration de patrimoine ?

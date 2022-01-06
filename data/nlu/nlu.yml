@@ -18,6 +18,7 @@ nlu:
     - ça va ?
     - comment tu vas ?
     - est-ce que vous allez bien ?
+    - est-ce que tu vas bien ?
 - intent: bonne_humeur
   examples: |
     - ça va bien

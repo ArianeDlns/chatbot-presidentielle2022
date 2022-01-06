@@ -5,7 +5,7 @@ stories:
 - story: demande liste candidats
   steps:
   - user: |
-      qui se présente aux élections 2022 ?
+      qui est-ce qui se présente aux élections présidentielles?
     intent: demande_candidats
   - action: action_get_candidates
 
