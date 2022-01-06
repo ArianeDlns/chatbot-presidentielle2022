@@ -1,0 +1,157 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: dates tours
+  steps:
+  - user: |
+      quelles est la date pour le 1er tour ?
+    intent: dates_tours
+  - action: utter_dates_tours
+
+- story: dates tours 2
+  steps:
+  - user: |
+      quand devons nous voter ?
+    intent: dates_tours
+  - action: utter_dates_tours
+
+- story: report
+  steps:
+  - user: |
+      est-ce qu'il peut y avoir un report de l'élection ?
+    intent: report
+  - action: utter_report
+
+- story: report 2
+  steps:
+  - user: |
+      une annulation des élections est-elle possible ?
+    intent: report
+  - action: utter_report
+
+- story: conditions candidats
+  steps:
+  - user: |
+      y a-t-il des conditions pour être candidat ?
+    intent: conditions_candidats
+  - action: utter_conditions_candidats
+
+- story: conditions candidats 2
+  steps:
+  - user: |
+      qui peut se présenter en tant que candidat aux élections ?
+    intent: conditions_candidats
+  - action: utter_conditions_candidats
+
+- story: formalites candidats
+  steps:
+  - user: |
+      y a-t-il des formalités pour les candidats ?
+    intent: formalites_candidats
+  - action: utter_formalites_candidats
+
+- story: formalites candidats 2
+  steps:
+  - user: |
+      quelles sont les conditions des parrainages ?
+    intent: formalites_candidats
+  - action: utter_formalites_candidats
+
+- story: declaration patrimoine candidats
+  steps:
+  - user: |
+      qu'est-ce qui est compris dans la déclaration de patrimoine ?
+    intent: declaration_patrimoine_candidats
+  - action: utter_declaration_patrimoine_candidats
+
+- story: declaration patrimoine candidats 2
+  steps:
+  - user: |
+      qu'est-ce que les candidats doivent déclarer ?
+    intent: declaration_patrimoine_candidats
+  - action: utter_declaration_patrimoine_candidats
+
+- story: financement campagne
+  steps:
+  - user: |
+      comment les candidats financent-ils leur campagne ?
+    intent: financement_campagne
+  - action: utter_financement_campagne
+  
+- story: financement campagne 2
+  steps:
+  - user: |
+      y a-t-il des règles pour le financement de la campagne électorale ?
+    intent: financement_campagne
+  - action: utter_financement_campagne
+
+- story: regles audiovisuelles
+  steps:
+  - user: |
+      quelles sont les règles pour le temps de parole des candidats ?
+    intent: regles_audiovisuelles
+  - action: utter_regles_audiovisuelles
+
+- story: regles audiovisuelles 2
+  steps:
+  - user: |
+      combien de temps de présence ont droit les candidats dans les médias ?
+    intent: regles_audiovisuelles
+  - action: utter_regles_audiovisuelles
+
+- story: mode scrutin
+  steps:
+  - user: |
+      quel sera le mode de vote pour les élections ?
+    intent: mode_scrutin
+  - action: utter_mode_scrutin
+  
+- story: mode scrutin 2
+  steps:
+  - user: |
+      comment fonctionnera le vote ?
+    intent: mode_scrutin
+  - action: utter_mode_scrutin
+
+- story: conditions electeurs
+  steps:
+  - user: |
+      quelles conditions pour pouvoir aller voter aux élections ?
+    intent: condition_electeur
+  - action: utter_condition_electeur
+
+- story: conditions electeurs 2
+  steps:
+  - user: |
+      est-ce que j'ai le droit de voter ?
+    intent: condition_electeur
+  - action: utter_condition_electeur
+
+- story: procuration
+  steps:
+  - user: |
+      comment donner une procuration ?
+    intent: procuration
+  - action: utter_procuration
+
+- story: procuration 2
+  steps:
+  - user: |
+      est-ce que je peux faire voter quelqu'un a ma place ?
+    intent: procuration
+  - action: utter_procuration
+
+- story: vote depuis etranger
+  steps:
+  - user: |
+      est-ce que je peux peux voter si je suis à l'étranger ?
+    intent: vote_etranger
+  - action: utter_vote_etranger
+
+- story: vote depuis etranger 2
+  steps:
+  - user: |
+      comment voter depuis un autre pays
+    intent: vote_etranger
+  - action: utter_vote_etranger
