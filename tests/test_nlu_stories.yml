@@ -25,7 +25,7 @@ stories:
     intent: salutations
   - action: utter_salutations
   - user: |
-      est-ce que tu va bien ?
+      est-ce que ca va bien ?
     intent: demande_humeur
   - action: utter_humeur
   - user: |

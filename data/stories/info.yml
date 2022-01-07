@@ -1,0 +1,59 @@
+version: "2.0"
+
+stories:
+
+- story: dates tours
+  steps:
+  - intent: dates_tours
+  - action: utter_dates_tours
+
+- story: report
+  steps:
+  - intent: report
+  - action: utter_report
+
+- story: conditions candidats
+  steps:
+  - intent: conditions_candidats
+  - action: utter_conditions_candidats
+
+- story: formalites candidats
+  steps:
+  - intent: formalites_candidats
+  - action: utter_formalites_candidats
+
+- story: declaration patrimoine candidats
+  steps:
+  - intent: declaration_patrimoine_candidats
+  - action: utter_declaration_patrimoine_candidats
+
+- story: financement campagne
+  steps:
+  - intent: financement_campagne
+  - action: utter_financement_campagne
+
+- story: regles audiovisuelles
+  steps:
+  - intent: regles_audiovisuelles
+  - action: utter_regles_audiovisuelles
+
+- story: mode scrutin
+  steps:
+  - intent: mode_scrutin
+  - action: utter_mode_scrutin
+
+- story: conditions electeurs
+  steps:
+  - intent: condition_electeur
+  - action: utter_condition_electeur
+
+- story: procuration
+  steps:
+  - intent: procuration
+  - action: utter_procuration
+
+- story: vote depuis etranger
+  steps:
+  - intent: vote_etranger
+  - action: utter_vote_etranger
+

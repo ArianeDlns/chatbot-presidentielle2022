@@ -1,0 +1,86 @@
+version: "2.0"
+nlu:
+- intent: dates_tours
+  examples: |
+    - quel sont les dates des élections présidentielles 2022 ?
+    - quand auront lieu les 2 tours ?
+    - à quel date a lieu le 1er tour ?
+    - quand sera le premier tour de l'élection ?
+    - quel est la date du deuxième tour de l'élection ?
+    - quand est-ce qu'on doit voter ?
+    - quelles sont les étapes de vote ?
+- intent: report
+  examples: |
+    - l'élection présidentielle peut-elle être reportée ?
+    - est-ce qu'il peut y avoir un report de l'élection ?
+    - dans quels cas peut-il y avoir un report ?
+    - l'élection peut-elle être annulée ?
+    - une annulation des élections est-elle possible ?
+- intent: conditions_candidats
+  examples: |
+    - quelles sont les conditions pour être candidat ?
+    - que faut-il pour candidater aux élections ?
+    - qui peut être candidat ?
+    - qui peut être élu président ?
+    - qui peut se présenter aux élections ?
+- intent: formalites_candidats
+  examples: |
+    - quelles sont les formalités que doivent remplir les candidats ?
+    - qu'est ce que les parrainages ?
+    - quelles sont les règles autour des parrainages ?
+    - quelles sont les démarches que les candidats doivent suivre ?
+    - combien de parrainages doivent obtenir les candidats ?
+    - y a-t-il des formalités pour les candidats ?
+- intent: declaration_patrimoine_candidats
+  examples: |
+    - qu'est-ce que la déclaration de patrimoine ?
+    - que sont les déclarations d'intérêts et d'activités ?
+    - que doivent déclarer les candidats ?
+    - les candidats doivent-ils déclarer leur patrimoine ?
+    - qu'est-ce qui constitue le patrimoine d'un candidat ?
+- intent: financement_campagne
+  examples: |
+    - quelles sont les conditions de financement de la campagne électorale ?
+    - comment la campagne est-elle financée ?
+    - quel montant de la campagne est remboursée ?
+    - quelles sont les règles autour du financement de la campagne ?
+- intent: regles_audiovisuelles
+  examples: |
+    - Quelles sont les règles de la campagne électorale audiovisuelle ?
+    - quel est le temps de parole des candidats ?
+    - il y a-t-il des règles sur la présence des candidats dans les médias ?
+    - est-ce qu'il y a une égalité des temps de parole entre candidat ?
+- intent: mode_scrutin
+  examples: |
+    - Quel est le mode de scrutin de l'élection présidentielle ?
+    - quel est le système de vote ?
+    - comment fonctionne le vote ?
+    - quel type de scrutin pour les élections ?
+    - quelles sont les modalités de vote ?
+    - quel est le systeme electoral utilisé ?
+- intent: condition_electeur
+  examples: |
+    - Qui peut voter à l'élection présidentielle ?
+    - Quelles sont les conditions pour être électeur ?
+    - Quelles sont les conditions pour pouvoir aller voter
+    - Qui a le droit d'aller voter ?
+    - est-ce que je peux aller voter
+    - comment avoir le droit de vote ?
+- intent: procuration
+  examples: |
+    - Comment voter par procuration
+    - Peut-on voter par procuration ?
+    - quelles sont les conditions pour voter par procuration ?
+    - est-ce que quelqu'un peut voter à ma place
+    - est-il possible que quelqu'un vote pour moi ?
+    - comment faire pour donner une procuration ?
+- intent: vote_etranger
+  examples: |
+    - Comment voter depuis l'étranger ?
+    - peut on voter lorsqu'on est dans un autre pays
+    - comment votent les français à l'étranger
+    - quelles sont les conditions pour depuis l'étranger ?
+    - est-ce qu'on peut voter hors de france
+    
+
+# sources réponses : https://www.vie-publique.fr/questions-reponses/269379-election-presidentielle-2022-lessentiel-en-questions-reponses
