@@ -6,6 +6,7 @@ nlu:
     - Zemmour
     - Macron
     - Emmanuel
+    - Manu
     - Emmanuel Macron
     - Pecresse
     - Valérie Pecresse
@@ -73,3 +74,4 @@ nlu:
     - Où est [Zemmour](candidate_name) dans les sondages ?
     - Où est [Eric Zemmour](candidate_name) dans les sondages ?
     - Quel est le score de [Valérie Pecresse](candidate_name)
+
