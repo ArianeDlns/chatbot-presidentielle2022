@@ -41,6 +41,7 @@ nlu:
     - est-tu humain ?
     - as-tu une conscience ?
     - t'es un chatbot ?
+    - est tu un ordinateur ?
 - intent: demande_blague
   examples: |
     - raconte moi une blague ! 

@@ -12,7 +12,12 @@ nlu:
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
+    - quel est le parti de [eric zemmour](candidate_name)
     - quel est le parti de [Jean Lassalle](candidate_name)
     - parti de [Poutou](candidate_name)
     - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
     - Quel est le parti de [Pecresse](candidate_name)
+    - Quel est le parti politique de [asselineau](candidate_name)
+    - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
+    - donne moi le parti politique de [jean lassale](candidate_name)
+    - dis moi, a quel parti appartient [yannick jado](candidate_name) ?

@@ -11,3 +11,23 @@ stories:
   steps:
   - intent: demande_parti_candidat
   - action: action_get_party_from_candidate
+  
+- story: demande parti candidat 2
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+  
+- story: demande parti candidat 3
+  steps:
+  - intent: salutations
+  - action: utter_salutations
+  - intent: demande_parti_candidat
+    entities:
+    - candidate_name: Jadot
+  - action: action_get_party_from_candidate
+  - intent: demande_parti_candidat
+    entities:
+    - candidate_name: Pécresse
+  - action: action_get_party_from_candidate

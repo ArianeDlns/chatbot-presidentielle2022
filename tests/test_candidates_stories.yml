@@ -21,11 +21,11 @@ stories:
   - user: |
       quel est le parti de [eric zemmour]{"entity": "candidate_name"} ?
     intent: demande_parti_candidat
-  - action: action_get_party_from_candidates
+  - action: action_get_party_from_candidate
 
 - story: demande parti candidat 2
   steps:
   - user: |
-      donne moi le parti politique de [jean lassale]{"entity": "candidate_name"} ?
+      donne moi le parti politique de [jean lassale]{"entity": "candidate_name"}
     intent: demande_parti_candidat
-  - action: action_get_party_from_candidates
+  - action: action_get_party_from_candidate
