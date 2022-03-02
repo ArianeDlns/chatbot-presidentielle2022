@@ -133,10 +133,6 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
 
         return []
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0b4f9644b5aab42e62a59e01726c7268cbd3d6b6
 # --------------------------------------------------
 # POLL ACTIONS
 # --------------------------------------------------
