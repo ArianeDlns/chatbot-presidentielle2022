@@ -11,7 +11,7 @@ stories:
   steps:
   - intent: demande_parti_candidat
   - action: action_get_party_from_candidate
-  
+
 - story: demande parti candidat 2
   steps:
   - intent: salutations
@@ -31,3 +31,21 @@ stories:
     entities:
     - candidate_name: Pécresse
   - action: action_get_party_from_candidate
+
+- story: demande theme candidat
+  steps:
+  - intent: demande_theme_candidat
+  - action: action_get_propositions_from_candidate_and_theme
+  - intent: demande_theme_candidat
+  - action: action_get_propositions_from_candidate_and_theme
+  
+- story: demande theme candidat
+  steps:
+  - intent: demande_theme_candidat
+    entities:
+    - candidate_name: Macron
+  - action: action_get_propositions_from_candidate_and_theme
+  - intent: demande_theme_candidat
+    entities:
+    - candidate_name: Marine Le Pen
+  - action: action_get_propositions_from_candidate_and_theme
