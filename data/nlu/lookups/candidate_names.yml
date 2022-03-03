@@ -1,0 +1,51 @@
+version: "2.0"
+nlu:
+- lookup: candidate_name
+  examples: |
+    - Eric Zemmour
+    - Eric Zémmour
+    - Zemmour
+    - eric zemour
+    - Macron
+    - Emmanuel
+    - Emmanuel Macron
+    - emanuel macron
+    - Pecresse
+    - Valérie Pecresse
+    - Valérie Pécresse
+    - valerie pecresse
+    - Yannick Jadot
+    - yanick jadot
+    - Jadot 
+    - Hidalgo
+    - Anne Hidalgo
+    - anne hidalgo
+    - Lassalle
+    - Jean Lassalle
+    - jean lassale
+    - Poutou
+    - Philippe Poutou 
+    - philipe poutou
+    - Arthaud
+    - Nathalie Arthaud
+    - nathalie artaud
+    - Dupont-Aignan
+    - Nicolas Dupont Aignan
+    - nicolas dupond aignant
+    - Asselineau
+    - François Asselineau
+    - francois asselino
+    - Roussel
+    - Fabien Roussel
+    - fabien rousel
+    - Marine Le Pen
+    - Le Pen
+    - Marine
+    - marine le pen
+    - Lepen
+    - marine lepen
+    - Mélenchon
+    - Jean-Luc Mélenchon
+    - jean luc melanchon
+    - Mélanchon
+    - jean-luc melenchon

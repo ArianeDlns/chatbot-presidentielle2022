@@ -1,0 +1,9 @@
+beautifulsoup4==4.10.0
+gensim
+nltk==3.6.5
+numpy==1.21.4
+pandas==1.3.4
+requests==2.26.0
+#spacy == 3.2.0
+lxml == 4.6.4
+matplotlib

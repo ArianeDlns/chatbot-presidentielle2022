@@ -1,0 +1,31 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: demande sondage
+  steps:
+  - user: |
+      quelles sont les prédictions pour le 1er tour ?
+    intent: demande_sondage
+  - action: action_get_sondage_all_candidat
+
+- story: demande sondage 2
+  steps:
+  - user: |
+      quel est l'etat des sondages aujourd'hui ?
+    intent: demande_sondage
+  - action: action_get_sondage_all_candidat
+
+- story: demande sondage candidat
+  steps:
+  - user: |
+      quel est le score de [jean luc melenchon]{"entity": "candidate_name"} dans les sondages ?
+    intent: demande_sondage
+  - action: action_get_sondage_candidat
+
+- story: demande sondage candidat 2
+  steps:
+  - user: |
+      quelles sont les prédictions de vote de [macron]{"entity": "candidate_name"} ?
+    intent: demande_sondage
+  - action: action_get_sondage_candidat

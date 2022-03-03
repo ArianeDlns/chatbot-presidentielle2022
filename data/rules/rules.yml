@@ -11,4 +11,3 @@ rules:
   steps:
   - intent: nlu_fallback
   - action: utter_out_of_scope
-

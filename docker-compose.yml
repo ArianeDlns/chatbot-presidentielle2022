@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  action_server:
+    container_name: "action_server"
+    build: 
+      context: actions
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+    ports:
+      - 5055:5055
+  rasa:
+    container_name: "rasa_server"
+    user: root
+    build: 
+      context:  .
+    volumes:
+    - "./:/app"
+    ports: 
+      - "5005:5005"
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      #I kept my SSL certs in a certs folder in project directory (Make sure to include this in .gitignore)
+      - ./certs:/etc/letsencrypt/live/projet-3a-bot-presidentielles-2022.illuin-tech.com

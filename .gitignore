@@ -136,3 +136,18 @@ credentials.yml
 
 #remove models
 models/
+
+#remove test results
+results/
+
+#remove csv data
+#data/data_candidates/*.csv
+
+#remove word2vec bin model
+data/word2vec/
+old/
+.keras/
+.config/
+certs/
+actions/data/word2vec/
+references/

@@ -30,8 +30,10 @@ def scrape_programs_list(page):
                 test_no_propositions = li.select('div')[0].find_all('p', {'class' : 'text-gray-400'})
 
                 if test_key_figures: # A Reformater 
-                    key_figure = test_key_figures[0].get_text().replace('\n','').replace ('  ','')
-                    key_figures_detail = [theme, sub_theme, candidate_name, key_figure, 1, "", "Programme", "IFRAP", date.today(), date.today()] # Attention des fois l'origine des données ne provient pas des candidats mais de l'IFRAP, rajouter une fonction pour éviter ce phénomène 
+                    key_figure = test_key_figures[0].strong.get_text()
+                    key_figure_prop = test_key_figures[0].div.get_text().replace('\n','')
+                    key_figure_full = 'Chiffre clé : '+key_figure+' - '+key_figure_prop
+                    key_figures_detail = [theme, sub_theme, candidate_name, key_figure_full, 1, "", "Programme", "IFRAP", date.today(), date.today()]  
                     propositions_list.append(key_figures_detail)
 
                 if test_propositions:
