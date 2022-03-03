@@ -1,0 +1,58 @@
+version: "2.0"
+nlu:
+- lookup: theme
+  examples: |
+    - Social & Solidarité
+    - Territoires & Collectivités
+    - Politiques Publiques
+    - Emplois & Economie
+    - Finances publiques & Dette
+    - Environnement & Energie
+    - Intérieur, Défense & Justice
+    - Gouvernance & République
+    - Fonction publique
+    - Allocations & prestations sociales
+    - Lutte contre la fraude & carte vitale
+    - Sécurité sociale : financement & organisation
+    - Aménagement & urbanisme
+    - Décentralisation
+    - Réforme territoriale & élus locaux
+    - Droits individuels & égalité
+    - Jeunesse & Education
+    - Laïcité
+    - Logement & construction
+    - Réforme des retraites
+    - Santé & crise sanitaire
+    - Transport & SNCF
+    - Assurance chômage & chômage partiel
+    - Code du travail & temps de travail (35h)
+    - Dialogue social & syndicats
+    - Formation professionnelle & apprentissage
+    - Industrie & relocalisation
+    - Multinationales & entreprises
+    - Relance économique
+    - Salaires, smic & revenu universel
+    - Dette & déficit
+    - Economies & hausses des dépenses
+    - Privatisations/Nationalisations
+    - Agriculture & PAC
+    - Ecologie & lutte contre la pollution
+    - Electricité & gaz
+    - Energie nucléaire
+    - Energies vertes & Renouvelables
+    - Défense & armées
+    - Immigration & asile
+    - Justice & pénitentiaire
+    - Sécurité intérieure, police & terrorisme
+    - Service civique, militaire & réserves
+    - Assemblée nationale & Sénat
+    - Constitution
+    - Election & vie politique
+    - Exécutif, gouvernement et ministères
+    - Evolution des effectifs & objectif
+    - Haute fonction publique & ENA
+    - Rémunération & point d'indice
+    - Statut de la fonction publique & temps de travail (1 607h)
+    - Fiscalité verte
+    - IR & fiscalité des ménages
+    - IS & fiscalité des entreprises

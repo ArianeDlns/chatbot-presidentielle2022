@@ -10,14 +10,26 @@
 from typing import Any, Text, Dict, List
 from pathlib import Path
 import json
+import pandas as pd
+
+from gensim.models import KeyedVectors
 
 from utils.scrapping_sondages import *
 from utils.candidate_names import *
 from utils.plot_formatting import *
+from utils.embed_themes import *
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+# Loading the word2vec binary model
+file_name= "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
+w2v_model = KeyedVectors.load_word2vec_format(file_name, binary=True, unicode_errors="ignore")
+
+df = pd.read_csv("data/data_candidates/propositions.csv", delimiter='|', encoding = "utf-8")
+candidates_name = df['Candidate'].unique()
+themes = df['Theme'].unique()
+subthemes = df['Sub-theme'].unique()
 
 class ActionGetCandidates(Action):
     candidates_data = json.loads(
@@ -73,6 +85,54 @@ class ActionGetPartyFromCandidate(Action):
 
         return []
 
+class ActionGetPropositionsFromCandidateAndTheme(Action):
+
+    def name(self) -> Text:
+        return "action_get_propositions_from_candidate_and_theme"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text=f"{tracker.latest_message}")
+
+        #print(tracker.latest_message['entities'])
+        for blob1 in tracker.latest_message['entities']:
+            if blob1['entity'] == 'candidate_name':
+                for blob2 in tracker.latest_message['entities']: 
+                    if blob2['entity'] == 'theme':
+                        name = real_name(blob1['value'], candidates_name)
+                        theme, is_subtheme = embed_theme(blob2['value'], themes, subthemes, w2v_model)
+                        if is_subtheme:
+                            df_propositions = df[(df['Candidate'] == name) & (df['Sub-theme'] == theme)]
+                        else:
+                            df_propositions = df[(df['Candidate'] == name) & (df['Theme'] == theme)]
+
+                        print(f"Name : {name}")
+                        print(theme)
+                        print(f"is_subtheme : {is_subtheme}")
+                        print(df_propositions)
+                        print(str(blob1['value']))
+                        print(str(blob2['value']))
+                        if name not in candidates_name:
+                            dispatcher.utter_message(
+                                text=f"Je ne reconnais pas le nom de ce candidat : {str(blob1['value'])}. L'avez-vous bien écrit ?")
+                        elif theme is None:
+                            dispatcher.utter_message(
+                                text=f"Je ne reconnais pas le sujet : {str(blob2['value'])}. Pouvez-vous reformuler ?")
+                        elif int(df_propositions['Priority'].tolist()[0]) == -1:
+                            dispatcher.utter_message(
+                                text=f"Le candidat {name} n'a pas fait de proposition sur le sujet {theme[4:-4]} pour l'instant.")
+                        else:
+                            propositions = df_propositions[df_propositions['Priority'].astype(int) >= 0]['Proposition'].tolist()
+                            response = f"Les propositions de {name} sur le sujet {theme[4:-4]} sont les suivantes :\n"
+                            for proposition in propositions[:200]:
+                                response += proposition + "\n"
+                            response = response[:-2]
+                            dispatcher.utter_message(text=response)
+
+        return []
+
 # --------------------------------------------------
 # POLL ACTIONS
 # --------------------------------------------------
@@ -95,6 +155,8 @@ class ActionGetSondageFromCandidate(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print(tracker.latest_message['entities'])
 
         for blob in tracker.latest_message['entities']:
 
@@ -171,3 +233,4 @@ class ActionGetEvolutionGraphCandidates(Action):
             text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
 
         return []
+

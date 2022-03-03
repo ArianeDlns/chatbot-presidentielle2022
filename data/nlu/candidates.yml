@@ -21,3 +21,19 @@ nlu:
     - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
     - donne moi le parti politique de [jean lassale](candidate_name)
     - dis moi, a quel parti appartient [yannick jado](candidate_name) ?
+- intent: demande_theme_candidat
+  examples: |
+    - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
+    - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour [l'emploi](theme)
+    - Que pense [Yannick Jadot](candidate_name) à propos de [l'économie](theme) ?
+    - Que dit le programme de [Marine Lepen](candidate_name) sur la question de [l'environnement](theme) ?
+    - Qu'est-ce qui est prévu pour [l'énergie](theme) dans le programme de [Fabien Roussel](candidate_name)
+    - Quelles propositions a [Eric Zemmour](candidate_name) sur [la justice](theme)
+    - Quelles idées a [Hidalgo](candidate_name) sur [la fonction publique](theme) ?
+    - Quelles sont les idées de [jean luc melenchon](candidate_name) sur [la défense et l'armée](theme) ?
+    - Qu'il y a t il dans le programme de [françois asselineau](candidate_name) à propos des [agriculteurs](theme) ?
+    - Sur le sujet de [la religion](theme), quel est l'avis de [Nathalie Arthaud](candidate_name) ?
+    - J'aimerais savoir les propositions de [valerie pecresse](candidate_name) sur [l'école et l'éducation](theme)
+    - Donne moi les projets de [emmanuel macron](candidate_name) concernant [le service militaire](theme).
+    - Peux tu me dire ce qu'il y a dans le programme de [Jadot] pour la question de [l'immigration](theme) ?
+    - Je voudrais connaitre les propositions de [marine le pen](theme) à propos de [l'indépendance énergétique](theme) de la France

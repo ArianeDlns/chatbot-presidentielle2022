@@ -29,3 +29,17 @@ stories:
       donne moi le parti politique de [jean lassale]{"entity": "candidate_name"}
     intent: demande_parti_candidat
   - action: action_get_party_from_candidate
+
+- story: demande theme candidat
+  steps:
+  - user: |
+      quelles sont les actions prévues de [jean lassale]{"entity": "candidate_name"} pour le thème de [l'agriculture et la PAC]{"entity": "theme"} ?
+    intent: demande_theme_candidat
+  - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande theme candidat 2
+  steps:
+  - user: |
+      quelles mesures sont dans le programme de [mélenchon]{"entity": "candidate_name"} sur [les énergies renouvelables]{"entity": "theme"} ?
+    intent: demande_theme_candidat
+  - action: action_get_propositions_from_candidate_and_theme

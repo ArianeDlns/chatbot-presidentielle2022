@@ -14,6 +14,7 @@ intents:
 - demande_parti_candidat
 - demande_blague
 - demande_evolution
+- demande_theme_candidat
 - dates_tours
 - report
 - conditions_candidats
@@ -28,6 +29,7 @@ intents:
 entities:
 - candidate_name
 - candidate_party
+- theme
 responses:
   utter_salutations:
   - text: Bonjour ! Je suis un chatbot développé par Ariane, Théo et Samuel. Avez-vous une question à propos des élections présidentielles de 2022 ?
@@ -76,4 +78,5 @@ actions:
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
 - action_get_evolution_graph_candidat
+- action_get_propositions_from_candidate_and_theme
 - utter_salutations
