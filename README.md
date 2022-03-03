@@ -34,7 +34,8 @@ Update the new `credentials.yml` following this [example](https://github.com/Ras
 
 ### :whale: Build docker image
 ```bash
-sudo docker-compose up --build
+sudo docker-compose up --build # Build and run containers 
+sudo docker-compose down # Stops containers and removes containers 
 ```
 
 ## Usage
