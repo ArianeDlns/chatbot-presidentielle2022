@@ -14,7 +14,6 @@ def real_name(name, list_names=[]):
         names = candidates_name
     lastnames = [name.split(' ')[-1] for name in names]
 
-
     comparison_name, comparison_lastname = [], []
     for i in range(len(names)):
         comparison_name += [nltk.edit_distance(names[i], name)]

@@ -22,6 +22,8 @@ from utils.embed_themes import *
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+
+
 # Loading the word2vec binary model
 file_name= "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
 w2v_model = KeyedVectors.load_word2vec_format(file_name, binary=True, unicode_errors="ignore")
@@ -30,6 +32,7 @@ df = pd.read_csv("data/data_candidates/propositions.csv", delimiter='|', encodin
 candidates_name = df['Candidate'].unique()
 themes = df['Theme'].unique()
 subthemes = df['Sub-theme'].unique()
+
 
 class ActionGetCandidates(Action):
     candidates_data = json.loads(
@@ -94,7 +97,7 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text=f"{tracker.latest_message}")
+        #dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         #print(tracker.latest_message['entities'])
         all_names = [blob1['value'] for blob1 in tracker.latest_message['entities'] if blob1['entity'] == 'candidate_name']
