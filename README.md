@@ -1,8 +1,10 @@
-# Chatbot Presidentielle 2022
-![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
+# Chatbot Presidentielle 2022 
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
 [![Open in Visual Studio Code](https://img.shields.io/badge/Editor-VSCode-blue?style=flat-square&logo=visual-studio-code&logoColor=white)](https://github.dev/ArianeDlns/chatbot-presidentielle2022/tree/main) [![GitHub issues](https://badgen.net/github/issues/ArianeDlns/chatbot-presidentielle2022)](https://GitHub.com/ArianeDlns/chatbot-presidentielle2022/issues/)
+
+![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
+
 
 Chatbot project @CentraleSupélec for the French presidential election of 2022 made with the framework [rasa](https://rasa.com/)
 
@@ -20,6 +22,7 @@ mkdir word2vec
 cd word2vec 
 wget https://s3.us-east-2.amazonaws.com/embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
 ```
+
 ### Update credentials
 
 ```bash
@@ -37,6 +40,8 @@ sudo docker-compose up --build
 ## Usage
 This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
+![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png?raw=true)
+
 ## Roadmap
 
 ## Contributing
@@ -48,19 +53,13 @@ Please make sure to update tests as appropriate.
 [MIT]()
 
 ## Project status
-In development - project deadline: 13 April 22'
+In development - project deadline: :calendar: 13 April 22'
 
 ## References
 [1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021  
 [2] Miller, A.~H. and Feng, W. and Fisch, A. and Lu, J. and Batra, D. and Bordes, ParlAI: A Dialog Research Software Platform, [arXiv preprint arXiv:1705.06476](https://arxiv.org/abs/2004.13637), 2017  
 
 ### Deployement 
-[3] https://rasa.com/docs/rasa/docker/deploying-in-docker-compose  
-[4] https://www.youtube.com/watch?v=5fjL2nICnXo  
-[5] https://innovationyourself.com/run-multiple-services-with-docker-compose/  
-[6] https://forum.rasa.com/t/ dockerizing-my-rasa-chatbot-application-that-has-botfront/46096/27  
-[7] https://rasa.com/blog/the-rasa-masterclass-handbook-episode-11/ (SSL)  
-[8] https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent (SSHh keys)  
-[9] https://ttt.studio/blog/rasa-chatbot/ (NGINX)  
-[10] https://github.com/teniosgmbh/tenios-api-examples/tree/e4e14cbc418d2a92ab7e3562b4a09128b61717a0/RASA-PizzaBot
+[3] https://ttt.studio/blog/rasa-chatbot/ (NGINX)  
+
 
