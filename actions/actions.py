@@ -14,6 +14,9 @@ import pandas as pd
 
 from gensim.models import KeyedVectors
 
+import sys
+sys.path.append('/app/actions')
+
 from utils.scrapping_sondages import *
 from utils.candidate_names import *
 from utils.plot_formatting import *

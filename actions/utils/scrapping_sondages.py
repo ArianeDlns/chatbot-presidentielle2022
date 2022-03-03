@@ -16,7 +16,7 @@ def scrape_table(url):
     response = requests.get(wikiurl)
     # parse data from the html into a beautifulsoup object
     soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': "wikitable"})
+    table = soup.find_all('table', {'class': "wikitable"})
     df = pd.read_html(str(table))
     return df
 
