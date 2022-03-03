@@ -26,8 +26,6 @@ This project is only an experimentation for a school project and has therefore n
 
 ## Roadmap
 
-<<<<<<< HEAD
-=======
 ## Word2vec embedding
 
 https://fauconnier.github.io/
@@ -37,7 +35,6 @@ Binary model used : `frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin` (bin
 The `.bin` file must be downloaded and placed in `data/word2vec/`.
 
 
->>>>>>> 20be8f5bb2caf0d4f8fd3287038b1e466749ea2d
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
