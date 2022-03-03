@@ -12,11 +12,16 @@ def real_name(name, list_names=[]):
         names = list_names
     else:
         names = candidates_name
+    lastnames = [name.split(' ')[-1] for name in names]
 
-    comparaison_name = []
-    for real_name in names:
-        comparaison_name += [nltk.edit_distance(real_name, name)]
-    print(np.min(comparaison_name))
-    idx = np.argmin(comparaison_name)
 
-    return names[idx]
+    comparison_name, comparison_lastname = [], []
+    for i in range(len(names)):
+        comparison_name += [nltk.edit_distance(names[i], name)]
+        comparison_lastname += [nltk.edit_distance(lastnames[i], name)]
+
+    min1, min2 = np.min(comparison_name), np.min(comparison_lastname)
+    if min1 < min2:
+        return names[np.argmin(comparison_name)]
+    else:
+        return names[np.argmin(comparison_lastname)]
