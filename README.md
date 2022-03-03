@@ -1,22 +1,32 @@
 # Chatbot Presidentielle 2022
+![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/img/rasa.png?raw=true)
+
 Chatbot project @CentraleSupélec for the French presidential election of 2022 made with [rasa](https://rasa.com/)
 
 ## Installation
-```bash 
-source venv/bin/activate
+
+### Word2vec embedding
+
+[Binary model used](https://fauconnier.github.io/) : `frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin` (bin (298Mb) : skip-gram, dim 500, cut 100)
+
+The `.bin` file must be downloaded and placed in `data/word2vec/`.
+
+```bash
+cd actions/data
+mkdir word2vec
+cd word2vec 
+wget https://s3.us-east-2.amazonaws.com/embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
+```
+### Update credentials
+
+```bash
+touch credentials.yml
+vim credentials.yml 
 ```
 
-```bash 
-rasa run 
-rasa run actions
-rasa shell
-```
+Update the new `credentials.yml` following this [example](https://github.com/RasaHQ/rasa/blob/main/rasa/cli/initial_project/credentials.yml)
 
-```bash 
-ngrok http 5005
-```
 ### :whale: Build docker image
-
 ```bash
 sudo docker-compose up --build
 ```
@@ -25,15 +35,6 @@ sudo docker-compose up --build
 This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
 ## Roadmap
-
-## Word2vec embedding
-
-https://fauconnier.github.io/
-
-Binary model used : `frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin` (bin (298Mb) : skip-gram, dim 500, cut 100)
-
-The `.bin` file must be downloaded and placed in `data/word2vec/`.
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -60,19 +61,3 @@ In development - project deadline: 13 April 22'
 [9] https://ttt.studio/blog/rasa-chatbot/ (NGINX)  
 [10] https://github.com/teniosgmbh/tenios-api-examples/tree/e4e14cbc418d2a92ab7e3562b4a09128b61717a0/RASA-PizzaBot
 
-```bash 
-sudo apt update
-sudo apt install git
-sudo apt install docker
-sudo apt install docker-compose
-git clone https://github.com/ArianeDlns/chatbot-presidentielle2022.git
-git checkout deployement 
-sudo docker-compose up
-```
-
-```bash
-sudo nginx -s stop
-sudo certbot certonly --standalone
-sudo cp /etc/letsencrypt/live/projet-3a-bot-presidentielles-2022.illuin-tech.com/fullchain.pem ./certs
-sudo cp /etc/letsencrypt/live/projet-3a-bot-presidentielles-2022.illuin-tech.com/privkey.pem ./certs
-```

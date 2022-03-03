@@ -150,3 +150,4 @@ old/
 .config/
 certs/
 actions/data/word2vec/
+references/
