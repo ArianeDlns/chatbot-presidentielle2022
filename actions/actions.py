@@ -97,40 +97,46 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
         dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         #print(tracker.latest_message['entities'])
-        for blob1 in tracker.latest_message['entities']:
-            if blob1['entity'] == 'candidate_name':
-                all_themes = [blob2['value'] for blob2 in tracker.latest_message['entities'] if blob2['entity'] == 'theme']
-                if len(all_themes) > 0:
-                    all_themes_str = ' '.join(all_themes)
-                    name = real_name(blob1['value'], candidates_name)
-                    theme, is_subtheme = embed_theme(all_themes_str, themes, subthemes, w2v_model)
-                    if is_subtheme:
-                        df_propositions = df[(df['Candidate'] == name) & (df['Sub-theme'] == theme)]
-                    else:
-                        df_propositions = df[(df['Candidate'] == name) & (df['Theme'] == theme)]
+        all_names = [blob1['value'] for blob1 in tracker.latest_message['entities'] if blob1['entity'] == 'candidate_name']
+        all_themes = [blob2['value'] for blob2 in tracker.latest_message['entities'] if blob2['entity'] == 'theme']
+        
+        if len(all_names) == 0:
+            dispatcher.utter_message(
+                text=f"Je n'ai pas compris le nom du candidat concerné. Pouvez-vous reformuler ?")
+            return []
 
-                    print(f"Candidate name : {name}")
-                    print(f"Theme : {theme}")
+        if len(all_themes) == 0:
+            dispatcher.utter_message(
+                text=f"Je n'ai pas compris le sujet concerné. Pouvez-vous reformuler ?")
+            return []
 
-                    if name not in candidates_name:
-                        dispatcher.utter_message(
-                            text=f"Je ne reconnais pas le nom de ce candidat : {str(blob1['value'])}. L'avez-vous bien écrit ?")
-                    elif theme is None:
-                        dispatcher.utter_message(
-                            text=f"Je ne reconnais pas le sujet : {all_themes_str}. Pouvez-vous reformuler ?")
-                    elif int(df_propositions['Priority'].tolist()[0]) == -1:
-                        dispatcher.utter_message(
-                            text=f"Le candidat {name} n'a pas fait de proposition sur le sujet {theme[4:-4]} pour l'instant.")
-                    else:
-                        propositions = df_propositions[df_propositions['Priority'].astype(int) >= 0]['Proposition'].tolist()
-                        response = f"Les propositions de {name} sur le sujet {theme[4:-4]} sont les suivantes :\n"
-                        for proposition in propositions[:200]:
-                            response += proposition + "\n"
-                        response = response[:-2]
-                        dispatcher.utter_message(text=response)
-                else:
-                    dispatcher.utter_message(
-                        text=f"Je n'ai pas compris le sujet. Pouvez-vous reformuler ?")
+        all_themes_str = ' '.join(all_themes)
+        name = real_name(all_names[0], candidates_name)
+        theme, is_subtheme = embed_theme(all_themes_str, themes, subthemes, w2v_model)
+        if is_subtheme:
+            df_propositions = df[(df['Candidate'] == name) & (df['Sub-theme'] == theme)]
+        else:
+            df_propositions = df[(df['Candidate'] == name) & (df['Theme'] == theme)]
+
+        print(f"Candidate name : {name}")
+        print(f"Theme : {theme}")
+
+        if name not in candidates_name:
+            dispatcher.utter_message(
+                text=f"Je ne reconnais pas le nom de ce candidat : {all_names[0]}. L'avez-vous bien écrit ?")
+        elif theme is None:
+            dispatcher.utter_message(
+                text=f"Je ne reconnais pas le sujet : {all_themes_str}. Pouvez-vous reformuler ?")
+        elif int(df_propositions['Priority'].tolist()[0]) == -1:
+            dispatcher.utter_message(
+                text=f"Le candidat {name} n'a pas fait de proposition sur le sujet {theme[4:-4]} pour l'instant.")
+        else:
+            propositions = df_propositions[df_propositions['Priority'].astype(int) >= 0]['Proposition'].tolist()
+            response = f"Les propositions de {name} sur le sujet {theme[4:-4]} sont les suivantes :\n"
+            for proposition in propositions[:200]:
+                response += proposition + "\n"
+            response = response[:-2]
+            dispatcher.utter_message(text=response)
 
         return []
 
