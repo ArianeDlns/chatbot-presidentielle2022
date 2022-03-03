@@ -24,7 +24,10 @@ This project is only an experimentation for a school project and has therefore n
 ## Word2vec embedding
 
 https://fauconnier.github.io/
+
 Binary model used : `frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin` (bin (298Mb) : skip-gram, dim 500, cut 100)
+
+The `.bin` file must be downloaded and placed in `data/word2vec/`.
 
 
 ## Contributing
