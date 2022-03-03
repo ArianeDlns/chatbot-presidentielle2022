@@ -35,7 +35,7 @@ Update the new `credentials.yml` following this [example](https://github.com/Ras
 ### :whale: Build docker image
 ```bash
 sudo docker-compose up --build # Build and run containers 
-sudo docker-compose down # Stops containers and removes containers 
+tr # Stops containers and removes containers 
 ```
 
 ## Usage
@@ -43,6 +43,74 @@ This project is only an experimentation for a school project and has therefore n
 
 ### Telegram chatbot
 <p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png" width="250" alt="Telegram"/> 
+
+## Structure
+
+``` bash
+├── Dockerfile
+├── README.md
+├── actions
+│   ├── Dockerfile
+│   ├── __init__.py
+│   ├── actions.py
+│   ├── data
+│   │   ├── data_candidates
+│   │   │   ├── candidates.json
+│   │   │   ├── candidates_infos.json
+│   │   │   └── propositions.csv
+│   │   ├── images
+│   │   │   └── candidates
+│   │   └── word2vec
+│   │       └── frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
+│   ├── requirements.txt
+│   └── utils
+│       ├── __init__.py
+│       ├── __pycache__
+│       ├── candidate_names.py
+│       ├── embed_themes.py
+│       ├── get_subthemes.py
+│       ├── get_themes.py
+│       ├── plot_formatting.py
+│       ├── scrapping_program.py
+│       └── scrapping_sondages.py
+├── certs
+├── config.yml
+├── data
+│   ├── nlu
+│   │   ├── candidates.yml
+│   │   ├── info.yml
+│   │   ├── lookups
+│   │   │   ├── candidate_names.yml
+│   │   │   └── themes.yml
+│   │   ├── nlu.yml
+│   │   └── poll.yml
+│   ├── rules
+│   │   └── rules.yml
+│   └── stories
+│       ├── candidates.yml
+│       ├── info.yml
+│       ├── poll.yml
+│       └── stories.yml
+├── docker-compose.yml
+├── domain.yml
+├── endpoints.yml
+├── img
+│   ├── exemple.png
+│   └── rasa.png
+├── models
+│   ├── 20220223-101732.tar.gz
+│   └── 20220223-105550.tar.gz
+├── nginx
+│   └── default.conf
+├── references
+│   └── README.md
+├── requirements.txt
+└── tests
+    ├── test_candidates_stories.yml
+    ├── test_info_stories.yml
+    ├── test_nlu_stories.yml
+    └── test_poll_stories.yml
+```
 
 ## Roadmap
 
