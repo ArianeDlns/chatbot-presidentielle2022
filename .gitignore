@@ -145,3 +145,8 @@ results/
 
 #remove word2vec bin model
 data/word2vec/
+old/
+.keras/
+.config/
+certs/
+actions/data/word2vec/
