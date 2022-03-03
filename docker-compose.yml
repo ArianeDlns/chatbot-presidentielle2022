@@ -1,14 +1,5 @@
 version: '3.4'
 services:
-  rasa:
-    container_name: "rasa_server"
-    user: root
-    build: 
-      context:  .
-    volumes:
-    - "./:/app"
-    ports: 
-      - "5005:5005"
   action_server:
     container_name: "action_server"
     build: 
@@ -18,6 +9,15 @@ services:
       - ./data:/app/data
     ports:
       - 5055:5055
+  rasa:
+    container_name: "rasa_server"
+    user: root
+    build: 
+      context:  .
+    volumes:
+    - "./:/app"
+    ports: 
+      - "5005:5005"
   nginx:
     container_name: nginx
     image: nginx

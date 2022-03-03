@@ -26,17 +26,17 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 # Loading the word2vec binary model
-file_name= "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
+file_name= "/app/actions/data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
 w2v_model = KeyedVectors.load_word2vec_format(file_name, binary=True, unicode_errors="ignore")
 
-df = pd.read_csv("data/data_candidates/propositions.csv", delimiter='|', encoding = "utf-8")
+df = pd.read_csv("/app/actions/data/data_candidates/propositions.csv", delimiter='|', encoding = "utf-8")
 candidates_name = df['Candidate'].unique()
 themes = df['Theme'].unique()
 subthemes = df['Sub-theme'].unique()
 
 class ActionGetCandidates(Action):
     candidates_data = json.loads(
-        Path("data/data_candidates/candidates.json").read_text())
+        Path("/app/actions/data/data_candidates/candidates.json").read_text())
 
     def name(self) -> Text:
         return "action_get_candidates"
@@ -59,7 +59,7 @@ class ActionGetCandidates(Action):
 
 class ActionGetPartyFromCandidate(Action):
     candidates_data = json.loads(
-        Path("data/data_candidates/candidates.json").read_text())
+        Path("/app/actions/data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
     candidates_party = [candidate['party']
@@ -149,7 +149,7 @@ class ActionGetSondageFromCandidate(Action):
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
     candidates_data = json.loads(
-        Path("data/data_candidates/candidates.json").read_text())
+        Path("/app/actions/data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 
@@ -183,7 +183,7 @@ class ActionGetSondageAllCandidates(Action):
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
     candidates_data = json.loads(
-        Path("data/data_candidates/candidates.json").read_text())
+        Path("/app/actions/data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 
@@ -216,7 +216,7 @@ class ActionGetEvolutionGraphCandidates(Action):
     candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
     candidates_data = json.loads(
-        Path("data/data_candidates/candidates.json").read_text())
+        Path("/app/actions/data/data_candidates/candidates.json").read_text())
     candidates_name = [candidate['name']
                        for candidate in candidates_data['candidates']]
 

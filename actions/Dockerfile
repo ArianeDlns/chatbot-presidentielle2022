@@ -1,12 +1,7 @@
-FROM rasa/rasa:2.8.0
-WORKDIR '/app'
-COPY . /app
+FROM rasa/rasa-sdk:2.8.0
+WORKDIR /app
+COPY requirements.txt requirements.txt
 USER root
-# WORKDIR /app
-# COPY . /app
-COPY ./data /app/data
-RUN  rasa train
-VOLUME /app
-VOLUME /app/data
-VOLUME /app/models
-CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug"]s
+RUN pip install --verbose -r requirements.txt
+EXPOSE 5055
+USER 1001
