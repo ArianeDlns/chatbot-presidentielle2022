@@ -1,7 +1,10 @@
 # Chatbot Presidentielle 2022
-![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/img/rasa.png?raw=true)
+![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
 
-Chatbot project @CentraleSupélec for the French presidential election of 2022 made with [rasa](https://rasa.com/)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
+[![Open in Visual Studio Code](https://img.shields.io/badge/Editor-VSCode-blue?style=flat-square&logo=visual-studio-code&logoColor=white)](https://github.dev/ArianeDlns/chatbot-presidentielle2022/tree/main) [![GitHub issues](https://badgen.net/github/issues/ArianeDlns/chatbot-presidentielle2022)](https://GitHub.com/ArianeDlns/chatbot-presidentielle2022/issues/)
+
+Chatbot project @CentraleSupélec for the French presidential election of 2022 made with the framework [rasa](https://rasa.com/)
 
 ## Installation
 
