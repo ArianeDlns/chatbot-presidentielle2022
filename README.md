@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
 [![Open in Visual Studio Code](https://img.shields.io/badge/Editor-VSCode-blue?style=flat-square&logo=visual-studio-code&logoColor=white)](https://github.dev/ArianeDlns/chatbot-presidentielle2022/tree/main) [![GitHub issues](https://badgen.net/github/issues/ArianeDlns/chatbot-presidentielle2022)](https://GitHub.com/ArianeDlns/chatbot-presidentielle2022/issues/)
 
-![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
+![Rasa](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
 
 
 Chatbot project @CentraleSupélec for the French presidential election of 2022 made with the framework [rasa](https://rasa.com/)
@@ -40,7 +40,8 @@ sudo docker-compose up --build
 ## Usage
 This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
-![alt text](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png?raw=true)
+### Telegram chatbot
+<p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png" alt="Telegram"/> 
 
 ## Roadmap
 
