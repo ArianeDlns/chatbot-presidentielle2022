@@ -2,134 +2,132 @@ version: "2.0"
 nlu:
 - lookup: theme
   examples: |
-    - Social & Solidarité
-    - Territoires & Collectivités
-    - Politiques Publiques
-    - Emplois & Economie
-    - Finances publiques & Dette
-    - Environnement & Energie
-    - Intérieur, Défense & Justice
-    - Gouvernance & République
-    - Fonction publique
-    - Allocations & prestations sociales
-    - Lutte contre la fraude & carte vitale
-    - Sécurité sociale : financement & organisation
-    - Aménagement & urbanisme
-    - Décentralisation
-    - Réforme territoriale & élus locaux
-    - Droits individuels & égalité
-    - Jeunesse & Education
-    - Laïcité
-    - Logement & construction
-    - Réforme des retraites
-    - Santé & crise sanitaire
-    - Transport & SNCF
-    - Assurance chômage & chômage partiel
-    - Code du travail & temps de travail (35h)
-    - Dialogue social & syndicats
-    - Formation professionnelle & apprentissage
-    - Industrie & relocalisation
-    - Multinationales & entreprises
-    - Relance économique
-    - Salaires, smic & revenu universel
-    - Dette & déficit
-    - Economies & hausses des dépenses
-    - Privatisations/Nationalisations
-    - Agriculture & PAC
-    - Ecologie & lutte contre la pollution
-    - Electricité & gaz
-    - Energie nucléaire
-    - Energies vertes & Renouvelables
-    - Défense & armées
-    - Immigration & asile
-    - Justice & pénitentiaire
-    - Sécurité intérieure, police & terrorisme
-    - Service civique, militaire & réserves
-    - Assemblée nationale & Sénat
-    - Constitution
-    - Election & vie politique
-    - Exécutif, gouvernement et ministères
-    - Evolution des effectifs & objectif
-    - Haute fonction publique & ENA
-    - Rémunération & point d'indice
-    - Statut de la fonction publique & temps de travail (1 607h)
-    - Fiscalité verte
-    - IR & fiscalité des ménages
-    - IS & fiscalité des entreprises
-    - le social
-    - le territoire et les collectivités
-    - les collectivités outre-mer
-    - les politiques publiques
-    - l'emploi
-    - l'économie
-    - la dette
-    - le financement de la dette publique
-    - l'environnement
-    - l'énergie
-    - l'envrionnement et l'énergie
-    - la défense et la justice
-    - la gouvernance et la république
-    - les fonctions publiques
-    - les prestations sociales
-    - les allocations sociales
-    - la lutte contre la fraude fiscale
-    - la fraude fiscale
-    - le financement de la sécurité sociale
-    - l'aménagement et l'urbanisme
-    - la décentralisation
-    - les réformes des territoires
-    - les droits individuels
-    - la jeunesse et l'éducation
-    - la laïcité
-    - les logements
-    - la construction de nouveaux logements
-    - la réforme des retraites
+    - social
+    - solidarité
+    - territoires
+    - collectivités
+    - politiques
+    - publiques
+    - emplois
+    - economie
+    - finances
+    - publique
+    - dette
+    - environnement
+    - énergie
+    - intérieur
+    - défense
+    - justice
+    - gouvernance
+    - république
+    - fonction
+    - allocations
+    - prestations
+    - sociales
+    - fraude
+    - carte vitale
+    - sécurité
+    - financement
+    - organisation
+    - aménagement
+    - urbanisme
+    - décentralisation
+    - réforme
+    - territoriale
+    - élus
+    - locaux
+    - droits
+    - égalité
+    - jeunesse
+    - éducation
+    - laïcité
+    - logement
+    - construction
+    - réforme
+    - retraites
     - retraités
-    - la santé
-    - la crise sanitaire
-    - la crise du covid-19
-    - le transport ferroviaire
-    - le chômage partiel
-    - le temps de travail par semaine
-    - les 35 heures de travail
+    - santé
+    - crise
+    - sanitaire
+    - transport
+    - SNCF
+    - assurance
+    - chômage
+    - partiel
+    - code
+    - travail
+    - temps
+    - 35 heures
     - syndicats
-    - les apprentis
-    - la relocalisation des entreprises
-    - l'industrie
-    - les grandes entreprises
-    - les grosses multinationales
-    - la relance économique
-    - le smic
-    - le revenu universel
-    - le déficit de la dette
-    - l'économie et la hausse des dépenses
-    - les privatisations ou les nationalisations
-    - agriculteurs
-    - la politique agricole commune
-    - la lutte contre la pollution
-    - l'électricité et le gaz
-    - le nucléaire
-    - l'énergie nucléaire
-    - les énergies renouvelables
-    - les énergies vertes
-    - la défense et les armées
-    - les immigrés
-    - le droit d'asyle
-    - les prisons
+    - formation
+    - professionnelle
+    - apprentissage
+    - industrie
+    - relocalisation
+    - multinationales
+    - entreprises
+    - grandes entreprises
+    - relance économique
+    - salaires
+    - smic
+    - revenu universel
+    - dette
+    - déficit
+    - économies
+    - dépenses
+    - privatisations
+    - nationalisations
+    - agriculture
+    - PAC
+    - écologie
+    - pollution
+    - électricité
+    - gaz
+    - energie
+    - nucléaire
+    - énergies vertes
+    - renouvelables
+    - énergies renouvelables
+    - défense
+    - armées
+    - immigration
+    - asile
+    - justice
+    - pénitentiaire
+    - sécurité intérieure
+    - police
     - terrorisme
-    - la sécurité intérieure
-    - police et gendarmerie
-    - Sécurité intérieure, police & terrorisme
+    - service civique
     - service militaire
-    - le service civique
-    - l'assemblée nationale
-    - la constitution
-    - la vie publique
-    - l'executif et le gouvernement
-    - la haute fonction publique
-    - le statut de la fonction publique
-    - le temps de travail de la fonction publique
-    - la fiscalité verte
-    - l'impot sur le revenu
-    - l'impot sur les sociétés
-    - l'europe
+    - assemblée nationale
+    - sénat
+    - constitution
+    - élection
+    - vie politique
+    - exécutif
+    - gouvernement
+    - ministères
+    - effectifs
+    - haute fonction publique
+    - ENA
+    - rémunération
+    - point d'indice
+    - fonctino publique
+    - fiscalité verte
+    - impôt
+    - fiscalité
+    - ménages
+    - société
+    - collectivités outre-mer
+    - agriculteurs
+    - apprentis
+    - immigrés
+    - professeurs
+    - étudiants
+    - fonctionnaires
+    - ministres
+    - europe
+    - international
+    - réchauffement climatique
+    - climatique
+    - réchauffement
