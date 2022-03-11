@@ -58,5 +58,6 @@ def scrape_programs_list(page):
 def scrape_programs_df(page, columns):
     return pd.DataFrame(scrape_programs_list(page), columns = columns)
 
-propositions_df = scrape_programs_df(page, columns)
-propositions_df.to_csv(r"chatbot-presidentielle2022\\utils\\propositions.csv", sep='|') 
+if __name__ == "__main__":  
+    propositions_df = scrape_programs_df(page, columns)
+    propositions_df.to_csv(r"chatbot-presidentielle2022\\utils\\propositions.csv", sep='|') 

@@ -133,4 +133,6 @@ In development - project deadline: :calendar: 13 April 22'
 ### Deployement 
 [3] https://ttt.studio/blog/rasa-chatbot/ (NGINX)  
 
+### Sources for the programs
+[4] [Ifrap](https://www.ifrap.org/comparateurs/presidentielle-2022)
 
