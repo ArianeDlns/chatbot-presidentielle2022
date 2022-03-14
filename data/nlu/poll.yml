@@ -11,6 +11,8 @@ nlu:
     - Comment est situé [Le Pen](candidate_name)?
     - Quel est le score de [Valérie Pecresse](candidate_name)
     - Quel est le score de [Marine Le Pen](candidate_name)
+    - score [Macron](candidate_name)
+    - Quel est le score de [Arthaud](candidate_name)?
 - intent: demande_sondage
   examples: |
     - Quel est le résultat du dernier sondage ? 

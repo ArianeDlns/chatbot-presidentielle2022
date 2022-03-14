@@ -39,6 +39,24 @@ sudo docker-compose up --build # Build and run containers
 sudo docker-compose down # Stops containers and removes containers 
 ```
 
+### Local deployment without docker 
+1. Change PATH (commented in actions/)
+2. Change endpoint.yml action_endpoint
+```bash
+cd actions
+rasa run actions
+```
+
+```
+ngrok http 5005
+```
+1. Change credentials.yml webhook_url according to ngrok 
+
+```
+rasa train 
+rasa run 
+```
+
 ## Usage
 This project is only an experimentation for a school project and has therefore no political use. We try to make it as neutral as possible, if any issue is observed please raise an issue. 
 
@@ -130,7 +148,7 @@ In development - project deadline: :calendar: 13 April 22'
 [1] Yejin Bang and Nayeon Lee and Etsuko Ishii and Andrea Madotto and Pascale Fung, Assessing Political Prudence of Open-domain Chatbots, [arXiv preprint arXiv:2106.06157](https://arxiv.org/abs/2106.06157),2021  
 [2] Miller, A.~H. and Feng, W. and Fisch, A. and Lu, J. and Batra, D. and Bordes, ParlAI: A Dialog Research Software Platform, [arXiv preprint arXiv:1705.06476](https://arxiv.org/abs/2004.13637), 2017  
 
-### Deployement 
+### Deployment 
 [3] https://ttt.studio/blog/rasa-chatbot/ (NGINX)  
 
 ### Sources for the programs

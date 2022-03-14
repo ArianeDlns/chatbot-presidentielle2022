@@ -9,6 +9,13 @@ nlu:
     - Qui participe aux élections présidentielles ?
     - A quel parti politique appartient chaque candidat ?
     - qui se présente aux élections 2022 ?
+    - je veux savoir qui sont les candidats ?
+    - qui se présente en 2022 ? 
+    - enumère les candidats stp ?
+    - Comment s'appelle les candidats à la prochaine élection ?
+    - Qui s'est présenté à l'élection présidentielle 2022 ? 
+    - Quels sont les candidats déclarés pour l'élection ? 
+    - Qui veut devenir président ? 
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
@@ -21,6 +28,11 @@ nlu:
     - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
     - donne moi le parti politique de [jean lassale](candidate_name)
     - dis moi, a quel parti appartient [yannick jado](candidate_name) ?
+    - mouvement politique de [roussel](candidate_name)
+    - De quel parti fait partie [Nathalie Arthaud](candidate_name) ?
+    - Au sein de quel parti est [Emmanuel](candidate_name) ?
+    - Quel parti soutient [Marine Le Pen](candidate_name) ?
+    - [Roussel](candidate_name) appartient à quel mouvance politique ? 
 - intent: demande_theme_candidat
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
@@ -37,3 +49,19 @@ nlu:
     - Donne moi les projets de [emmanuel macron](candidate_name) concernant [le service militaire](theme).
     - Peux tu me dire ce qu'il y a dans le programme de [Jadot] pour la question de [l'immigration](theme) ?
     - Je voudrais connaitre les propositions de [marine le pen](theme) à propos de [l'indépendance énergétique](theme) de la France
+    - Que propose [Le Pen](candidate_name) concernant [les hopitaux](theme) ?
+    - Que veut faire [Poutou](candidate_name) pour lutter contre [le réchauffement climatique](theme) ?
+    - Dis moi ce que va changer [Anne Hidalgo](candidate_name) pour améliorer [la mobilité](theme)
+    - Comment [eric](candidate_name) compte-t-il réformer [l'industrie](theme) ?
+    - De quelle manière [Pécresse](candidate_name) souhaite réformer [l'agriculture](theme)
+    - Avec quels moyens [Macron](candidate_name) désire changer [la fonction publique](theme) ?
+    - Je veux les propositions de [Lassalle](candidate_name) sur le sujet de [la Fiscalité](theme)
+    - Donne moi le programme de [Dupont aignan](candidate_name) sur [les retraites](theme)
+    - Je me demande ce que présente [melenchon](candidate_name) à propos de [l'Europe](theme)
+    - Quelles sont les pistes de [yannick jadot](candidate_name) pour [relancer l'économie](theme) ? 
+    - Que projete de faire [Fabien Roussel](candidate_name) au sujet de [la dette](theme) ?
+    - Concernant [la décentralisation](theme), comment va agir [Arthaud](candidate_name) ?
+    - Que pense [melenchon](candidate_name) du [Nucléaire](theme)
+    - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de [l'éducation](theme) ?
+    - Que veut faire [Valérie Pécresse](candidate_name) concernant la [santé] ?
+    
