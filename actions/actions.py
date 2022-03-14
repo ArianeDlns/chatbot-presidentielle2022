@@ -9,10 +9,7 @@
 
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk import Action, Tracker
-from utils.embed_themes import *
-from utils.plot_formatting import *
-from utils.candidate_names import *
-from utils.scrapping_sondages import *
+
 from typing import Any, Text, Dict, List
 from pathlib import Path
 import json
@@ -22,6 +19,11 @@ from gensim.models import KeyedVectors
 
 import sys
 sys.path.append('/app/actions')
+
+from utils.embed_themes import *
+from utils.plot_formatting import *
+from utils.candidate_names import *
+from utils.scrapping_sondages import *
 
 
 PATH = '/app/actions/'
