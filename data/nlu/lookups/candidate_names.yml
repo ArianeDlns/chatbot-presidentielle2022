@@ -5,37 +5,44 @@ nlu:
     - Eric Zemmour
     - Eric Zémmour
     - Zemmour
+    - zemmour
     - eric zemour
     - Macron
+    - macron
     - Emmanuel
     - Emmanuel Macron
     - emanuel macron
     - Pecresse
+    - pécresse
     - Valérie Pecresse
     - Valérie Pécresse
     - valerie pecresse
     - Yannick Jadot
     - yanick jadot
-    - Jadot 
+    - Jadot
+    - jadot
     - Hidalgo
+    - hidalgo
     - Anne Hidalgo
     - anne hidalgo
     - Lassalle
+    - lassalle
     - Jean Lassalle
     - jean lassale
     - Poutou
+    - poutou
     - Philippe Poutou 
     - philipe poutou
     - Arthaud
+    - arthaud
     - Nathalie Arthaud
     - nathalie artaud
     - Dupont-Aignan
+    - dupont-aignan
     - Nicolas Dupont Aignan
     - nicolas dupond aignant
-    - Asselineau
-    - François Asselineau
-    - francois asselino
     - Roussel
+    - roussel
     - Fabien Roussel
     - fabien rousel
     - Marine Le Pen
@@ -44,8 +51,10 @@ nlu:
     - marine le pen
     - marine
     - Lepen
+    - le pen
     - marine lepen
     - Mélenchon
+    - mélenchon
     - Jean-Luc Mélenchon
     - jean luc melanchon
     - Mélanchon
