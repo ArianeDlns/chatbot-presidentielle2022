@@ -3,9 +3,10 @@ session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true
 intents:
-- demande_sondage_candidat
-- demande_theme_candidat
 - demande_sondage
+- demande_sondage_candidat
+- theme_cand
+- demande_programme
 - salutations
 - bonne_humeur
 - demande_humeur
@@ -121,6 +122,8 @@ actions:
 - action_get_propositions_from_candidate_and_theme
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
+- action_get_interactive_program
 - utter_bonne_humeur
 - utter_demande_question
 - utter_salutations
+

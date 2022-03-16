@@ -11,21 +11,28 @@ stories:
   - intent: demande_parti_candidat
   - action: action_get_party_from_candidate
 
+- story: demande programme candidat
+  steps:
+  - intent: demande_programme
+    entities:
+    - candidate_name: Macron
+  - action: action_get_interactive_program
+
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
   
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: Macron
     - theme: energies renouvelables
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: marine le pen
     - theme: immigration
@@ -33,12 +40,12 @@ stories:
 
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: zemmour
     - theme: souveraineté nationale
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: jean luc mélenchon
     - theme: europe

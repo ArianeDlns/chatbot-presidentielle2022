@@ -32,7 +32,7 @@ nlu:
     - Au sein de quel parti est [Emmanuel](candidate_name) ?
     - Quel parti soutient [Marine Le Pen](candidate_name) ?
     - [Roussel](candidate_name) appartient à quel mouvance politique ? 
-- intent: demande_theme_candidat
+- intent: theme_cand
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
     - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour l'[emploi](theme)
@@ -72,4 +72,10 @@ nlu:
     - Quel est l'avis de [Mélenchon](candidate_name) sur l'[économie](theme) ?
     - Quel est le point de vue de [Poutou](candidate_name) sur les entreprises ?
     - Quel est le point de vue de [Poutou](candidate_name) sur l'[économie](theme) ?
+    - Que pense [Macron](candidate_name) de la [santé](theme) ?
+    - Que pense [melenchon](candidate_name) des [entreprises](theme) ?
+- intent: demande_programme
+  examples: |
+    - Quel est le programme de [Macron](candidate_name) ?
+    - Que pense [Pecresse](candidate_name) ?
 
