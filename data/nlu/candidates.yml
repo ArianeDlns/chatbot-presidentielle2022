@@ -24,7 +24,6 @@ nlu:
     - parti de [Poutou](candidate_name)
     - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
     - Quel est le parti de [Pecresse](candidate_name)
-    - Quel est le parti politique de [asselineau](candidate_name)
     - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
     - donne moi le parti politique de [jean lassale](candidate_name)
     - dis moi, a quel parti appartient [yannick jado](candidate_name) ?
@@ -68,4 +67,9 @@ nlu:
     - Que pense [melenchon](candidate_name) du [Nucléaire](theme)
     - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de l'[éducation](theme) ?
     - Que veut faire [Valérie Pécresse](candidate_name) concernant la [santé] ?
+    - Que pense [Macron](candidate_name) du [climat](theme) ?
+    - Que pense [Pecresse](candidate_name) de l'[immigration](theme) ?
+    - Quel est l'avis de [Mélenchon](candidate_name) sur l'[économie](theme) ?
+    - Quel est le point de vue de [Poutou](candidate_name) sur les entreprises ?
+    - Quel est le point de vue de [Poutou](candidate_name) sur l'[économie](theme) ?
 

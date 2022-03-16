@@ -18,7 +18,7 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 import sys
-sys.path.append('/app/actions')
+#sys.path.append('/app/actions')
 #sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
@@ -26,8 +26,8 @@ from utils.plot_formatting import *
 from utils.candidate_names import *
 from utils.scrapping_sondages import *
 
-PATH = '/app/actions/'
-#PATH = './'
+#PATH = '/app/actions/'
+PATH = './'
 
 # Loading the word2vec binary model
 file_name = PATH + "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
@@ -76,7 +76,7 @@ class ActionGetPartyFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # dispatcher.utter_message(text=f"{tracker.latest_message}")
+        dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'candidate_name':
@@ -171,7 +171,9 @@ class ActionGetSondageFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # print(tracker.latest_message['entities'])
+        print(tracker.latest_message['entities'])
+        dispatcher.utter_message(
+            text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
 
         candidates_data_sondage = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
@@ -202,6 +204,9 @@ class ActionGetSondageAllCandidates(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(
+            text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
 
         candidates_data_sondage = get_sondages(
             "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")

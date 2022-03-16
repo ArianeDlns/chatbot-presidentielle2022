@@ -60,7 +60,8 @@ ngrok http 5005
 #### Launch rasa
 ```
 rasa train 
-rasa run 
+rasa run (or) rasa shell --debug (or) rasa interactive
+
 ```
 
 ## Usage

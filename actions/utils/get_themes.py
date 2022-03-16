@@ -1,7 +1,7 @@
 import pandas as pd
 
-PATH = '/app/actions/'
-#PATH = './'
+#PATH = '/app/actions/'
+PATH = './'
 
 df = pd.read_csv(PATH + "data/data_candidates/propositions.csv", delimiter='|', encoding = "ISO-8859-1")
 subthemes = df['Theme'].unique()
