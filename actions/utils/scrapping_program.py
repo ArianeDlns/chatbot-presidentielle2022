@@ -30,10 +30,8 @@ def scrape_programs_list(page):
                 test_no_propositions = li.select('div')[0].find_all('p', {'class' : 'text-gray-400'})
 
                 if test_key_figures: # A Reformater 
-                    key_figure = test_key_figures[0].strong.get_text()
-                    key_figure_prop = test_key_figures[0].div.get_text().replace('\n','')
-                    key_figure_full = 'Chiffre clé : '+key_figure+' - '+key_figure_prop
-                    key_figures_detail = [theme, sub_theme, candidate_name, key_figure_full, 1, "", "Programme", "IFRAP", date.today(), date.today()]  
+                    key_figure = test_key_figures[0].get_text().replace('\n','').replace ('  ','')
+                    key_figures_detail = [theme, sub_theme, candidate_name, key_figure, 1, "", "Programme", "IFRAP", date.today(), date.today()] # Attention des fois l'origine des données ne provient pas des candidats mais de l'IFRAP, rajouter une fonction pour éviter ce phénomène 
                     propositions_list.append(key_figures_detail)
 
                 if test_propositions:
@@ -60,5 +58,6 @@ def scrape_programs_list(page):
 def scrape_programs_df(page, columns):
     return pd.DataFrame(scrape_programs_list(page), columns = columns)
 
-# propositions_df = scrape_programs_df(page, columns)
-# propositions_df.to_csv(r"propositions.csv", sep='|') 
+if __name__ == "__main__":  
+    propositions_df = scrape_programs_df(page, columns)
+    propositions_df.to_csv(r"chatbot-presidentielle2022\\utils\\propositions.csv", sep='|') 

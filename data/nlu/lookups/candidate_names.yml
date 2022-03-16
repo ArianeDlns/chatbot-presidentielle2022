@@ -5,7 +5,11 @@ nlu:
     - Eric Zemmour
     - Eric Zémmour
     - Zemmour
+<<<<<<< HEAD
     - emmour
+=======
+    - zemmour
+>>>>>>> b1613cc5982c8f16bd67cf3be02c2b52918d9f16
     - eric zemour
     - Macron
     - macron
@@ -26,18 +30,23 @@ nlu:
     - Anne Hidalgo
     - anne hidalgo
     - Lassalle
+    - lassalle
     - Jean Lassalle
     - jean lassale
     - Poutou
+    - poutou
     - Philippe Poutou 
     - philipe poutou
     - Arthaud
+    - arthaud
     - Nathalie Arthaud
     - nathalie artaud
     - Dupont-Aignan
+    - dupont-aignan
     - Nicolas Dupont Aignan
     - nicolas dupond aignant
     - Roussel
+    - roussel
     - Fabien Roussel
     - fabien rousel
     - Marine Le Pen
@@ -46,9 +55,11 @@ nlu:
     - marine le pen
     - marine
     - Lepen
+    - le pen
     - marine lepen
     - le pen
     - Mélenchon
+    - mélenchon
     - Jean-Luc Mélenchon
     - jean luc melanchon
     - Mélanchon

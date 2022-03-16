@@ -91,3 +91,4 @@ def get_sondages(url):
 if __name__ == "__main__":
     df = get_sondages(
         "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+    print(df)
