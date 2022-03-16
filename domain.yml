@@ -7,6 +7,7 @@ intents:
 - demande_sondage_candidat
 - theme_cand
 - demande_programme
+- demande_subthemes
 - salutations
 - bonne_humeur
 - demande_humeur
@@ -123,7 +124,9 @@ actions:
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
 - action_get_interactive_program
+- action_get_interactive_subthemes
 - utter_bonne_humeur
 - utter_demande_question
 - utter_salutations
+
 
