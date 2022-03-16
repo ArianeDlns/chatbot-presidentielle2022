@@ -206,14 +206,14 @@ class ActionGetSondageAllCandidates(Action):
         candidates_data_sondage = get_sondages(
             "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
-        candidates_poll_df = pd.DataFrame([[self.candidates_name[i], candidates_data_sondage.iloc[0][' '.join(
-            self.candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
+        candidates_poll_df = pd.DataFrame([[candidates_name[i], candidates_data_sondage.iloc[0][' '.join(
+            candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
 
         candidates_poll_value = [
             f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
-            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
+            text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
 
         # HTML Table displaying
