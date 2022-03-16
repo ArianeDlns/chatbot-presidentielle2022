@@ -11,6 +11,8 @@ nlu:
     - Comment est situé [Le Pen](candidate_name)?
     - Quel est le score de [Valérie Pecresse](candidate_name)
     - Quel est le score de [Marine Le Pen](candidate_name)
+    - Combien est [Anne Hidalgo](candidate_name)
+    - a combien est [Poutou](candidate_name)
     - score [Macron](candidate_name)
     - Quel est le score de [Arthaud](candidate_name)?
 - intent: demande_sondage
@@ -25,5 +27,4 @@ nlu:
   examples: |
     - Comment a évolué [Macron](candidate_name) ? 
     - Quelle est la tendance de [Le Pen](candidate_name) dans les sondages ? 
-    - Quelle est l'évolution de [Macron](candidate_name) et [Le Pen](candidate_name) ? 
-    - 
+    - Quelle est l'évolution de [Macron](candidate_name) et [Le Pen](candidate_name) ?

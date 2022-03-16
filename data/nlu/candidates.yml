@@ -36,32 +36,36 @@ nlu:
 - intent: demande_theme_candidat
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
-    - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour [l'emploi](theme)
-    - Que pense [Yannick Jadot](candidate_name) à propos de [l'économie](theme) ?
-    - Que dit le programme de [Marine Lepen](candidate_name) sur la question de [l'environnement](theme) ?
-    - Qu'est-ce qui est prévu pour [l'énergie](theme) dans le programme de [Fabien Roussel](candidate_name)
-    - Quelles propositions a [Eric Zemmour](candidate_name) sur [la justice](theme)
-    - Quelles idées a [Hidalgo](candidate_name) sur [la fonction publique](theme) ?
-    - Quelles sont les idées de [jean luc melenchon](candidate_name) sur [la défense et l'armée](theme) ?
+    - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour l'[emploi](theme)
+    - Que pense [Yannick Jadot](candidate_name) à propos de l'[économie](theme) ?
+    - Que dit le programme de [Marine Lepen](candidate_name) sur la question de l'[environnement](theme) ?
+    - Qu'est-ce qui est prévu pour l'[énergie](theme) dans le programme de [Fabien Roussel](candidate_name)
+    - Quelles propositions a [Eric Zemmour](candidate_name) sur la [justice](theme)
+    - Quelles idées a [Hidalgo](candidate_name) sur la [fonction publique](theme) ?
+    - Quelles sont les idées de [jean luc melenchon](candidate_name) sur la [défense](theme) et l'[armée](theme) ?
     - Qu'il y a t il dans le programme de [françois asselineau](candidate_name) à propos des [agriculteurs](theme) ?
-    - Sur le sujet de [la religion](theme), quel est l'avis de [Nathalie Arthaud](candidate_name) ?
-    - J'aimerais savoir les propositions de [valerie pecresse](candidate_name) sur [l'école et l'éducation](theme)
-    - Donne moi les projets de [emmanuel macron](candidate_name) concernant [le service militaire](theme).
-    - Peux tu me dire ce qu'il y a dans le programme de [Jadot] pour la question de [l'immigration](theme) ?
-    - Je voudrais connaitre les propositions de [marine le pen](theme) à propos de [l'indépendance énergétique](theme) de la France
-    - Que propose [Le Pen](candidate_name) concernant [les hopitaux](theme) ?
-    - Que veut faire [Poutou](candidate_name) pour lutter contre [le réchauffement climatique](theme) ?
-    - Dis moi ce que va changer [Anne Hidalgo](candidate_name) pour améliorer [la mobilité](theme)
-    - Comment [eric](candidate_name) compte-t-il réformer [l'industrie](theme) ?
-    - De quelle manière [Pécresse](candidate_name) souhaite réformer [l'agriculture](theme)
-    - Avec quels moyens [Macron](candidate_name) désire changer [la fonction publique](theme) ?
-    - Je veux les propositions de [Lassalle](candidate_name) sur le sujet de [la Fiscalité](theme)
-    - Donne moi le programme de [Dupont aignan](candidate_name) sur [les retraites](theme)
-    - Je me demande ce que présente [melenchon](candidate_name) à propos de [l'Europe](theme)
-    - Quelles sont les pistes de [yannick jadot](candidate_name) pour [relancer l'économie](theme) ? 
-    - Que projete de faire [Fabien Roussel](candidate_name) au sujet de [la dette](theme) ?
-    - Concernant [la décentralisation](theme), comment va agir [Arthaud](candidate_name) ?
+    - Sur le sujet de la [religion](theme), quel est l'avis de [Nathalie Arthaud](candidate_name) ?
+    - J'aimerais savoir les propositions de [valerie pecresse](candidate_name) sur l'[école](theme) et l'[éducation](theme)
+    - Donne moi les projets de [emmanuel macron](candidate_name) concernant le [service militaire](theme).
+    - Peux tu me dire ce qu'il y a dans le programme de [Jadot] pour la question de l'[immigration](theme) ?
+    - Je voudrais connaitre les propositions de [marine le pen](candidate_name) à propos de l'[indépendance énergétique](theme) de la France
+    - Que pense [Pécresse](candidate_name) au sujet de l'[administration] ?
+    - Quel est l'avis de [Lassalle](candidate_name) sur les [collectivités](theme) d'[outre-mer](theme) ?
+    - Que dit le programme de [arthaud](candidate_name) sur le sujet de la [santé](theme) et de la [médecine](theme) ?
+    - Je voudrais connaitre les propositions de [marine le pen](candidate_name) à propos de l'[indépendance énergétique](theme) de la France
+    - Que propose [Le Pen](candidate_name) concernant les [hopitaux](theme) ?
+    - Que veut faire [Poutou](candidate_name) pour lutter contre le [réchauffement climatique](theme) ?
+    - Dis moi ce que va changer [Anne Hidalgo](candidate_name) pour améliorer la [mobilité](theme)
+    - Comment [eric](candidate_name) compte-t-il réformer l'[industrie](theme) ?
+    - De quelle manière [Pécresse](candidate_name) souhaite réformer l'[agriculture](theme)
+    - Avec quels moyens [Macron](candidate_name) désire changer la [fonction publique](theme) ?
+    - Je veux les propositions de [Lassalle](candidate_name) sur le sujet de la [Fiscalité](theme)
+    - Donne moi le programme de [Dupont aignan](candidate_name) sur les [retraites](theme)
+    - Je me demande ce que présente [melenchon](candidate_name) à propos de l'[Europe](theme)
+    - Quelles sont les pistes de [yannick jadot](candidate_name) pour relancer l'[économie](theme) ? 
+    - Que projete de faire [Fabien Roussel](candidate_name) au sujet de la [dette](theme) ?
+    - Concernant la [décentralisation](theme), comment va agir [Arthaud](candidate_name) ?
     - Que pense [melenchon](candidate_name) du [Nucléaire](theme)
-    - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de [l'éducation](theme) ?
+    - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de l'[éducation](theme) ?
     - Que veut faire [Valérie Pécresse](candidate_name) concernant la [santé] ?
-    
+
