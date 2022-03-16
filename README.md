@@ -40,18 +40,24 @@ sudo docker-compose down # Stops containers and removes containers
 ```
 
 ### Local deployment without docker 
+
+#### Launch rasa actions
 1. Change PATH (commented in actions/)
-2. Change endpoint.yml action_endpoint
+2. Comment sys.path.append('/app/actions') in actions.py
+3. Change endpoint.yml action_endpoint
+
 ```bash
 cd actions
 rasa run actions
 ```
 
+#### Launch ngrok
 ```
 ngrok http 5005
 ```
 1. Change credentials.yml webhook_url according to ngrok 
 
+#### Launch rasa
 ```
 rasa train 
 rasa run 
