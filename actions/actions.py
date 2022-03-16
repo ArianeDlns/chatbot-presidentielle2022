@@ -7,6 +7,9 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import Action, Tracker
+
 from typing import Any, Text, Dict, List
 from pathlib import Path
 import json
@@ -15,32 +18,33 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 import sys
-#sys.path.append('/app/actions')
+sys.path.append('/app/actions')
 #sys.path.remove('/app/actions')
 
-from actions.utils.scrapping_sondages import *
-from actions.utils.candidate_names import *
-from actions.utils.plot_formatting import *
-from actions.utils.embed_themes import *
+from utils.embed_themes import *
+from utils.plot_formatting import *
+from utils.candidate_names import *
+from utils.scrapping_sondages import *
 
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
-
+PATH = '/app/actions/'
+#PATH = './'
 
 # Loading the word2vec binary model
-file_name= "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
-w2v_model = KeyedVectors.load_word2vec_format(file_name, binary=True, unicode_errors="ignore")
+file_name = PATH + "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
+w2v_model = KeyedVectors.load_word2vec_format(
+    file_name, binary=True, unicode_errors="ignore")
 
 # Loading the candidates JSON file
 candidates_data = json.loads(
-    Path("actions/data/data_candidates/candidates.json").read_text())
+    Path(PATH + "data/data_candidates/candidates.json").read_text())
 candidates_name = [candidate['name']
                     for candidate in candidates_data['candidates']]
 candidates_party = [candidate['party']
                     for candidate in candidates_data['candidates']]
 
 # Loading the propositions CSV file (scrapped from IFRAP)
-df = pd.read_csv("actions/data/data_candidates/propositions.csv", delimiter='|', encoding = "utf-8")
+df = pd.read_csv(PATH + "data/data_candidates/propositions.csv",
+                 delimiter='|', encoding="utf-8")
 names = df['Candidate'].unique()
 themes = df['Theme'].unique()
 subthemes = df['Sub-theme'].unique()
@@ -72,7 +76,7 @@ class ActionGetPartyFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        #dispatcher.utter_message(text=f"{tracker.latest_message}")
+        # dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'candidate_name':
@@ -88,6 +92,7 @@ class ActionGetPartyFromCandidate(Action):
 
         return []
 
+
 class ActionGetPropositionsFromCandidateAndTheme(Action):
 
     def name(self) -> Text:
@@ -97,12 +102,14 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        #dispatcher.utter_message(text=f"{tracker.latest_message}")
+        # dispatcher.utter_message(text=f"{tracker.latest_message}")
 
-        #print(tracker.latest_message['entities'])
-        all_names = [blob1['value'] for blob1 in tracker.latest_message['entities'] if blob1['entity'] == 'candidate_name']
-        all_themes = [blob2['value'] for blob2 in tracker.latest_message['entities'] if blob2['entity'] == 'theme']
-        
+        # print(tracker.latest_message['entities'])
+        all_names = [blob1['value'] for blob1 in tracker.latest_message['entities']
+                     if blob1['entity'] == 'candidate_name']
+        all_themes = [blob2['value']
+                      for blob2 in tracker.latest_message['entities'] if blob2['entity'] == 'theme']
+
         if len(all_names) == 0:
             dispatcher.utter_message(
                 text=f"Je n'ai pas compris le nom du candidat concerné. Pouvez-vous reformuler ?")
@@ -116,10 +123,13 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
         all_themes_str = ' '.join(all_themes)
         name = real_name(all_names[0], names)
         theme, is_subtheme = embed_theme(all_themes_str, themes, subthemes, w2v_model)
+    
         if is_subtheme:
-            df_propositions = df[(df['Candidate'] == name) & (df['Sub-theme'] == theme)]
+            df_propositions = df[(df['Candidate'] == name)
+                                 & (df['Sub-theme'] == theme)]
         else:
-            df_propositions = df[(df['Candidate'] == name) & (df['Theme'] == theme)]
+            df_propositions = df[(df['Candidate'] == name)
+                                 & (df['Theme'] == theme)]
 
         print(f"Candidate name : {name}")
         print(f"Theme : {theme}")
@@ -134,7 +144,8 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             dispatcher.utter_message(
                 text=f"Le candidat {name} n'a pas fait de proposition sur le sujet {theme[4:-4]} pour l'instant.")
         else:
-            propositions = df_propositions[df_propositions['Priority'].astype(int) >= 0]['Proposition'].tolist()
+            propositions = df_propositions[df_propositions['Priority'].astype(
+                int) >= 0]['Proposition'].tolist()
             response = f"Les propositions de {name} sur le sujet {theme[4:-4]} sont les suivantes :\n"
             for proposition in propositions[:200]:
                 response += proposition + "\n"
@@ -152,8 +163,6 @@ class ActionGetSondageFromCandidate(Action):
     """
     Answering questions like 'Ou est [candidat_name] dans les sondages ?'
     """
-    candidates_data_sondage = get_sondages(
-        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
     def name(self) -> Text:
         return "action_get_sondage_candidat"
@@ -164,14 +173,18 @@ class ActionGetSondageFromCandidate(Action):
 
         # print(tracker.latest_message['entities'])
 
+        candidates_data_sondage = get_sondages(
+        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+
         for blob in tracker.latest_message['entities']:
 
             if blob['entity'] == 'candidate_name':
                 name = blob['value']
                 name_value = ' '.join(real_name(name).split(' ')[1:])
-                poll_value = self.candidates_data_sondage.iloc[0][name_value]
+                poll_value = candidates_data_sondage.iloc[0][name_value]
                 dispatcher.utter_message(
-                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']})")
+                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']})")
+
             else:
                 dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
                     f"({candidates_name[i]})\n" for i in range(len(candidates_name))))
@@ -182,8 +195,6 @@ class ActionGetSondageAllCandidates(Action):
     """
     Answering questions like 'Quel est le résultat du dernier sondage ?'
     """
-    candidates_data_sondage = get_sondages(
-        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
     def name(self) -> Text:
         return "action_get_sondage_all_candidat"
@@ -192,20 +203,25 @@ class ActionGetSondageAllCandidates(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        candidates_poll_df = pd.DataFrame([[candidates_name[i], self.candidates_data_sondage.iloc[0][' '.join(
-            candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
-        
+        candidates_data_sondage = get_sondages(
+            "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+
+        candidates_poll_df = pd.DataFrame([[self.candidates_name[i], candidates_data_sondage.iloc[0][' '.join(
+            self.candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
+
         candidates_poll_value = [
             f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
-        #HTML Table displaying 
-        #dispatcher.utter_message(json_message={'text': HTML_table_from_df(
+
+        # HTML Table displaying
+        # dispatcher.utter_message(json_message={'text': HTML_table_from_df(
         #    candidates_poll_df), 'parse_mode': 'HTML'})
 
         return []
+
 
 class ActionGetEvolutionGraphCandidates(Action):
     """
@@ -221,14 +237,13 @@ class ActionGetEvolutionGraphCandidates(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        candidates_poll_df = pd.DataFrame([[candidates_name[i], self.candidates_data_sondage.iloc[0][' '.join(
+        candidates_poll_df = pd.DataFrame([[candidates_name[i], candidates_data_sondage.iloc[0][' '.join(
             candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
-        
+
         candidates_poll_value = [
             f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
-            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
+            text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
         return []
-

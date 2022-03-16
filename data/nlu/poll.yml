@@ -13,6 +13,8 @@ nlu:
     - Quel est le score de [Marine Le Pen](candidate_name)
     - Combien est [Anne Hidalgo](candidate_name)
     - a combien est [Poutou](candidate_name)
+    - score [Macron](candidate_name)
+    - Quel est le score de [Arthaud](candidate_name)?
 - intent: demande_sondage
   examples: |
     - Quel est le résultat du dernier sondage ? 

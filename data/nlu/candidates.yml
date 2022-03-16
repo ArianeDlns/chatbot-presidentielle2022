@@ -68,3 +68,4 @@ nlu:
     - Que pense [melenchon](candidate_name) du [Nucléaire](theme)
     - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de l'[éducation](theme) ?
     - Que veut faire [Valérie Pécresse](candidate_name) concernant la [santé] ?
+
