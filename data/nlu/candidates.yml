@@ -78,4 +78,3 @@ nlu:
   examples: |
     - Quel est le programme de [Macron](candidate_name) ?
     - Que pense [Pecresse](candidate_name) ?
-
