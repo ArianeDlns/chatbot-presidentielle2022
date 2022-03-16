@@ -97,7 +97,7 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text=f"{tracker.latest_message}")
+        #dispatcher.utter_message(text=f"{tracker.latest_message}")
 
         #print(tracker.latest_message['entities'])
         all_names = [blob1['value'] for blob1 in tracker.latest_message['entities'] if blob1['entity'] == 'candidate_name']
@@ -162,7 +162,7 @@ class ActionGetSondageFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        print(tracker.latest_message['entities'])
+        # print(tracker.latest_message['entities'])
 
         for blob in tracker.latest_message['entities']:
 
