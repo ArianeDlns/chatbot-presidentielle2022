@@ -11,12 +11,21 @@ stories:
   - intent: demande_parti_candidat
   - action: action_get_party_from_candidate
 
+- story: demande subthemes
+  steps:
+  - intent: demande_subthemes
+    entities:
+    - theme: Social
+    - candidate_name: Macron
+  - action: action_get_interactive_subthemes
+
 - story: demande programme candidat
   steps:
   - intent: demande_programme
     entities:
     - candidate_name: Macron
   - action: action_get_interactive_program
+
 
 - story: demande theme candidat
   steps:

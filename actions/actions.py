@@ -123,7 +123,7 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             try: 
                 theme = int(theme)
                 if isinstance(theme, int): 
-                    temp += [themes[theme]]
+                    temp += [subthemes[theme]]
                 all_themes = temp
             except: 
                 pass
@@ -181,10 +181,36 @@ class ActionProgrammInteractive(Action):
         buttons = []
         for idx,theme in enumerate(themes):
             # Limit of 64 bytes: https://github.com/yagop/node-telegram-bot-api/issues/706
-            payload = "/theme_cand{\"candidate_name\":\"" + tracker.latest_message['entities'][0]['value'].split(" ")[-1] + "\", \"theme\":\"" + str(idx) + "\"}"
-            print(payload)
+            #payload = "/theme_cand{\"candidate_name\":\"" + tracker.latest_message['entities'][0]['value'].split(" ")[-1] + "\", \"theme\":\"" + str(idx) + "\"}"
+            payload = "/demande_subthemes{\"candidate_name\":\"" + tracker.latest_message['entities'][0]['value'].split(" ")[-1] + "\", \"theme\":\"" + str(idx) + "\"}"
+            #print(payload)
             buttons.append({"title": theme, "payload": payload})
         response = "Quel est le sujet qui vous interesse 🤔 ? "
+        dispatcher.utter_message(
+            text=response, buttons=buttons, button_type="vertical")
+        return []
+
+class ActionProgrammSubthemesInteractive(Action):
+    """
+    'Action to display subthems'
+    """
+
+    def name(self) -> Text:
+        return "action_get_interactive_subthemes"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        subthemes_thems = df[df['Theme'] == themes[int(tracker.latest_message['entities'][1]['value'])]]['Sub-theme'].unique()
+        buttons = []
+        for subtheme in subthemes_thems:
+            # Limit of 64 bytes: https://github.com/yagop/node-telegram-bot-api/issues/706
+            idx = list(subthemes).index(subtheme) #np.where(subthemes == subtheme) #subthemes.index(subtheme)
+            payload = "/theme_cand{\"candidate_name\":\"" + tracker.latest_message['entities'][0]['value'].split(" ")[-1] + "\", \"theme\":\"" + str(idx) + "\"}"
+            #print(payload)
+            buttons.append({"title": subtheme, "payload": payload})
+        response = "Quel est le sujet précis qui vous interesse 🤔 ? "
         dispatcher.utter_message(
             text=response, buttons=buttons, button_type="vertical")
         return []
