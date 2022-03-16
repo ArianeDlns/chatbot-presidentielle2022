@@ -4,6 +4,7 @@
 [![Open in Visual Studio Code](https://img.shields.io/badge/Editor-VSCode-blue?style=flat-square&logo=visual-studio-code&logoColor=white)](https://github.dev/ArianeDlns/chatbot-presidentielle2022/tree/main) [![GitHub commit](https://badgen.net/github/last-commit/ArianeDlns/chatbot-presidentielle2022/main)](https://GitHub.com/ArianeDlns/chatbot-presidentielle2022/issues/)
 [![GitHub issues](https://badgen.net/github/open-issues/ArianeDlns/chatbot-presidentielle2022)](https://GitHub.com/ArianeDlns/chatbot-presidentielle2022/issues/)
 
+
 ![Rasa](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa.png?raw=true)
 
 
@@ -28,7 +29,7 @@ wget https://s3.us-east-2.amazonaws.com/embeddings.net/embeddings/frWac_non_lem_
 
 ```bash
 touch credentials.yml
-vim credentials.yml 
+vim credentials.yml     
 ```
 
 Update the new `credentials.yml` following this [example](https://github.com/RasaHQ/rasa/blob/main/rasa/cli/initial_project/credentials.yml)
@@ -60,7 +61,8 @@ ngrok http 5005
 #### Launch rasa
 ```
 rasa train 
-rasa run 
+rasa run (or) rasa shell --debug (or) rasa interactive
+
 ```
 
 ## Usage

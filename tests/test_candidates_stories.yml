@@ -34,33 +34,33 @@ stories:
   steps:
   - user: |
       quelles sont les actions prévues de [jean lassale]{"entity": "candidate_name"} pour le thème de l'[agriculture]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 2
   steps:
   - user: |
       quelles mesures sont dans le programme de [mélenchon]{"entity": "candidate_name"} sur les [énergies renouvelables]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 3
   steps:
   - user: |
       que pense [marine le pen]{"entity": "candidate_name"} à propos des [retraites]{"entity": "theme"} et de la [santé]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 4
   steps:
   - user: |
       que prévoit [emmanuel macron]{"entity": "candidate_name"} concernant les [paradis fiscaux]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
   
 - story: demande theme candidat 5
   steps:
   - user: |
       que pense [zemmour]{"entity": "candidate_name"} de l'[environnement]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme

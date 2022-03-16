@@ -1,4 +1,3 @@
-
 version: "2.0"
 
 stories:
@@ -12,41 +11,28 @@ stories:
   - intent: demande_parti_candidat
   - action: action_get_party_from_candidate
 
-- story: demande parti candidat 2
+- story: demande programme candidat
   steps:
-  - intent: salutations
-  - action: utter_salutations
-  - intent: demande_parti_candidat
-  - action: action_get_party_from_candidate
-  
-- story: demande parti candidat 3
-  steps:
-  - intent: salutations
-  - action: utter_salutations
-  - intent: demande_parti_candidat
+  - intent: demande_programme
     entities:
-    - candidate_name: Jadot
-  - action: action_get_party_from_candidate
-  - intent: demande_parti_candidat
-    entities:
-    - candidate_name: Pécresse
-  - action: action_get_party_from_candidate
+    - candidate_name: Macron
+  - action: action_get_interactive_program
 
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
   
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: Macron
     - theme: energies renouvelables
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: marine le pen
     - theme: immigration
@@ -54,12 +40,12 @@ stories:
 
 - story: demande theme candidat
   steps:
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: zemmour
     - theme: souveraineté nationale
   - action: action_get_propositions_from_candidate_and_theme
-  - intent: demande_theme_candidat
+  - intent: theme_cand
     entities:
     - candidate_name: jean luc mélenchon
     - theme: europe

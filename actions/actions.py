@@ -19,7 +19,7 @@ from gensim.models import KeyedVectors
 
 import sys
 sys.path.append('/app/actions')
-#sys.path.remove('/app/actions')
+# sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
 from utils.plot_formatting import *
@@ -38,7 +38,7 @@ w2v_model = KeyedVectors.load_word2vec_format(
 candidates_data = json.loads(
     Path(PATH + "data/data_candidates/candidates.json").read_text())
 candidates_name = [candidate['name']
-                    for candidate in candidates_data['candidates']]
+                   for candidate in candidates_data['candidates']]
 candidates_party = [candidate['party']
                     for candidate in candidates_data['candidates']]
 
@@ -102,8 +102,6 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # dispatcher.utter_message(text=f"{tracker.latest_message}")
-
         # print(tracker.latest_message['entities'])
         all_names = [blob1['value'] for blob1 in tracker.latest_message['entities']
                      if blob1['entity'] == 'candidate_name']
@@ -119,11 +117,22 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             dispatcher.utter_message(
                 text=f"Je n'ai pas compris le sujet concerné. Pouvez-vous reformuler ?")
             return []
-
+        
+        temp = []
+        for theme in all_themes:
+            try: 
+                theme = int(theme)
+                if isinstance(theme, int): 
+                    temp += [themes[theme]]
+                all_themes = temp
+            except: 
+                pass
+            
         all_themes_str = ' '.join(all_themes)
         name = real_name(all_names[0], names)
-        theme, is_subtheme = embed_theme(all_themes_str, themes, subthemes, w2v_model)
-    
+        theme, is_subtheme = embed_theme(
+            all_themes_str, themes, subthemes, w2v_model)
+
         if is_subtheme:
             df_propositions = df[(df['Candidate'] == name)
                                  & (df['Sub-theme'] == theme)]
@@ -138,20 +147,46 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             dispatcher.utter_message(
                 text=f"Je ne reconnais pas le nom de ce candidat : {all_names[0]}. L'avez-vous bien écrit ?")
         elif theme is None:
+            text = f"Je ne reconnais pas le sujet : *{all_themes_str}*. Pouvez-vous reformuler ?"
             dispatcher.utter_message(
-                text=f"Je ne reconnais pas le sujet : {all_themes_str}. Pouvez-vous reformuler ?")
+                json_message={'text': text, 'parse_mode': 'markdown'})
         elif int(df_propositions['Priority'].tolist()[0]) == -1:
+            text = f"Le candidat{name} n'a pas fait de proposition sur le sujet *{theme[4:-4]}* pour l'instant."
             dispatcher.utter_message(
-                text=f"Le candidat {name} n'a pas fait de proposition sur le sujet {theme[4:-4]} pour l'instant.")
+                json_message={'text': text, 'parse_mode': 'markdown'})
         else:
             propositions = df_propositions[df_propositions['Priority'].astype(
                 int) >= 0]['Proposition'].tolist()
-            response = f"Les propositions de {name} sur le sujet {theme[4:-4]} sont les suivantes :\n"
+            response = f"Les propositions de{name} sur le sujet *{theme[4:-4]}* sont les suivantes :\n \n"
             for proposition in propositions[:200]:
-                response += proposition + "\n"
+                response += "- " + proposition + "\n"
             response = response[:-2]
-            dispatcher.utter_message(text=response)
+            response += "\n\n Source: [Ifrap](https://www.ifrap.org/comparateurs/presidentielle-2022)"
+            dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
+        return []
 
+
+class ActionProgrammInteractive(Action):
+    """
+    Answering questions like 'Quel est le programme de [Macron] ?'
+    """
+
+    def name(self) -> Text:
+        return "action_get_interactive_program"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        buttons = []
+        for idx,theme in enumerate(themes):
+            # Limit of 64 bytes: https://github.com/yagop/node-telegram-bot-api/issues/706
+            payload = "/theme_cand{\"candidate_name\":\"" + tracker.latest_message['entities'][0]['value'].split(" ")[-1] + "\", \"theme\":\"" + str(idx) + "\"}"
+            print(payload)
+            buttons.append({"title": theme, "payload": payload})
+        response = "Quel est le sujet qui vous interesse 🤔 ? "
+        dispatcher.utter_message(
+            text=response, buttons=buttons, button_type="vertical")
         return []
 
 # --------------------------------------------------
@@ -172,9 +207,10 @@ class ActionGetSondageFromCandidate(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         # print(tracker.latest_message['entities'])
+        #dispatcher.utter_message(text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
 
         candidates_data_sondage = get_sondages(
-        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+            "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
         for blob in tracker.latest_message['entities']:
 
@@ -203,6 +239,8 @@ class ActionGetSondageAllCandidates(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        #dispatcher.utter_message(text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
+
         candidates_data_sondage = get_sondages(
             "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
 
@@ -214,7 +252,6 @@ class ActionGetSondageAllCandidates(Action):
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
-
 
         # HTML Table displaying
         # dispatcher.utter_message(json_message={'text': HTML_table_from_df(
