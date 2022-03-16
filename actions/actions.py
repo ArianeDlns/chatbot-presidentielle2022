@@ -171,7 +171,7 @@ class ActionGetSondageFromCandidate(Action):
                 name_value = ' '.join(real_name(name).split(' ')[1:])
                 poll_value = self.candidates_data_sondage.iloc[0][name_value]
                 dispatcher.utter_message(
-                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']})")
+                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']})")
             else:
                 dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (
                     f"({candidates_name[i]})\n" for i in range(len(candidates_name))))
@@ -199,7 +199,7 @@ class ActionGetSondageAllCandidates(Action):
             f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
-            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
+            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
         #HTML Table displaying 
         #dispatcher.utter_message(json_message={'text': HTML_table_from_df(
@@ -228,7 +228,7 @@ class ActionGetEvolutionGraphCandidates(Action):
             f"{candidates_poll_df['Candidats'].iloc[i]} ({candidates_poll_df['(%)'].iloc[i]} %)\n" for i in range(len(candidates_name))]
 
         dispatcher.utter_message(
-            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Date']}):\n- {'- '.join(candidates_poll_value)}")
+            text=f"Voici les résultats du dernier sondage  ({self.candidates_data_sondage.iloc[0]['Sondeur']} - {self.candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
         return []
 

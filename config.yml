@@ -15,7 +15,7 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 1000
+    epochs: 300
     embedding_dimension: 100
     transformers_layers: 4
     # hidden_layers_sizes: 
