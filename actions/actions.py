@@ -18,7 +18,7 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 import sys
-# sys.path.append('/app/actions')
+sys.path.append('/app/actions')
 # sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
@@ -26,8 +26,8 @@ from utils.plot_formatting import *
 from utils.candidate_names import *
 from utils.scrapping_sondages import *
 
-#PATH = '/app/actions/'
-PATH = './'
+PATH = '/app/actions/'
+#PATH = './'
 
 # Loading the word2vec binary model
 file_name = PATH + "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
