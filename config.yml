@@ -11,13 +11,14 @@ pipeline:
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 1000
-    # hidden_layers_sizes:
+    epochs: 300
+    embedding_dimension: 100
+    transformers_layers: 4
+    # hidden_layers_sizes: 
     #   text: [256, 128]
     #   label: [256, 128]
     constrain_similarities: True

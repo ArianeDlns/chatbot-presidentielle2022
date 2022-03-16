@@ -44,8 +44,8 @@ def remove_percent(df):
 
 
 def set_date(df):
-    df['Date'] = df.apply(lambda x: x['Date'].split('-')[1], axis=1)
-    df['Date'] = df.apply(lambda x: x['Date'].replace(
+    df['Dates'] = df.apply(lambda x: x['Dates'].split('-')[1], axis=1)
+    df['Dates'] = df.apply(lambda x: x['Dates'].replace(
         '1er', '1') + ' 2021', axis=1)
     return df
 

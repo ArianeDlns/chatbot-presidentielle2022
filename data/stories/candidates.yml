@@ -44,12 +44,12 @@ stories:
   - intent: demande_theme_candidat
     entities:
     - candidate_name: Macron
-    - theme: les energies renouvelables
+    - theme: energies renouvelables
   - action: action_get_propositions_from_candidate_and_theme
   - intent: demande_theme_candidat
     entities:
     - candidate_name: marine le pen
-    - theme: l'immigration
+    - theme: immigration
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat
@@ -57,10 +57,10 @@ stories:
   - intent: demande_theme_candidat
     entities:
     - candidate_name: zemmour
-    - theme: la souveraineté nationale
+    - theme: souveraineté nationale
   - action: action_get_propositions_from_candidate_and_theme
   - intent: demande_theme_candidat
     entities:
     - candidate_name: jean luc mélenchon
-    - theme: l'europe
+    - theme: europe
   - action: action_get_propositions_from_candidate_and_theme
