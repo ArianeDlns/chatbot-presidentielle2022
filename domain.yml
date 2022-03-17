@@ -3,18 +3,20 @@ session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true
 intents:
-- salutations
 - demande_sondage
 - demande_sondage_candidat
-- demande_humeur
+- theme_cand
+- demande_programme
+- demande_subthemes
+- salutations
 - bonne_humeur
+- demande_humeur
 - mauvaise_humeur
 - demande_identite
 - demande_candidats
 - demande_parti_candidat
 - demande_blague
 - demande_evolution
-- demande_theme_candidat
 - dates_tours
 - report
 - conditions_candidats
@@ -47,36 +49,84 @@ responses:
   utter_out_of_scope:
   - text: Désolé, je n'ai pas compris votre question.
   utter_blague:
-  - text: "Je ne suis pas un chatbot très drôle, mais voici de quoi vous distaire:"
+  - text: 'Je ne suis pas un chatbot très drôle, mais voici de quoi vous distaire:'
     image: https://rigolotes.fr/img/normal/20200312/34Q/20200312.jpg
   utter_dates_tours:
-  - text: "L'élection du président de la République se déroulera : \n- le dimanche 10 avril 2022 pour le premier tour ;\n- le dimanche 24 avril 2022 pour le second tour.\nNéanmoins, en Guadeloupe, en Martinique, en Guyane, à Saint-Pierre-et-Miquelon, à Saint-Barthélemy, à Saint-Martin et en Polynésie française, les électeurs voteront les samedis 9 avril et 23 avril pour tenir compte du décalage horaire."
+  - text: |-
+      L'élection du président de la République se déroulera : 
+      - le dimanche 10 avril 2022 pour le premier tour ;
+      - le dimanche 24 avril 2022 pour le second tour.
+      Néanmoins, en Guadeloupe, en Martinique, en Guyane, à Saint-Pierre-et-Miquelon, à Saint-Barthélemy, à Saint-Martin et en Polynésie française, les électeurs voteront les samedis 9 avril et 23 avril pour tenir compte du décalage horaire.
   utter_report:
-  - text: "le Conseil constitutionnel peut décider un report (article 7 de la Constitution) selon les cas suivants:\n- si, dans les sept jours précédant la date limite du dépôt des candidatures, une des personnes ayant, moins de 30 jours avant cette date, annoncé publiquement sa décision d’être candidate décède ou se trouve empêchée ;\n- si, après la publication officielle de la liste des candidats, l'un d'entre eux décède ou se trouve empêché ;\n- si l’un des deux candidats restés en présence au second tour décède ou est empêché."
+  - text: |-
+      le Conseil constitutionnel peut décider un report (article 7 de la Constitution) selon les cas suivants:
+      - si, dans les sept jours précédant la date limite du dépôt des candidatures, une des personnes ayant, moins de 30 jours avant cette date, annoncé publiquement sa décision d’être candidate décède ou se trouve empêchée ;
+      - si, après la publication officielle de la liste des candidats, l'un d'entre eux décède ou se trouve empêché ;
+      - si l’un des deux candidats restés en présence au second tour décède ou est empêché.
   utter_conditions_candidats:
-  - text: "Le candidat doit avoir la nationalité française, être électeur et avoir plus de 18 ans, avoir satisfait aux obligations relatives aux textes sur le recrutement de l’armée, faire preuve de dignité morale, sans que cette notion soit précisément définie."
+  - text: Le candidat doit avoir la nationalité française, être électeur et avoir plus de 18 ans, avoir satisfait aux obligations relatives aux textes sur le recrutement de l’armée, faire preuve de dignité morale, sans que cette notion soit précisément définie.
   utter_formalites_candidats:
-  - text: "Un candidat à l'élection présidentielle doit recueillir 500 parrainages par la signature de 500 élus. Ces 500 signatures doivent émaner d’au moins 30 départements ou territoires d’outre-mer différents, sans que plus du dixième de ces 500 signatures (soit 50) proviennent d’un même département ou territoire. Il doit aussi remettre au Conseil constitutionnel une déclaration de situation patrimoniale ainsi qu'une déclaration d'intérêts et d'activités. Il doit déposer son compte de campagne dans les deux mois suivant l’élection."
+  - text: Un candidat à l'élection présidentielle doit recueillir 500 parrainages par la signature de 500 élus. Ces 500 signatures doivent émaner d’au moins 30 départements ou territoires d’outre-mer différents, sans que plus du dixième de ces 500 signatures (soit 50) proviennent d’un même département ou territoire. Il doit aussi remettre au Conseil constitutionnel une déclaration de situation patrimoniale ainsi qu'une déclaration d'intérêts et d'activités. Il doit déposer son compte de campagne dans les deux mois suivant l’élection.
   utter_declaration_patrimoine_candidats:
-  - text: "Les candidats à l’élection présidentielle doivent remettre au Conseil constitutionnel, sous pli scellé, une déclaration de patrimoine et une déclaration d'intérêts et d'activités conformes aux dispositions du code électoral.\nLa déclaration de situation patrimoniale porte sur les éléments suivants :\n- les immeubles bâtis et non bâtis ;\n- les valeurs mobilières ;\n- les assurances vie ;\n- les comptes bancaires courants ou d'épargne, les livrets et les autres produits d'épargne ;\n- les biens mobiliers divers d'une valeur supérieure à un montant fixé par voie réglementaire ;\n- les véhicules terrestres à moteur, bateaux et avions ;\n- les fonds de commerce ou clientèles et les charges et offices ;\n- les biens mobiliers, immobiliers et les comptes détenus à l'étranger ;\n- les autres biens ;\n- le passif.\nLa déclaration d'intérêts et d'activités porte principalement sur les activités professionnelles donnant lieu à rémunération ou gratification ; les participations aux organes dirigeants d'un organisme public ou privé ou d'une société ; les participations financière au capital de sociétés ; les activités professionnelles exercées à la date de l'élection par le conjoint, le partenaire lié par un pacte civil de solidarité ou le concubin."
+  - text: |-
+      Les candidats à l’élection présidentielle doivent remettre au Conseil constitutionnel, sous pli scellé, une déclaration de patrimoine et une déclaration d'intérêts et d'activités conformes aux dispositions du code électoral.
+      La déclaration de situation patrimoniale porte sur les éléments suivants :
+      - les immeubles bâtis et non bâtis ;
+      - les valeurs mobilières ;
+      - les assurances vie ;
+      - les comptes bancaires courants ou d'épargne, les livrets et les autres produits d'épargne ;
+      - les biens mobiliers divers d'une valeur supérieure à un montant fixé par voie réglementaire ;
+      - les véhicules terrestres à moteur, bateaux et avions ;
+      - les fonds de commerce ou clientèles et les charges et offices ;
+      - les biens mobiliers, immobiliers et les comptes détenus à l'étranger ;
+      - les autres biens ;
+      - le passif.
+      La déclaration d'intérêts et d'activités porte principalement sur les activités professionnelles donnant lieu à rémunération ou gratification ; les participations aux organes dirigeants d'un organisme public ou privé ou d'une société ; les participations financière au capital de sociétés ; les activités professionnelles exercées à la date de l'élection par le conjoint, le partenaire lié par un pacte civil de solidarité ou le concubin.
   utter_financement_campagne:
-  - text: "Les candidats reçoivent un financement public au titre du remboursement des frais de campagne. Un financement privé est possible mais il est fortement encadré :\n- interdiction des dons des entreprises et de toute autre personne morale ;\n- dons des particuliers limités à 4 600 euros par donateur ;\n- don égal ou supérieur à 150 euros obligatoirement effectué par chèque, virement ou carte bancaire ;\n- dons des particuliers réservés aux personnes de nationalité française ou résidant en France ;\n- interdiction des prêts par un État étranger ou banque non-européenne.\nPour l’élection de 2022, le plafond des dépenses applicable aux candidats présents au premier tour est fixé à 16 851 000 € et celui applicable aux candidats présents au second tour est fixé à 22 509 000 €."
+  - text: |-
+      Les candidats reçoivent un financement public au titre du remboursement des frais de campagne. Un financement privé est possible mais il est fortement encadré :
+      - interdiction des dons des entreprises et de toute autre personne morale ;
+      - dons des particuliers limités à 4 600 euros par donateur ;
+      - don égal ou supérieur à 150 euros obligatoirement effectué par chèque, virement ou carte bancaire ;
+      - dons des particuliers réservés aux personnes de nationalité française ou résidant en France ;
+      - interdiction des prêts par un État étranger ou banque non-européenne.
+      Pour l’élection de 2022, le plafond des dépenses applicable aux candidats présents au premier tour est fixé à 16 851 000 € et celui applicable aux candidats présents au second tour est fixé à 22 509 000 €.
   utter_regles_audiovisuelles:
-  - text: "Pendant la campagne électorale officielle, la règle est l’égalité des temps de parole entre les candidats dans les médias audiovisuels.\nPendant la période qui s’étend de la date de publication au Journal officiel de la liste des candidats à la veille de l’ouverture de la campagne officielle, la loi organique du 25 avril 2016 remplace l’égalité des temps de parole par une règle d’équité en fonction de la représentativité des candidats et de la contribution de chacun à l’animation du débat électoral. La représentativité des candidats est appréciée en fonction des résultats obtenus aux précédentes élections et des indications de sondages d’opinion."
+  - text: |-
+      Pendant la campagne électorale officielle, la règle est l’égalité des temps de parole entre les candidats dans les médias audiovisuels.
+      Pendant la période qui s’étend de la date de publication au Journal officiel de la liste des candidats à la veille de l’ouverture de la campagne officielle, la loi organique du 25 avril 2016 remplace l’égalité des temps de parole par une règle d’équité en fonction de la représentativité des candidats et de la contribution de chacun à l’animation du débat électoral. La représentativité des candidats est appréciée en fonction des résultats obtenus aux précédentes élections et des indications de sondages d’opinion.
   utter_mode_scrutin:
-  - text: "L’élection présidentielle est organisée selon un scrutin uninominal majoritaire à deux tours. La réussite au premier tour est déterminée par l’obtention d’une majorité absolue des voix. Faute d’avoir atteint ce seuil, un second tour est organisé entre les deux candidats les mieux placés au premier tour."
+  - text: L’élection présidentielle est organisée selon un scrutin uninominal majoritaire à deux tours. La réussite au premier tour est déterminée par l’obtention d’une majorité absolue des voix. Faute d’avoir atteint ce seuil, un second tour est organisé entre les deux candidats les mieux placés au premier tour.
   utter_condition_electeur:
-  - text: "Pour pouvoir voter, il faut remplir les conditions suivantes : \n- être âgé d’au moins 18 ans au plus tard la veille du premier tour de scrutin ;\n- être de nationalité française ;\n- jouir de ses droits civils et politiques.\n- Il faut ensuite être inscrit sur les listes électorales. Il est possible de s'inscrire au plus tard le 6e vendredi précédant la veille de l'élection. Pour les situations particulières (personne atteignant 18 ans, déménagement, acquisition de la nationalité française, droit de vote recouvré) il est possible de s'inscrire jusqu'au 10e jour précédant le premier tour de l'élection.\n- En cas d'erreur de l'administration, il est possible d'obtenir l'inscription sur les listes électorales auprès du tribunal judiciaire jusqu'au jour de l'élection."
+  - text: |-
+      Pour pouvoir voter, il faut remplir les conditions suivantes : 
+      - être âgé d’au moins 18 ans au plus tard la veille du premier tour de scrutin ;
+      - être de nationalité française ;
+      - jouir de ses droits civils et politiques.
+      - Il faut ensuite être inscrit sur les listes électorales. Il est possible de s'inscrire au plus tard le 6e vendredi précédant la veille de l'élection. Pour les situations particulières (personne atteignant 18 ans, déménagement, acquisition de la nationalité française, droit de vote recouvré) il est possible de s'inscrire jusqu'au 10e jour précédant le premier tour de l'élection.
+      - En cas d'erreur de l'administration, il est possible d'obtenir l'inscription sur les listes électorales auprès du tribunal judiciaire jusqu'au jour de l'élection.
   utter_procuration:
-  - text: "Si un électeur est dans l’impossibilité de se rendre dans son bureau de vote (vacances, obligations professionnelles, état de santé…), il peut voter par procuration. Il désigne alors une personne qui votera à sa place (le mandataire), selon ses consignes. Lors de cette démarche, l'électeur n'a pas à fournir de justificatif sur le motif de son absence.\nLa loi organique du 29 mars 2021 permet que les procurations soient 'déterritorialisées' : un mandant peut confier sa procuration à un mandataire qui n’est pas inscrit dans la même commune. Le mandataire qui vote en France ne peut détenir plus de deux procurations, et une seule d'entre elle peut être établie en France.\nDepuis le 6 avril 2021, il est possible de remplir sa demande de procuration en ligne sur le site maprocuration.gouv.fr."
+  - text: |-
+      Si un électeur est dans l’impossibilité de se rendre dans son bureau de vote (vacances, obligations professionnelles, état de santé…), il peut voter par procuration. Il désigne alors une personne qui votera à sa place (le mandataire), selon ses consignes. Lors de cette démarche, l'électeur n'a pas à fournir de justificatif sur le motif de son absence.
+      La loi organique du 29 mars 2021 permet que les procurations soient 'déterritorialisées' : un mandant peut confier sa procuration à un mandataire qui n’est pas inscrit dans la même commune. Le mandataire qui vote en France ne peut détenir plus de deux procurations, et une seule d'entre elle peut être établie en France.
+      Depuis le 6 avril 2021, il est possible de remplir sa demande de procuration en ligne sur le site maprocuration.gouv.fr.
   utter_vote_etranger:
-  - text: "Les Français établis à l’étranger peuvent voter dès lors qu’ils sont inscrits sur les listes électorales.\nLe vote peut avoir lieu :\n- à l'étranger à la condition d'être inscrit sur la liste consulaire ;\n- en France à la condition d'être inscrit sur la liste d'une commune."
-
+  - text: |-
+      Les Français établis à l’étranger peuvent voter dès lors qu’ils sont inscrits sur les listes électorales.
+      Le vote peut avoir lieu :
+      - à l'étranger à la condition d'être inscrit sur la liste consulaire ;
+      - en France à la condition d'être inscrit sur la liste d'une commune.
 actions:
 - action_get_candidates
+- action_get_evolution_graph_candidat
 - action_get_party_from_candidate
+- action_get_propositions_from_candidate_and_theme
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
-- action_get_evolution_graph_candidat
-- action_get_propositions_from_candidate_and_theme
+- action_get_interactive_program
+- action_get_interactive_subthemes
+- utter_bonne_humeur
+- utter_demande_question
 - utter_salutations
+
+
