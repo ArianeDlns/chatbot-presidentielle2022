@@ -48,3 +48,21 @@ nlu:
     - donne moi une histoire 
     - est-ce que tu as une blague pour moi ? 
     - donne une histoire 
+- intent: souces
+    - Quelles sont tes sources ?
+    - D'où tires tu tes informations ?
+    - sources ?
+    - d'ou viennent tes sources ? 
+    - qui est à la source de tes informations ?
+    - Quelles sont les sources de ces informations ?
+    - D'où vient les infos ?
+- intent: demande_recette
+    - Donne moi une recette 
+    - Que cuisiner ce soir ?
+    - cuisiner
+    - nourriture 
+    - Qu'est ce que je mange ? 
+    - Quoi manger ?
+    - Quelle recette pour ce soir ? 
+    - Donne moi un repas 
+    - recette

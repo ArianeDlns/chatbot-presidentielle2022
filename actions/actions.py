@@ -15,7 +15,7 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 import sys
-# sys.path.append('/app/actions')
+sys.path.append('/app/actions')
 # sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
@@ -23,8 +23,8 @@ from utils.plot_formatting import *
 from utils.candidate_names import *
 from utils.scrapping_sondages import *
 
-#PATH = '/app/actions/'
-PATH = './'
+PATH = '/app/actions/'
+#PATH = './'
 
 # Loading the word2vec binary model
 file_name = PATH + "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
@@ -74,7 +74,7 @@ class ActionGetCandidatesInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-        all_names = [blob1['value'] for blob1 in tracker.latest_message['entities']
+        all_names = [real_name(blob1['value'],candidates_name) for blob1 in tracker.latest_message['entities']
                      if blob1['entity'] == 'candidate_name']
         img = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].imageProfile.values[0]
         path = 'https://raw.githubusercontent.com/ArianeDlns/chatbot-presidentielle2022/main/actions/data'
@@ -86,7 +86,9 @@ class ActionGetCandidatesInfo(Action):
         
         age = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].age.values[0]
         etudes = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].studies.values[0] 
-        response = f'*{all_names[0]}* a {age} ans et a étudié à {etudes}' 
+        url = "https://fr.wikipedia.org/wiki/"+'_'.join(all_names[0].split(" "))
+        print(url)
+        response = f"*{all_names[0]}* a {age} ans et a étudié à {etudes} pour en savoir plus, je vous invite à consulter le [profil du candidat]({url})" 
         dispatcher.utter_message(
                 json_message={'text': response, 'parse_mode': 'markdown'})
 
@@ -307,7 +309,10 @@ class ActionGetSondageAllCandidates(Action):
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
-
+        
+        response = "Pour plus d'informations sur les sondages, je vous invite à aller consulter ces très bon sites sur l'évolution des scores: [Electracker](https://electracker.fr/) et [Depuis1958](https://depuis1958.fr/2022/)"
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
         # HTML Table displaying
         # dispatcher.utter_message(json_message={'text': HTML_table_from_df(
         #    candidates_poll_df), 'parse_mode': 'HTML'})
@@ -338,4 +343,7 @@ class ActionGetEvolutionGraphCandidates(Action):
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
+        response = "Pour plus d'informations sur les sondages, je vous invite à aller consulter ce très bon site sur l'évolution des scores: [Electracker](https://electracker.fr/) et [Depuis1958](https://depuis1958.fr/2022/)"
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
         return []

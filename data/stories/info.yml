@@ -15,6 +15,20 @@ stories:
   - action: utter_report
   - intent: report
   - action: utter_report
+  
+- story: demande sources
+  steps:
+  - intent: sources
+  - action: utter_sources
+  - intent: sources
+  - action: utter_sources
+
+- story: demande recette
+  steps:
+  - intent: demande_recette
+  - action: utter_recette
+  - intent: demande_recette
+  - action: utter_recette
 
 - story: conditions candidats
   steps:
@@ -78,4 +92,3 @@ stories:
   - action: utter_vote_etranger
   - intent: vote_etranger
   - action: utter_vote_etranger
-

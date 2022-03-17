@@ -29,6 +29,10 @@ nlu:
     - Quel est le dernier sondage ?
     - Quel est le score au dernier sondage ?
     - score ?
+    - Qui va gagner ?
+    - Qui est en tête 
+    - Qui va être président ?
+    - Quel est le résultat ? 
 - intent: demande_evolution
   examples: |
     - Comment a évolué [Macron](candidate_name) ? 
