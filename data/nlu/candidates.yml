@@ -27,6 +27,8 @@ nlu:
     - Qui [Pecresse](candidate_name) ?
     - Quel age a [Poutou](candidate_name) ?
     - Quelles études a fait [Zemmour](candidate_name) ?
+    - Qui est [Jadot](candidate_name)
+    - [Mélanchon](candidate_name) est qui ?
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
