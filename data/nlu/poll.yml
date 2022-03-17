@@ -38,3 +38,5 @@ nlu:
     - Comment a évolué [Macron](candidate_name) ? 
     - Quelle est la tendance de [Le Pen](candidate_name) dans les sondages ? 
     - Quelle est l'évolution de [Macron](candidate_name) et [Le Pen](candidate_name) ?
+    - Est-ce que [jadot](candidate_name) augmente dans les sondages ?
+    - [Anne Hidalgo](candidate_name) baisse-t-elle dans les sondages ?
