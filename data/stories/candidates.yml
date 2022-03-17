@@ -5,10 +5,24 @@ stories:
   steps:
   - intent: demande_candidats
   - action: action_get_candidates
-  
+
+- story: demande info candidat
+  steps:
+  - intent: demande_candidats_info
+    entities:
+    - candidate_name: Jadot
+  - action: action_get_candidates_info
+
 - story: demande parti candidat
   steps:
   - intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+
+- story: demande parti candidat
+  steps:
+  - intent: demande_parti_candidat
+    entities:
+    - candidate_name: Jadot
   - action: action_get_party_from_candidate
 
 - story: demande subthemes

@@ -14,6 +14,7 @@ intents:
 - mauvaise_humeur
 - demande_identite
 - demande_candidats
+- demande_candidats_info
 - demande_parti_candidat
 - demande_blague
 - demande_evolution
@@ -128,5 +129,5 @@ actions:
 - utter_bonne_humeur
 - utter_demande_question
 - utter_salutations
-
+- action_get_candidates_info
 

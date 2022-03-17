@@ -4,9 +4,6 @@
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk import Action, Tracker
 
@@ -18,7 +15,7 @@ import pandas as pd
 from gensim.models import KeyedVectors
 
 import sys
-sys.path.append('/app/actions')
+# sys.path.append('/app/actions')
 # sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
@@ -26,8 +23,8 @@ from utils.plot_formatting import *
 from utils.candidate_names import *
 from utils.scrapping_sondages import *
 
-PATH = '/app/actions/'
-#PATH = './'
+#PATH = '/app/actions/'
+PATH = './'
 
 # Loading the word2vec binary model
 file_name = PATH + "data/word2vec/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin"
@@ -41,6 +38,8 @@ candidates_name = [candidate['name']
                    for candidate in candidates_data['candidates']]
 candidates_party = [candidate['party']
                     for candidate in candidates_data['candidates']]
+candidates_info = pd.DataFrame(json.loads(
+    Path(PATH + "data/data_candidates/candidates_infos.json").read_text())['candidates'])
 
 # Loading the propositions CSV file (scrapped from IFRAP)
 df = pd.read_csv(PATH + "data/data_candidates/propositions.csv",
@@ -63,6 +62,33 @@ class ActionGetCandidates(Action):
             f"{candidates_name[i]} ({candidates_party[i]})\n" for i in range(len(candidates_name))]
         dispatcher.utter_message(
             text=f"Voici la liste des candidats participants aux élections présidentielles de 2022 :\n- {'- '.join(candidates_name_party)}")
+
+        return []
+
+class ActionGetCandidatesInfo(Action):
+
+    def name(self) -> Text:
+        return "action_get_candidates_info"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        all_names = [blob1['value'] for blob1 in tracker.latest_message['entities']
+                     if blob1['entity'] == 'candidate_name']
+        img = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].imageProfile.values[0]
+        path = 'https://raw.githubusercontent.com/ArianeDlns/chatbot-presidentielle2022/main/actions/data'
+        img_path = path + img[3:-1]
+        #print(img_path)
+
+        text = f'Voici {all_names[0]}'
+        dispatcher.utter_message(text=text, image=img_path)
+        
+        age = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].age.values[0]
+        etudes = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].studies.values[0] 
+        response = f'*{all_names[0]}* a {age} ans et a étudié à {etudes}' 
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
 
         return []
 
@@ -166,6 +192,9 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
                 json_message={'text': response, 'parse_mode': 'markdown'})
         return []
 
+# --------------------------------------------------
+# INTERACTIVE PROGRAM 
+# --------------------------------------------------
 
 class ActionProgrammInteractive(Action):
     """
