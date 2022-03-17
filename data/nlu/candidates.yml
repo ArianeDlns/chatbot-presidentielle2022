@@ -26,7 +26,7 @@ nlu:
     - Quel est le parti de [Pecresse](candidate_name)
     - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
     - donne moi le parti politique de [jean lassale](candidate_name)
-    - dis moi, a quel parti appartient [yannick jado](candidate_name) ?
+    - dis moi, a quel parti appartient [jadot](candidate_name) ?
     - mouvement politique de [roussel](candidate_name)
     - De quel parti fait partie [Nathalie Arthaud](candidate_name) ?
     - Au sein de quel parti est [Emmanuel](candidate_name) ?
