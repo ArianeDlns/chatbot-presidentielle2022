@@ -3,19 +3,21 @@ session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true
 intents:
-- demande_sondage
-- demande_sondage_candidat
+- demande_subthemes
 - theme_cand
 - demande_programme
-- demande_subthemes
 - salutations
+- demande_recette
+- demande_blague
+- demande_sondage
+- demande_sondage_candidat
 - bonne_humeur
 - demande_humeur
 - mauvaise_humeur
 - demande_identite
 - demande_candidats
+- demande_candidats_info
 - demande_parti_candidat
-- demande_blague
 - demande_evolution
 - dates_tours
 - report
@@ -28,6 +30,7 @@ intents:
 - condition_electeur
 - procuration
 - vote_etranger
+- sources
 entities:
 - candidate_name
 - candidate_party
@@ -116,17 +119,25 @@ responses:
       Le vote peut avoir lieu :
       - à l'étranger à la condition d'être inscrit sur la liste consulaire ;
       - en France à la condition d'être inscrit sur la liste d'une commune.
+  utter_sources:
+  - custom:
+      text: Nous avons récupéré les programmes depuis le comparateur de l'[IFRAP](https://www.ifrap.org/comparateurs/presidentielle-2022), auquel nous ne sommes aucunement liés. Les données de sondages sont récupérées depuis [wikipédia](https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022. Certaines informations sur les candidates proviennent de divers autres initiatives citoyennes pour l'information, dont l'application [Elyze](https://github.com/francoismari/elyze)
+      parse_mode: MarkdownV2
+  utter_recette:
+  - custom:
+      text: Je ne suis pas un fin cuisinier mais je peux vous conseiller cette petit recette tout droit venue de [Marmiton](https://www.marmiton.org/recettes/recette-hasard.aspx?v=2)
+      parse_mode: MarkdownV2
 actions:
 - action_get_candidates
+- action_get_candidates_info
 - action_get_evolution_graph_candidat
+- action_get_interactive_program
+- action_get_interactive_subthemes
 - action_get_party_from_candidate
 - action_get_propositions_from_candidate_and_theme
 - action_get_sondage_all_candidat
 - action_get_sondage_candidat
-- action_get_interactive_program
-- action_get_interactive_subthemes
 - utter_bonne_humeur
 - utter_demande_question
+- utter_recette
 - utter_salutations
-
-

@@ -16,6 +16,17 @@ nlu:
     - Qui s'est présenté à l'élection présidentielle 2022 ? 
     - Quels sont les candidats déclarés pour l'élection ? 
     - Qui veut devenir président ? 
+- intent: demande_candidats_info
+  examples: |
+    - Donne moi des infos sur [yannick jado](candidate_name)
+    - Qui est [Jean Lassalle](candidate_name) ?
+    - Qui est [Emmanuel Macron](candidate_name) ?
+    - [Emmanuel Macron](candidate_name) ?
+    - [Eric Zemmour](candidate_name)
+    - Qu'à fait [Hidalgo](candidate_name) ?
+    - Qui [Pecresse](candidate_name) ?
+    - Quel age a [Poutou](candidate_name) ?
+    - Quelles études a fait [Zemmour](candidate_name) ?
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
@@ -32,6 +43,8 @@ nlu:
     - Au sein de quel parti est [Emmanuel](candidate_name) ?
     - Quel parti soutient [Marine Le Pen](candidate_name) ?
     - [Roussel](candidate_name) appartient à quel mouvance politique ? 
+    - Quel est le part politique de [Pecresse](candidate_name)
+    - 
 - intent: theme_cand
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
@@ -81,3 +94,4 @@ nlu:
     - Que veut [Lasalle](candidate_name) ?
     - Qu'y a t'il dans le programme de [Fabien Roussel](candidate_name) ? 
     - Programme [yannick jadot](candidate_name) 
+    - Quel est le programme de [Melanchon](candidate_name) 

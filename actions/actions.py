@@ -4,9 +4,6 @@
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk import Action, Tracker
 
@@ -41,6 +38,8 @@ candidates_name = [candidate['name']
                    for candidate in candidates_data['candidates']]
 candidates_party = [candidate['party']
                     for candidate in candidates_data['candidates']]
+candidates_info = pd.DataFrame(json.loads(
+    Path(PATH + "data/data_candidates/candidates_infos.json").read_text())['candidates'])
 
 # Loading the propositions CSV file (scrapped from IFRAP)
 df = pd.read_csv(PATH + "data/data_candidates/propositions.csv",
@@ -63,6 +62,35 @@ class ActionGetCandidates(Action):
             f"{candidates_name[i]} ({candidates_party[i]})\n" for i in range(len(candidates_name))]
         dispatcher.utter_message(
             text=f"Voici la liste des candidats participants aux élections présidentielles de 2022 :\n- {'- '.join(candidates_name_party)}")
+
+        return []
+
+class ActionGetCandidatesInfo(Action):
+
+    def name(self) -> Text:
+        return "action_get_candidates_info"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        all_names = [real_name(blob1['value'],candidates_name) for blob1 in tracker.latest_message['entities']
+                     if blob1['entity'] == 'candidate_name']
+        img = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].imageProfile.values[0]
+        path = 'https://raw.githubusercontent.com/ArianeDlns/chatbot-presidentielle2022/main/actions/data'
+        img_path = path + img[3:-1]
+        #print(img_path)
+
+        text = f'Voici {all_names[0]}'
+        dispatcher.utter_message(text=text, image=img_path)
+        
+        age = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].age.values[0]
+        etudes = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].studies.values[0] 
+        url = "https://fr.wikipedia.org/wiki/"+'_'.join(all_names[0].split(" "))
+        print(url)
+        response = f"*{all_names[0]}* a {age} ans et a étudié à {etudes} pour en savoir plus, je vous invite à consulter le [profil du candidat]({url})" 
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
 
         return []
 
@@ -166,6 +194,9 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
                 json_message={'text': response, 'parse_mode': 'markdown'})
         return []
 
+# --------------------------------------------------
+# INTERACTIVE PROGRAM 
+# --------------------------------------------------
 
 class ActionProgrammInteractive(Action):
     """
@@ -278,7 +309,10 @@ class ActionGetSondageAllCandidates(Action):
 
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
-
+        
+        response = "Pour plus d'informations sur les sondages, je vous invite à aller consulter ces très bon sites sur l'évolution des scores: [Electracker](https://electracker.fr/) et [Depuis1958](https://depuis1958.fr/2022/)"
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
         # HTML Table displaying
         # dispatcher.utter_message(json_message={'text': HTML_table_from_df(
         #    candidates_poll_df), 'parse_mode': 'HTML'})
@@ -309,4 +343,7 @@ class ActionGetEvolutionGraphCandidates(Action):
         dispatcher.utter_message(
             text=f"Voici les résultats du dernier sondage  ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']}):\n- {'- '.join(candidates_poll_value)}")
 
+        response = "Pour plus d'informations sur les sondages, je vous invite à aller consulter ce très bon site sur l'évolution des scores: [Electracker](https://electracker.fr/) et [Depuis1958](https://depuis1958.fr/2022/)"
+        dispatcher.utter_message(
+                json_message={'text': response, 'parse_mode': 'markdown'})
         return []
