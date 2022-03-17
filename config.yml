@@ -43,6 +43,7 @@ policies:
    - name: UnexpecTEDIntentPolicy
      max_history: 5
      epochs: 100
+     tolerance: 1
    - name: TEDPolicy
      max_history: 5
      epochs: 100

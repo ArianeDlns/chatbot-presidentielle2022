@@ -48,7 +48,7 @@ nlu:
     - donne moi une histoire 
     - est-ce que tu as une blague pour moi ? 
     - donne une histoire 
-- intent: souces
+- intent: sources
   examples: |
     - Quelles sont tes sources ?
     - D'où tires tu tes informations ?
