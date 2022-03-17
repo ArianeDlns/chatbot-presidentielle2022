@@ -23,7 +23,7 @@ pipeline:
     #   label: [256, 128]
     constrain_similarities: True
     entity_recognition: True
-    model_confidence: linear_norm
+    model_confidence: softmax
 #   - name: EntitySynonymMapper
 #   - name: ResponseSelector
 #     epochs: 100
