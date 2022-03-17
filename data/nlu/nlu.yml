@@ -49,6 +49,7 @@ nlu:
     - est-ce que tu as une blague pour moi ? 
     - donne une histoire 
 - intent: souces
+  examples: |
     - Quelles sont tes sources ?
     - D'où tires tu tes informations ?
     - sources ?
@@ -57,6 +58,7 @@ nlu:
     - Quelles sont les sources de ces informations ?
     - D'où vient les infos ?
 - intent: demande_recette
+  examples: |
     - Donne moi une recette 
     - Que cuisiner ce soir ?
     - cuisiner
