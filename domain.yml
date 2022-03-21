@@ -3,6 +3,7 @@ session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true
 intents:
+- start
 - demande_subthemes
 - theme_cand
 - demande_programme
@@ -121,7 +122,7 @@ responses:
       - en France à la condition d'être inscrit sur la liste d'une commune.
   utter_sources:
   - custom:
-      text: Nous avons récupéré les programmes depuis le comparateur de l'[IFRAP](https://www.ifrap.org/comparateurs/presidentielle-2022), auquel nous ne sommes aucunement liés. Les données de sondages sont récupérées depuis [wikipédia](https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022. Certaines informations sur les candidates proviennent de divers autres initiatives citoyennes pour l'information, dont l'application [Elyze](https://github.com/francoismari/elyze)
+      text: Nous avons récupéré les programmes depuis le comparateur de l'[IFRAP](https://www.ifrap.org/comparateurs/presidentielle-2022), auquel nous ne sommes aucunement liés\. Les données de sondages sont récupérées depuis [wikipédia](https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022. Certaines informations sur les candidates proviennent de divers autres initiatives citoyennes pour l'information, dont l'application [Elyze](https://github.com/francoismari/elyze)
       parse_mode: MarkdownV2
   utter_recette:
   - custom:

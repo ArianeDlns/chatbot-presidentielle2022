@@ -34,3 +34,8 @@ stories:
   steps:
   - intent: demande_blague
   - action: utter_blague
+
+- story: start 
+  steps:
+  - intent: start
+  - action: utter_salutations
