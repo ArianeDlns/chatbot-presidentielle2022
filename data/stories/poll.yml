@@ -4,11 +4,13 @@ stories:
 - story: demande sondage
   steps:
   - intent: demande_sondage
+  - action: wait
   - action: action_get_sondage_all_candidat
 
 - story: demande sondage candidat
   steps:
   - intent: demande_sondage_candidat
+  - action: wait
   - action: action_get_sondage_candidat
 
 - story: demande sondage candidat Pecresse
@@ -16,6 +18,7 @@ stories:
   - intent: demande_sondage_candidat
     entities:
     - candidate_name: Pecresse
+  - action: wait
   - action: action_get_sondage_candidat
 
 - story: interactive_story_1
@@ -23,4 +26,5 @@ stories:
   - intent: salutations
   - action: utter_salutations
   - intent: demande_sondage
+  - action: wait
   - action: action_get_sondage_all_candidat
