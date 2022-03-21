@@ -128,12 +128,12 @@ responses:
   - custom:
       text: Je ne suis pas un fin cuisinier mais je peux vous conseiller cette petit recette tout droit venue de [Marmiton](https://www.marmiton.org/recettes/recette-hasard.aspx?v=2)
       parse_mode: MarkdownV2
-  wait:
+  utter_wait:
   - custom:
-      text: Merci de me laisser le temps de charger les dernières données ... 
+      text: Chargement des dernières données en cours  \.\.\. 
       parse_mode: MarkdownV2
 actions:
-- action_get_candidates
+- action_get_candidates 
 - action_get_candidates_info
 - action_get_evolution_graph_candidat
 - action_get_interactive_program
