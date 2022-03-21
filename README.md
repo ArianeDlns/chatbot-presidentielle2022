@@ -40,6 +40,11 @@ sudo docker-compose up --build # Build and run containers
 sudo docker-compose down # Stops containers and removes containers 
 ```
 
+:bulb: **Tip:** Know which containers are up 
+```bash
+sudo docker ps -a 
+```
+
 ### Local deployment without docker 
 
 #### Launch rasa actions
