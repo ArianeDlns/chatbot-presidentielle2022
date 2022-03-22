@@ -92,3 +92,12 @@ stories:
   - action: utter_vote_etranger
   - intent: vote_etranger
   - action: utter_vote_etranger
+
+- story: vote blanc 
+  steps:
+  - intent: vote_blanc
+  - action: utter_vote_blanc
+  - action: utter_vote_blanc_nul
+  - intent: vote_blanc
+  - action: utter_vote_blanc
+  - action: utter_vote_blanc_nul

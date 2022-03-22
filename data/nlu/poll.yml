@@ -33,6 +33,8 @@ nlu:
     - Qui est en tête 
     - Qui va être président ?
     - Quel est le résultat ? 
+    - quel candidat est en tête ? 
+    - qui est favori pour l’élection ?  
 - intent: demande_evolution
   examples: |
     - Comment a évolué [Macron](candidate_name) ? 

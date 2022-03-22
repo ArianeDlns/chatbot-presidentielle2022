@@ -84,6 +84,16 @@ nlu:
     - est-ce que je peux aller voter si j'habite à l'étranger ?
     - est-il possible de voter depuis l'étranger ?
     - je suis actuellement à l'étranger, est-ce que je peux voter ?
+- intent: vote_blanc
+  examples: |
+    - Abstention, vote blanc et vote nul : quelles différences ?
+    - Qu'en est il du vote blanc ?
+    - Puis-je voter blanc ?
+    - Comment est comptabilisé l'abstension 
+    - Que se passe t'il si mon vote est nul 
+    - vote blanc
+    - Quel est le sens du vote blanc ? 
     
 
 # sources réponses : https://www.vie-publique.fr/questions-reponses/269379-election-presidentielle-2022-lessentiel-en-questions-reponses
+# source vote blanc: https://www.vie-publique.fr/fiches/23931-abstention-vote-blanc-et-vote-nul-quelles-differences
