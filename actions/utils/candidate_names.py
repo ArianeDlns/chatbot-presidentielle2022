@@ -3,18 +3,8 @@ from pathlib import Path
 import nltk
 import numpy as np
 
-PATH = '/app/actions/'
-#PATH = './'
-
-candidates_data = json.loads(Path(PATH + "data/data_candidates/candidates.json").read_text())
-candidates_name = [candidate['name']
-                   for candidate in candidates_data['candidates']]
-
 def real_name(name, list_names=[]):
-    if len(list_names)>0:
-        names = list_names
-    else:
-        names = candidates_name
+    names = list_names
     lastnames = [[x for x in name.split(' ') if len(x) > 1][-1] for name in names]
     firstnames = [[x for x in name.split(' ') if len(x) > 1][0] for name in names]
 

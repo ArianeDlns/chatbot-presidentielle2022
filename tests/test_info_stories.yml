@@ -47,7 +47,7 @@ stories:
 - story: formalites candidats
   steps:
   - user: |
-      quelles sont les formalités pour devenir candidat ?
+      quelles formalités doivent suivre les candidats ?
     intent: formalites_candidats
   - action: utter_formalites_candidats
 

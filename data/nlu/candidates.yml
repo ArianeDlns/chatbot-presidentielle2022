@@ -33,6 +33,8 @@ nlu:
     - Quelles études a fait [Zemmour](candidate_name) ?
     - Qui est [Jadot](candidate_name)
     - [Mélanchon](candidate_name) est qui ?
+    - Quel parcours a été le parcours de [dupont aignant](candidate_name) ?
+    - Présente moi [fabien roussel](candidate_name)
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
@@ -102,4 +104,5 @@ nlu:
     - Programme [yannick jadot](candidate_name) 
     - Quel est le programme de [Melanchon](candidate_name) 
     - Que propose [arthaud](candidate_name) ?
-    - quelles sont les idées de [ane hidalgo] ?
+    - quelles sont les idées de [ane hidalgo](candidate_name) ?
+    - j'aimerais connaitre les idées de [poutou](candidate_name)

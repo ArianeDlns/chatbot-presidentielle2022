@@ -31,6 +31,7 @@ nlu:
     - quelles sont les démarches que les candidats doivent suivre ?
     - combien de parrainages doivent obtenir les candidats ?
     - y a-t-il des formalités pour les candidats ?
+    - quelles sont les formalités pour devenir candidat ?
 - intent: declaration_patrimoine_candidats
   examples: |
     - qu'est-ce que la déclaration de patrimoine ?

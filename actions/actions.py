@@ -39,7 +39,7 @@ candidates_name = [candidate['name']
 candidates_party = [candidate['party']
                     for candidate in candidates_data['candidates']]
 candidates_info = pd.DataFrame(json.loads(
-    Path(PATH + "data/data_candidates/candidates_infos.json").read_text())['candidates'])
+    Path(PATH + "data/data_candidates/candidates_infos.json").read_text(encoding='utf-8'))['candidates'])
 
 # Loading the propositions CSV file (scrapped from IFRAP)
 df = pd.read_csv(PATH + "data/data_candidates/propositions.csv",
@@ -114,7 +114,7 @@ class ActionGetPartyFromCandidate(Action):
 
         for blob in tracker.latest_message['entities']:
             if blob['entity'] == 'candidate_name':
-                name = real_name(blob['value'])
+                name = real_name(blob['value'], candidates_name)
                 if name in candidates_name:
                     party = candidates_party[candidates_name.index(
                         name)]
@@ -282,7 +282,7 @@ class ActionGetSondageFromCandidate(Action):
                 name_value = ' '.join(real_name(name).split(' ')[1:])
                 poll_value = candidates_data_sondage.iloc[0][name_value]
                 dispatcher.utter_message(
-                    text=f"{real_name(name)} est à {poll_value} % dans le dernier sondage ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']})")
+                    text=f"{real_name(name, candidates_name)} est à {poll_value} % dans le dernier sondage ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']})")
 
             else:
                 dispatcher.utter_message(text=f"Je ne reconnais pas le nom de ce candidat. L'avez-vous bien écrit ? \n Les candidats sont:" + (

@@ -75,20 +75,20 @@ stories:
 - story: demande programme candidat 2
   steps:
   - user: |
-      j'aimerais connaitre les idées de [poutou]{"entity": "candidate_name"}
+      j'aimerais savoir les propositions de [roussel]{"entity": "candidate_name"}
     intent: demande_programme
   - action: action_get_interactive_program
 
 - story: demande info candidat
   steps:
   - user: |
-      quel a été le parcours de [dupont aignant]{"entity": "candidate_name"}
+      parcours de [marine le pen]{"entity": "candidate_name"} ?
     intent: demande_candidats_info
   - action: action_get_candidates_info
 
 - story: demande info candidat 2
   steps:
   - user: |
-      présente moi [fabien roussel]{"entity": "candidate_name"}
+      Fais moi la présentation de [hidalgo]{"entity": "candidate_name"}
     intent: demande_candidats_info
   - action: action_get_candidates_info
