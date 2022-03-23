@@ -16,7 +16,7 @@ from gensim.models import KeyedVectors
 
 import sys
 sys.path.append('/app/actions')
-# sys.path.remove('/app/actions')
+#sys.path.remove('/app/actions')
 
 from utils.embed_themes import *
 from utils.plot_formatting import *
@@ -81,18 +81,24 @@ class ActionGetCandidatesInfo(Action):
         img_path = path + img[3:-1]
         #print(img_path)
 
-        text = f'Voici {all_names[0]}'
-        dispatcher.utter_message(text=text, image=img_path)
-        
-        age = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].age.values[0]
-        etudes = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].studies.values[0] 
-        url = "https://fr.wikipedia.org/wiki/"+'_'.join(all_names[0].split(" "))
-        print(url)
-        response = f"*{all_names[0]}* a {age} ans et a étudié à {etudes} pour en savoir plus, je vous invite à consulter le [profil du candidat]({url})" 
-        dispatcher.utter_message(
-                json_message={'text': response, 'parse_mode': 'markdown'})
+        if len(all_names) == 0:
+            dispatcher.utter_message(
+                text=f"Je n'ai pas compris le nom du candidat concerné. Pouvez-vous reformuler ?")
+            return []
 
-        return []
+        else:
+            text = f'Voici {all_names[0]}'
+            dispatcher.utter_message(text=text, image=img_path)
+
+            age = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].age.values[0]
+            etudes = candidates_info[candidates_info['firstname']==all_names[0].split(" ")[0]].studies.values[0] 
+            url = "https://fr.wikipedia.org/wiki/"+'_'.join(all_names[0].split(" "))
+            print(url)
+            response = f"*{all_names[0]}* a {age} ans et a étudié à {etudes} pour en savoir plus, je vous invite à consulter le [profil du candidat]({url})" 
+            dispatcher.utter_message(
+                    json_message={'text': response, 'parse_mode': 'markdown'})
+
+            return []
 
 
 class ActionGetPartyFromCandidate(Action):
@@ -189,7 +195,7 @@ class ActionGetPropositionsFromCandidateAndTheme(Action):
             for proposition in propositions[:200]:
                 response += "- " + proposition + "\n"
             response = response[:-2]
-            response += "\n\n Source: [Ifrap](https://www.ifrap.org/comparateurs/presidentielle-2022)"
+            response += "\n\n Source: Ifrap" #(https://www.ifrap.org/comparateurs/presidentielle-2022)"
             dispatcher.utter_message(
                 json_message={'text': response, 'parse_mode': 'markdown'})
         return []
