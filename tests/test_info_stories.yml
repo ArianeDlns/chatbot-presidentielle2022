@@ -16,6 +16,13 @@ stories:
     intent: dates_tours
   - action: utter_dates_tours
 
+- story: dates tours 3
+  steps:
+  - user: |
+      Quels sont les dates des élections ? 
+    intent: dates_tours
+  - action: utter_dates_tours
+
 - story: report
   steps:
   - user: |
@@ -27,6 +34,13 @@ stories:
   steps:
   - user: |
       est-il possible que les élections soient annulées ?
+    intent: report
+  - action: utter_report
+
+- story: report 3
+  steps:
+  - user: |
+      dans quel cas les élections pourraient-elles être annulées ?
     intent: report
   - action: utter_report
 
@@ -44,6 +58,13 @@ stories:
     intent: conditions_candidats
   - action: utter_conditions_candidats
 
+- story: conditions candidats 3
+  steps:
+  - user: |
+      Quelles sont les contraintes pour devenir candidat ? 
+    intent: conditions_candidats
+  - action: utter_conditions_candidats
+
 - story: formalites candidats
   steps:
   - user: |
@@ -55,6 +76,13 @@ stories:
   steps:
   - user: |
       quelles sont les conditions des parrainages ?
+    intent: formalites_candidats
+  - action: utter_formalites_candidats
+
+- story: formalites candidats 3
+  steps:
+  - user: |
+      Que doit on faire pour officialiser sa candidature ? 
     intent: formalites_candidats
   - action: utter_formalites_candidats
 
@@ -72,6 +100,13 @@ stories:
     intent: declaration_patrimoine_candidats
   - action: utter_declaration_patrimoine_candidats
 
+- story: declaration patrimoine candidats 3
+  steps:
+  - user: |
+      Quel type de patrimoine doivent déclarer les candidats ?
+    intent: declaration_patrimoine_candidats
+  - action: utter_declaration_patrimoine_candidats
+
 - story: financement campagne
   steps:
   - user: |
@@ -83,6 +118,13 @@ stories:
   steps:
   - user: |
       y a-t-il des règles pour le financement de la campagne électorale ?
+    intent: financement_campagne
+  - action: utter_financement_campagne
+
+- story: financement campagne 3
+  steps:
+  - user: |
+      Listes règles financement campagne 
     intent: financement_campagne
   - action: utter_financement_campagne
 
@@ -100,6 +142,13 @@ stories:
     intent: regles_audiovisuelles
   - action: utter_regles_audiovisuelles
 
+- story: regles audiovisuelles 3
+  steps:
+  - user: |
+      Comment est calculé le temps de présence dans les médias des candidats ? 
+    intent: regles_audiovisuelles
+  - action: utter_regles_audiovisuelles
+
 - story: mode scrutin
   steps:
   - user: |
@@ -111,6 +160,13 @@ stories:
   steps:
   - user: |
       comment fonctionnera le vote ?
+    intent: mode_scrutin
+  - action: utter_mode_scrutin
+
+- story: mode scrutin 2
+  steps:
+  - user: |
+      Quelles sont les caractéristiques du mode de vote ? 
     intent: mode_scrutin
   - action: utter_mode_scrutin
 
@@ -128,6 +184,13 @@ stories:
     intent: condition_electeur
   - action: utter_condition_electeur
 
+- story: conditions electeurs 3
+  steps:
+  - user: |
+      savoir si je peux voter 
+    intent: condition_electeur
+  - action: utter_condition_electeur
+
 - story: procuration
   steps:
   - user: |
@@ -139,6 +202,13 @@ stories:
   steps:
   - user: |
       est-ce que je peux faire voter quelqu'un a ma place ?
+    intent: procuration
+  - action: utter_procuration
+
+- story: procuration 3
+  steps:
+  - user: |
+      Je veux faire une procuration
     intent: procuration
   - action: utter_procuration
 
@@ -156,6 +226,13 @@ stories:
     intent: vote_etranger
   - action: utter_vote_etranger
 
+- story: vote depuis etranger 3
+  steps:
+  - user: |
+      Quelles sont les conditions de vote à l'étranger ? 
+    intent: vote_etranger
+  - action: utter_vote_etranger
+
 - story: demande sources
   steps:
   - user: |
@@ -167,5 +244,12 @@ stories:
   steps:
   - user: |
       d'où tiens tu tes informations ?
+    intent: sources
+  - action: utter_sources
+
+- story: demande sources 3
+  steps:
+  - user: |
+      Tu peux me dire comment tu sais tout ça ?  
     intent: sources
   - action: utter_sources
