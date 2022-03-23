@@ -35,7 +35,6 @@ intents:
 - sources
 entities:
 - candidate_name
-- candidate_party
 - theme
 responses:
   utter_salutations:

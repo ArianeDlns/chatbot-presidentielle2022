@@ -16,6 +16,10 @@ nlu:
     - Qui s'est présenté à l'élection présidentielle 2022 ? 
     - Quels sont les candidats déclarés pour l'élection ? 
     - Qui veut devenir président ? 
+    - Qui est le plus à droite ?
+    - Quel est le candidat du parti communiste ?
+    - Quels sont les candidats d'extreme gauche ?
+    - Qui participe pour le PS ?
 - intent: demande_candidats_info
   examples: |
     - Donne moi des infos sur [yannick jado](candidate_name)
