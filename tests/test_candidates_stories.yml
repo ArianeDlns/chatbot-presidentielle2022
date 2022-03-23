@@ -135,3 +135,10 @@ stories:
     intent: demande_candidats_info
   - action: action_get_candidates_info
 
+- story: demande theme candidat 5
+  steps:
+  - user: |
+      Quelle proposition [Zemmour]{"entity": "candidate_name"} sur le [Nucléaire]{"entity": "theme"} ?
+    intent: theme_cand
+  - action: action_get_propositions_from_candidate_and_theme
+  
