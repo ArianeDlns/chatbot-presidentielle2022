@@ -39,6 +39,10 @@ stories:
     entities:
     - candidate_name: Macron
   - action: action_get_interactive_program
+  - intent: demande_programme
+    entities:
+    - candidate_name: jadot
+  - action: action_get_interactive_program
 
 
 - story: demande theme candidat

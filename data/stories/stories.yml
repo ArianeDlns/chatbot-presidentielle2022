@@ -39,3 +39,10 @@ stories:
   steps:
   - intent: start
   - action: utter_salutations
+
+- story: demande recette
+  steps:
+  - intent: demande_recette
+  - action: utter_recette
+  - intent: demande_recette
+  - action: utter_recette

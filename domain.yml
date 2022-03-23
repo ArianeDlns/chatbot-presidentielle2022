@@ -47,8 +47,7 @@ responses:
   utter_bonne_humeur:
   - text: Je m'en réjoui !
   utter_mauvaise_humeur:
-  - text: "J'en suis navré... Voici quelque chose pour vous égayer :"
-    image: https://www.sudinfo.be/sites/default/files/dpistyles_v2/ena_sp_16_9_illustration_principale/2021/11/27/node_430187/49784626/public/2021/11/27/B9729146942Z.1_20211127182424_000+G5LJDTTLH.2-0.jpg?itok=JFWUbF751638034873
+  - text: "J'en suis navré... Est-ce que je peux faire quelque chose pour vous ?"
   utter_identite:
   - text: Je suis un chatbot, c'est-à-dire un agent conversationnel. Je peux dialoguer avec un utilisateur, mais je n'ai pas de conscience propre.
   utter_out_of_scope:

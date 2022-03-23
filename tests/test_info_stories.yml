@@ -155,3 +155,17 @@ stories:
       comment voter depuis un autre pays
     intent: vote_etranger
   - action: utter_vote_etranger
+
+- story: demande sources
+  steps:
+  - user: |
+      quelles sources as-tu utilisé ?
+    intent: sources
+  - action: utter_sources
+
+- story: demande sources 2
+  steps:
+  - user: |
+      d'où tiens tu tes informations ?
+    intent: sources
+  - action: utter_sources

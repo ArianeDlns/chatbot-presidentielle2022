@@ -23,13 +23,6 @@ stories:
   - intent: sources
   - action: utter_sources
 
-- story: demande recette
-  steps:
-  - intent: demande_recette
-  - action: utter_recette
-  - intent: demande_recette
-  - action: utter_recette
-
 - story: conditions candidats
   steps:
   - intent: conditions_candidats

@@ -64,3 +64,31 @@ stories:
       que pense [zemmour]{"entity": "candidate_name"} de l'[environnement]{"entity": "theme"} ?
     intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande programme candidat
+  steps:
+  - user: |
+      dis moi le programme de [jean lassalle]{"entity": "candidate_name"} ?
+    intent: demande_programme
+  - action: action_get_interactive_program
+
+- story: demande programme candidat 2
+  steps:
+  - user: |
+      j'aimerais connaitre les idées de [poutou]{"entity": "candidate_name"}
+    intent: demande_programme
+  - action: action_get_interactive_program
+
+- story: demande info candidat
+  steps:
+  - user: |
+      quel a été le parcours de [dupont aignant]{"entity": "candidate_name"}
+    intent: demande_candidats_info
+  - action: action_get_candidates_info
+
+- story: demande info candidat 2
+  steps:
+  - user: |
+      présente moi [fabien roussel]{"entity": "candidate_name"}
+    intent: demande_candidats_info
+  - action: action_get_candidates_info

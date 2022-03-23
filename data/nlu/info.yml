@@ -93,6 +93,15 @@ nlu:
     - Que se passe t'il si mon vote est nul 
     - vote blanc
     - Quel est le sens du vote blanc ? 
+- intent: sources
+  examples: |
+    - Quelles sont tes sources ?
+    - D'où tires tu tes informations ?
+    - sources ?
+    - d'ou viennent tes sources ? 
+    - qui est à la source de tes informations ?
+    - Quelles sont les sources de ces informations ?
+    - D'où vient les infos ?
     
 
 # sources réponses : https://www.vie-publique.fr/questions-reponses/269379-election-presidentielle-2022-lessentiel-en-questions-reponses

@@ -41,3 +41,10 @@ stories:
     intent: demande_identite
   - action: utter_identite
   - action: utter_demande_question
+
+- story: demande recette
+  steps:
+  - user: |
+      je sais pas quoi manger ce soir
+    intent: demande_recette
+  - action: utter_recette
