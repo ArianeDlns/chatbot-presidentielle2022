@@ -16,6 +16,30 @@ nlu:
     - Qui s'est présenté à l'élection présidentielle 2022 ? 
     - Quels sont les candidats déclarés pour l'élection ? 
     - Qui veut devenir président ? 
+    - Qui est le plus à droite ?
+    - Quel est le candidat du parti communiste ?
+    - Quels sont les candidats d'extreme gauche ?
+    - Qui participe pour le PS ?
+- intent: demande_candidats_info
+  examples: |
+    - Donne moi des infos sur [yannick jado](candidate_name)
+    - Qui est [Jean Lassalle](candidate_name) ?
+    - Qui est [Emmanuel Macron](candidate_name) ?
+    - [Emmanuel Macron](candidate_name) ?
+    - [Eric Zemmour](candidate_name)
+    - Qu'à fait [Hidalgo](candidate_name) ?
+    - Qui [Pecresse](candidate_name) ?
+    - Quel age a [Poutou](candidate_name) ?
+    - Quelles études a fait [Zemmour](candidate_name) ?
+    - Qui est [Jadot](candidate_name)
+    - [Mélanchon](candidate_name) est qui ?
+    - Quel parcours a été le parcours de [dupont aignant](candidate_name) ?
+    - Présente moi [fabien roussel](candidate_name)
+    - Résume moi le parcours de [jean luc mélenchon](candidate_name)
+    - vie de [nicolas dupont aignan](candidate_name)
+    - CV de [hidalgo](candidate_name)
+    - présentation de la biographie de [fabien roussel](candidate_name)
+    - [eric zemmour](candidate_name) est-il un politicien ?
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
@@ -24,22 +48,26 @@ nlu:
     - parti de [Poutou](candidate_name)
     - Donne moi le nom du parti de [Eric Zemmour](candidate_name)
     - Quel est le parti de [Pecresse](candidate_name)
-    - Quel est le parti politique de [asselineau](candidate_name)
     - Quel est le groupe politique derrière [nathalie arthaud](candidate_name)
     - donne moi le parti politique de [jean lassale](candidate_name)
-    - dis moi, a quel parti appartient [yannick jado](candidate_name) ?
+    - dis moi, a quel parti appartient [jadot](candidate_name) ?
     - mouvement politique de [roussel](candidate_name)
     - De quel parti fait partie [Nathalie Arthaud](candidate_name) ?
     - Au sein de quel parti est [Emmanuel](candidate_name) ?
     - Quel parti soutient [Marine Le Pen](candidate_name) ?
     - [Roussel](candidate_name) appartient à quel mouvance politique ? 
-- intent: demande_theme_candidat
+    - Quel est le part politique de [Pecresse](candidate_name)
+    - [Zemmour](candidate_name) est-il d'extreme droite ?
+    - Où se situe [jean lassalle](candidate_name) sur l'échiquier politique ?
+    - [Macron](candidate_name) est-il de gauche ?
+    - quelle est la famille politique de [fabien roussel](candidate_name) ?
+- intent: theme_cand
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?
     - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour l'[emploi](theme)
     - Que pense [Yannick Jadot](candidate_name) à propos de l'[économie](theme) ?
     - Que dit le programme de [Marine Lepen](candidate_name) sur la question de l'[environnement](theme) ?
-    - Qu'est-ce qui est prévu pour l'[énergie](theme) dans le programme de [Fabien Roussel](candidate_name)
+    - Qu'est-ce qui est prévu pour les [énergies renouvelables](theme) dans le programme de [Fabien Roussel](candidate_name)
     - Quelles propositions a [Eric Zemmour](candidate_name) sur la [justice](theme)
     - Quelles idées a [Hidalgo](candidate_name) sur la [fonction publique](theme) ?
     - Quelles sont les idées de [jean luc melenchon](candidate_name) sur la [défense](theme) et l'[armée](theme) ?
@@ -68,4 +96,24 @@ nlu:
     - Que pense [melenchon](candidate_name) du [Nucléaire](theme)
     - Qu'y a t'il dans le programme de [Emmanuel Macron](candidate_name) au sujet de l'[éducation](theme) ?
     - Que veut faire [Valérie Pécresse](candidate_name) concernant la [santé] ?
-
+    - Que pense [Macron](candidate_name) du [climat](theme) ?
+    - Que pense [Pecresse](candidate_name) de l'[immigration](theme) ?
+    - Quel est l'avis de [Mélenchon](candidate_name) sur l'[économie](theme) ?
+    - Quel est le point de vue de [Poutou](candidate_name) sur les entreprises ?
+    - Quel est le point de vue de [Poutou](candidate_name) sur l'[économie](theme) ?
+    - Que pense [Macron](candidate_name) de la [santé](theme) ?
+    - Que pense [melenchon](candidate_name) des [entreprises](theme) ?
+- intent: demande_programme
+  examples: |
+    - Quel est le programme de [Macron](candidate_name) ?
+    - Que pense [Pecresse](candidate_name) ?
+    - Que veut [Lasalle](candidate_name) ?
+    - Qu'y a t'il dans le programme de [Fabien Roussel](candidate_name) ? 
+    - Programme [yannick jadot](candidate_name) 
+    - Quel est le programme de [Melanchon](candidate_name) 
+    - Que propose [arthaud](candidate_name) ?
+    - quelles sont les idées de [ane hidalgo](candidate_name) ?
+    - j'aimerais connaitre les idées de [poutou](candidate_name)
+    - quelles sont les propositions de [macron](candidate_name) ?
+    - programme de [eric zemmour](candidate_name)
+    - donne moi les principales propositions de [mélenchon](candidate_name)

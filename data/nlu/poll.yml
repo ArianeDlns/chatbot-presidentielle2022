@@ -15,6 +15,9 @@ nlu:
     - a combien est [Poutou](candidate_name)
     - score [Macron](candidate_name)
     - Quel est le score de [Arthaud](candidate_name)?
+    - Quel est le score de [Yannick Jadot](candidate_name) ?
+    - Quel est le score de [Macron](candidate_name) ?
+    - Ou en est [Pecresse](candidate_name) ?
 - intent: demande_sondage
   examples: |
     - Quel est le résultat du dernier sondage ? 
@@ -23,8 +26,19 @@ nlu:
     - Qui en est où dans les sondages
     - Quel est le score dans les sonndages 
     - Quelles sont les prédictions pour les présidentielles ?
+    - Quel est le dernier sondage ?
+    - Quel est le score au dernier sondage ?
+    - score ?
+    - Qui va gagner ?
+    - Qui est en tête 
+    - Qui va être président ?
+    - Quel est le résultat ? 
+    - quel candidat est en tête ? 
+    - qui est favori pour l’élection ?  
 - intent: demande_evolution
   examples: |
     - Comment a évolué [Macron](candidate_name) ? 
     - Quelle est la tendance de [Le Pen](candidate_name) dans les sondages ? 
     - Quelle est l'évolution de [Macron](candidate_name) et [Le Pen](candidate_name) ?
+    - Est-ce que [jadot](candidate_name) augmente dans les sondages ?
+    - [Anne Hidalgo](candidate_name) baisse-t-elle dans les sondages ?

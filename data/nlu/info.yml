@@ -16,6 +16,7 @@ nlu:
     - dans quels cas peut-il y avoir un report ?
     - l'élection peut-elle être annulée ?
     - une annulation des élections est-elle possible ?
+    - l'élection peut elle être invalide ?
 - intent: conditions_candidats
   examples: |
     - quelles sont les conditions pour être candidat ?
@@ -23,6 +24,8 @@ nlu:
     - qui peut être candidat ?
     - qui peut être élu président ?
     - qui peut se présenter aux élections ?
+    - ya des contraintes pour être candidat ?
+    - quelles conditions doit on respecter pour être candidat ?
 - intent: formalites_candidats
   examples: |
     - quelles sont les formalités que doivent remplir les candidats ?
@@ -31,6 +34,9 @@ nlu:
     - quelles sont les démarches que les candidats doivent suivre ?
     - combien de parrainages doivent obtenir les candidats ?
     - y a-t-il des formalités pour les candidats ?
+    - quelles sont les formalités pour devenir candidat ?
+    - comment porter sa candidature ?
+    - comment être candidat officiel ?
 - intent: declaration_patrimoine_candidats
   examples: |
     - qu'est-ce que la déclaration de patrimoine ?
@@ -84,6 +90,38 @@ nlu:
     - est-ce que je peux aller voter si j'habite à l'étranger ?
     - est-il possible de voter depuis l'étranger ?
     - je suis actuellement à l'étranger, est-ce que je peux voter ?
+- intent: vote_blanc
+  examples: |
+    - Abstention, vote blanc et vote nul : quelles différences ?
+    - Qu'en est il du vote blanc ?
+    - Puis-je voter blanc ?
+    - Comment est comptabilisé l'abstension 
+    - Que se passe t'il si mon vote est nul 
+    - vote blanc
+    - Quel est le sens du vote blanc ? 
+    - est-ce que je peux voter blanc ?
+    - que faire si je veux voter pour personne ?
+    - aucun candidat ne m'intéresse
+    - est-ce que je peux voter pour aucun candidat ?
+    - je veux voter pour aucun candidat
+    - je peux voter pour personne ?
+    - comment voter blanc ?
+- intent: sources
+  examples: |
+    - Quelles sont tes sources ?
+    - D'où tires tu tes informations ?
+    - sources ?
+    - d'ou viennent tes sources ? 
+    - qui est à la source de tes informations ?
+    - Quelles sont les sources de ces informations ?
+    - D'où vient les infos ?
+    - comment tu sais tout ça ?
+    - tu tiens ça d'où ?
+    - je te crois pas
+    - je ne trouve pas ça crédible
+    - j'ai un doute sur ces informations
+    - où je peux retrouver ce que tu dis ?
     
 
 # sources réponses : https://www.vie-publique.fr/questions-reponses/269379-election-presidentielle-2022-lessentiel-en-questions-reponses
+# source vote blanc: https://www.vie-publique.fr/fiches/23931-abstention-vote-blanc-et-vote-nul-quelles-differences

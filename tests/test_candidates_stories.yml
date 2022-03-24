@@ -15,6 +15,13 @@ stories:
       quel est le parti de chaque candidat ?
     intent: demande_candidats
   - action: action_get_candidates
+
+- story: demande liste candidats 3
+  steps:
+  - user: |
+      Liste moi tous les candidats 
+    intent: demande_candidats
+  - action: action_get_candidates
   
 - story: demande parti candidat
   steps:
@@ -30,37 +37,115 @@ stories:
     intent: demande_parti_candidat
   - action: action_get_party_from_candidate
 
+- story: demande parti candidat 3
+  steps:
+  - user: |
+      A quelle famille politique est rattachée [Anne Hidalgo]{"entity": "candidate_name"}
+    intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+
+- story: demande parti candidat 4
+  steps:
+  - user: |
+      Est-ce que [macron]{"entity": "candidate_name"} est de droite ?
+    intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+
 - story: demande theme candidat
   steps:
   - user: |
       quelles sont les actions prévues de [jean lassale]{"entity": "candidate_name"} pour le thème de l'[agriculture]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 2
   steps:
   - user: |
       quelles mesures sont dans le programme de [mélenchon]{"entity": "candidate_name"} sur les [énergies renouvelables]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 3
   steps:
   - user: |
       que pense [marine le pen]{"entity": "candidate_name"} à propos des [retraites]{"entity": "theme"} et de la [santé]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
 - story: demande theme candidat 4
   steps:
   - user: |
       que prévoit [emmanuel macron]{"entity": "candidate_name"} concernant les [paradis fiscaux]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
   
 - story: demande theme candidat 5
   steps:
   - user: |
       que pense [zemmour]{"entity": "candidate_name"} de l'[environnement]{"entity": "theme"} ?
-    intent: demande_theme_candidat
+    intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande theme candidat 6
+  steps:
+  - user: |
+      Propositions de [Nathalie Arthaud]{"entity": "candidate_name"} au sujet de l'[armement]{"entity": "theme"} ?
+    intent: theme_cand
+  - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande theme candidat 7
+  steps:
+  - user: |
+      Comment [Lassalle]{"entity": "candidate_name"} compte réformer le [système judiciaire]{"entity": "theme"} ?
+    intent: theme_cand
+  - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande theme candidat 8
+  steps:
+  - user: |
+      Quelle proposition [Zemmour]{"entity": "candidate_name"} sur le [Nucléaire]{"entity": "theme"} ?
+    intent: theme_cand
+  - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande programme candidat
+  steps:
+  - user: |
+      dis moi le programme de [jean lassalle]{"entity": "candidate_name"} ?
+    intent: demande_programme
+  - action: action_get_interactive_program
+
+- story: demande programme candidat 2
+  steps:
+  - user: |
+      j'aimerais savoir les propositions de [roussel]{"entity": "candidate_name"}
+    intent: demande_programme
+  - action: action_get_interactive_program
+
+- story: demande programme candidat 3
+  steps:
+  - user: |
+      Est ce que tu peux me dire ce que propose [Hidalgo]{"entity": "candidate_name"}
+    intent: demande_programme
+  - action: action_get_interactive_program
+
+- story: demande info candidat
+  steps:
+  - user: |
+      parcours de [marine le pen]{"entity": "candidate_name"} ?
+    intent: demande_candidats_info
+  - action: action_get_candidates_info
+
+- story: demande info candidat 2
+  steps:
+  - user: |
+      Fais moi la présentation de [hidalgo]{"entity": "candidate_name"}
+    intent: demande_candidats_info
+  - action: action_get_candidates_info
+
+- story: demande info candidat 3
+  steps:
+  - user: |
+      Peux tu résumer la vie de [Jean-Luc Mélenchon]{"entity": "candidate_name"}
+    intent: demande_candidats_info
+  - action: action_get_candidates_info
+  

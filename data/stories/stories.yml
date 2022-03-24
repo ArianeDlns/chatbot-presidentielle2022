@@ -34,3 +34,15 @@ stories:
   steps:
   - intent: demande_blague
   - action: utter_blague
+
+- story: start 
+  steps:
+  - intent: start
+  - action: utter_salutations
+
+- story: demande recette
+  steps:
+  - intent: demande_recette
+  - action: utter_recette
+  - intent: demande_recette
+  - action: utter_recette

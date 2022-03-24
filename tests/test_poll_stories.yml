@@ -7,6 +7,7 @@ stories:
   - user: |
       quelles sont les prédictions pour le 1er tour ?
     intent: demande_sondage
+  - action: utter_wait
   - action: action_get_sondage_all_candidat
 
 - story: demande sondage 2
@@ -14,18 +15,45 @@ stories:
   - user: |
       quel est l'etat des sondages aujourd'hui ?
     intent: demande_sondage
+  - action: utter_wait
+  - action: action_get_sondage_all_candidat
+
+- story: demande sondage 3
+  steps:
+  - user: |
+      Que dit le dernier sondage à date ? 
+    intent: demande_sondage
+  - action: utter_wait
   - action: action_get_sondage_all_candidat
 
 - story: demande sondage candidat
   steps:
   - user: |
       quel est le score de [jean luc melenchon]{"entity": "candidate_name"} dans les sondages ?
-    intent: demande_sondage
+    intent: demande_sondage_candidat
+  - action: utter_wait
   - action: action_get_sondage_candidat
 
 - story: demande sondage candidat 2
   steps:
   - user: |
       quelles sont les prédictions de vote de [macron]{"entity": "candidate_name"} ?
-    intent: demande_sondage
+    intent: demande_sondage_candidat
+  - action: utter_wait
+  - action: action_get_sondage_candidat
+
+- story: demande sondage candidat 3
+  steps:
+  - user: |
+      Quel est le pourcentage d'intention de vote de [Jadot]{"entity": "candidate_name"} ?
+    intent: demande_sondage_candidat
+  - action: utter_wait
+  - action: action_get_sondage_candidat
+
+- story: demande sondage candidat 4
+  steps:
+  - user: |
+      Quel score [Macron]{"entity": "candidate_name"} ?
+    intent: demande_sondage_candidat
+  - action: utter_wait
   - action: action_get_sondage_candidat
