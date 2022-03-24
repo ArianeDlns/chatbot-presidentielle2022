@@ -44,6 +44,13 @@ stories:
     intent: demande_parti_candidat
   - action: action_get_party_from_candidate
 
+- story: demande parti candidat 4
+  steps:
+  - user: |
+      Est-ce que [macron]{"entity": "candidate_name"} est de droite ?
+    intent: demande_parti_candidat
+  - action: action_get_party_from_candidate
+
 - story: demande theme candidat
   steps:
   - user: |
@@ -86,10 +93,17 @@ stories:
     intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
-- story: demande theme candidat 5
+- story: demande theme candidat 7
   steps:
   - user: |
       Comment [Lassalle]{"entity": "candidate_name"} compte réformer le [système judiciaire]{"entity": "theme"} ?
+    intent: theme_cand
+  - action: action_get_propositions_from_candidate_and_theme
+
+- story: demande theme candidat 8
+  steps:
+  - user: |
+      Quelle proposition [Zemmour]{"entity": "candidate_name"} sur le [Nucléaire]{"entity": "theme"} ?
     intent: theme_cand
   - action: action_get_propositions_from_candidate_and_theme
 
@@ -134,11 +148,4 @@ stories:
       Peux tu résumer la vie de [Jean-Luc Mélenchon]{"entity": "candidate_name"}
     intent: demande_candidats_info
   - action: action_get_candidates_info
-
-- story: demande theme candidat 5
-  steps:
-  - user: |
-      Quelle proposition [Zemmour]{"entity": "candidate_name"} sur le [Nucléaire]{"entity": "theme"} ?
-    intent: theme_cand
-  - action: action_get_propositions_from_candidate_and_theme
   

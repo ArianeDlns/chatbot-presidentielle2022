@@ -94,6 +94,10 @@ nlu:
     - Que se passe t'il si mon vote est nul 
     - vote blanc
     - Quel est le sens du vote blanc ? 
+    - est-ce que je peux voter blanc ?
+    - que faire si je veux voter pour personne ?
+    - aucun candidat ne m'intéresse
+    - est-ce que je peux voter pour aucun candidat ?
 - intent: sources
   examples: |
     - Quelles sont tes sources ?

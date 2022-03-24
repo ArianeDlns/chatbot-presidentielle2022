@@ -163,7 +163,7 @@ stories:
     intent: mode_scrutin
   - action: utter_mode_scrutin
 
-- story: mode scrutin 2
+- story: mode scrutin 3
   steps:
   - user: |
       Quelles sont les caractéristiques du mode de vote ? 
@@ -253,5 +253,30 @@ stories:
       Tu peux me dire comment tu sais tout ça ?  
     intent: sources
   - action: utter_sources
+
+- story: demande vote blanc
+  steps:
+  - user: |
+      Quelles sont les modalités sur vote blanc
+    intent: vote_blanc
+  - action: utter_vote_blanc
+  - action: utter_vote_blanc_nul
+
+- story: demande vote blanc 2
+  steps:
+  - user: |
+      Est-ce que le vote blanc est pris en compte ?
+    intent: vote_blanc
+  - action: utter_vote_blanc
+  - action: utter_vote_blanc_nul
+
+- story: demande vote blanc 3
+  steps:
+  - user: |
+      Que faire si je veux voter pour aucun candidat ?
+    intent: vote_blanc
+  - action: utter_vote_blanc
+  - action: utter_vote_blanc_nul
+
 
   

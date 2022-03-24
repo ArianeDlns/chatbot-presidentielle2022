@@ -42,7 +42,7 @@ stories:
   - action: utter_wait
   - action: action_get_sondage_candidat
 
-- story: demande sondage candidat 2
+- story: demande sondage candidat 3
   steps:
   - user: |
       Quel est le pourcentage d'intention de vote de [Jadot]{"entity": "candidate_name"} ?
@@ -50,7 +50,7 @@ stories:
   - action: utter_wait
   - action: action_get_sondage_candidat
 
-- story: demande sondage candidat 3
+- story: demande sondage candidat 4
   steps:
   - user: |
       Quel score [Macron]{"entity": "candidate_name"} ?

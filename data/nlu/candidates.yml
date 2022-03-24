@@ -59,7 +59,7 @@ nlu:
     - Quelles mesures prévoit [Nicolas Dupont Aignan](candidate_name) pour l'[emploi](theme)
     - Que pense [Yannick Jadot](candidate_name) à propos de l'[économie](theme) ?
     - Que dit le programme de [Marine Lepen](candidate_name) sur la question de l'[environnement](theme) ?
-    - Qu'est-ce qui est prévu pour l'[énergie](theme) dans le programme de [Fabien Roussel](candidate_name)
+    - Qu'est-ce qui est prévu pour les [énergies renouvelables](theme) dans le programme de [Fabien Roussel](candidate_name)
     - Quelles propositions a [Eric Zemmour](candidate_name) sur la [justice](theme)
     - Quelles idées a [Hidalgo](candidate_name) sur la [fonction publique](theme) ?
     - Quelles sont les idées de [jean luc melenchon](candidate_name) sur la [défense](theme) et l'[armée](theme) ?
@@ -106,3 +106,6 @@ nlu:
     - Que propose [arthaud](candidate_name) ?
     - quelles sont les idées de [ane hidalgo](candidate_name) ?
     - j'aimerais connaitre les idées de [poutou](candidate_name)
+    - quelles sont les propositions de [macron](candidate_name) ?
+    - programme de [eric zemmour](candidate_name)
+    - donne moi les principales propositions de [mélenchon](candidate_name)
