@@ -35,6 +35,11 @@ nlu:
     - [Mélanchon](candidate_name) est qui ?
     - Quel parcours a été le parcours de [dupont aignant](candidate_name) ?
     - Présente moi [fabien roussel](candidate_name)
+    - Résume moi le parcours de [jean luc mélenchon](candidate_name)
+    - vie de [nicolas dupont aignan](candidate_name)
+    - CV de [hidalgo](candidate_name)
+    - présentation de la biographie de [fabien roussel](candidate_name)
+    - [eric zemmour](candidate_name) est-il un politicien ?
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
@@ -52,7 +57,10 @@ nlu:
     - Quel parti soutient [Marine Le Pen](candidate_name) ?
     - [Roussel](candidate_name) appartient à quel mouvance politique ? 
     - Quel est le part politique de [Pecresse](candidate_name)
-    - 
+    - [Zemmour](candidate_name) est-il d'extreme droite ?
+    - Où se situe [jean lassalle](candidate_name) sur l'échiquier politique ?
+    - [Macron](candidate_name) est-il de gauche ?
+    - quelle est la famille politique de [fabien roussel](candidate_name) ?
 - intent: theme_cand
   examples: |
     - Quelles sont les propositions de [Macron](candidate_name) sur le sujet des [politiques publiques](theme)?

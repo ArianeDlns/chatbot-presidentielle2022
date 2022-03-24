@@ -19,6 +19,9 @@ nlu:
     - comment tu vas ?
     - est-ce que vous allez bien ?
     - est-ce que tu vas bien ?
+    - comment ça va ?
+    - tout va bien ?
+    - tu passes une bonne journée ?
 - intent: bonne_humeur
   examples: |
     - ça va bien
@@ -42,6 +45,14 @@ nlu:
     - as-tu une conscience ?
     - t'es un chatbot ?
     - est tu un ordinateur ?
+    - t'es qui ?
+    - qu'est-ce que tu es ?
+    - à qui ai-je à faire ?
+    - à qui je parle ?
+    - qu'en penses tu ?
+    - pour qui tu vas voter ?
+    - quel est ton avis ?
+    - quel est votre candidat favori ?
 - intent: demande_blague
   examples: |
     - raconte moi une blague ! 
