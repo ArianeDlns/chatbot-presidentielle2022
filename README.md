@@ -22,7 +22,7 @@ The `.bin` file must be downloaded and placed in `data/word2vec/`.
 cd actions/data
 mkdir word2vec
 cd word2vec 
-wget https://s3.us-east-2.amazonaws.com/embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
+wget https://embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
 ```
 
 ### Update credentials
@@ -152,7 +152,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT]()
+[GNU General Public License v3.0](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/main/LICENSE)
 
 ## Project status
 In development - project deadline: :calendar: 13 April 22'
