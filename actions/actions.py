@@ -269,8 +269,6 @@ class ActionGetSondageFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # print(tracker.latest_message['entities'])
-        #dispatcher.utter_message(text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
 
         candidates_data_sondage = get_sondages(
             "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
@@ -279,7 +277,7 @@ class ActionGetSondageFromCandidate(Action):
 
             if blob['entity'] == 'candidate_name':
                 name = blob['value']
-                name_value = ' '.join(real_name(name).split(' ')[1:])
+                name_value = ' '.join(real_name(name, candidates_name).split(' ')[1:])
                 poll_value = candidates_data_sondage.iloc[0][name_value]
                 dispatcher.utter_message(
                     text=f"{real_name(name, candidates_name)} est à {poll_value} % dans le dernier sondage ({candidates_data_sondage.iloc[0]['Sondeur']} - {candidates_data_sondage.iloc[0]['Dates']})")
@@ -301,8 +299,6 @@ class ActionGetSondageAllCandidates(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        #dispatcher.utter_message(text=f"Laissez-moi le temps de récupérer les derniers sondages ... ")
 
         candidates_data_sondage = get_sondages(
             "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
