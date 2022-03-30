@@ -40,6 +40,9 @@ nlu:
     - CV de [hidalgo](candidate_name)
     - présentation de la biographie de [fabien roussel](candidate_name)
     - [eric zemmour](candidate_name) est-il un politicien ?
+    - Infos [nathalie arthaud](candidate_name)
+    - Info à propos de la vie de [eric zemmour](candidate_name)
+    - Informations sur [philippe poutou](candidate_name)
 - intent: demande_parti_candidat
   examples: |
     - A quel parti politique appartient [Macron](candidate_name) ?
