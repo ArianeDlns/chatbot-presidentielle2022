@@ -4,6 +4,8 @@ import pandas as pd
 import locale
 
 #locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+PATH = '/app/actions/'
+#PATH = './'
 
 def scrape_table(url):
     """
@@ -81,10 +83,14 @@ def apply_transformations(sondages):
 
 def get_sondages(url):
     df = scrape_table(url)
-    sondages = clean_sondages(df)
-    sondages = remove_empty_col(sondages)
-    sondages = apply_transformations(sondages)
-    return sondages
+    sondage_global = pd.DataFrame()
+    for idx in range(7):
+        sondages = clean_sondages(df,idx)
+        sondages = remove_empty_col(sondages)
+        sondages = apply_transformations(sondages)
+        sondage_global = pd.concat([sondage_global, sondages])
+    sondage_global.to_csv(PATH + 'data/data_candidates/sondages.csv', index=False)
+    return sondage_global
 
 
 if __name__ == "__main__":

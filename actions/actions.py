@@ -269,10 +269,11 @@ class ActionGetSondageFromCandidate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-
-        candidates_data_sondage = get_sondages(
-            "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
-
+        try:
+            candidates_data_sondage = get_sondages(
+                "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+        except: 
+            candidates_data_sondage =  pd.read_csv(PATH + "data/data_candidates/sondages.csv")
         for blob in tracker.latest_message['entities']:
 
             if blob['entity'] == 'candidate_name':
@@ -300,8 +301,11 @@ class ActionGetSondageAllCandidates(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        candidates_data_sondage = get_sondages(
-            "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+        try:
+            candidates_data_sondage = get_sondages(
+                "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+        except: 
+            candidates_data_sondage =  pd.read_csv(PATH + "data/data_candidates/sondages.csv")
 
         candidates_poll_df = pd.DataFrame([[candidates_name[i], candidates_data_sondage.iloc[0][' '.join(
             candidates_name[i].split(' ')[1:])]] for i in range(len(candidates_name))], columns=['Candidats', '(%)']).sort_values(['(%)'], ascending=False)
@@ -326,8 +330,11 @@ class ActionGetEvolutionGraphCandidates(Action):
     """
     Answering questions like 'Quel est le résultat du dernier sondage ?'
     """
-    candidates_data_sondage = get_sondages(
-        "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+    try:
+        candidates_data_sondage = get_sondages(
+            "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022")
+    except: 
+        candidates_data_sondage =  pd.read_csv(PATH + "data/data_candidates/sondages.csv")
 
     def name(self) -> Text:
         return "action_get_evolution_graph_candidat"
