@@ -76,6 +76,10 @@ This project is only an experimentation for a school project and has therefore n
 ### Telegram chatbot
 <p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png" width="250" alt="Telegram"/> 
 
+### Rasa diagram
+
+<p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa_diagram.png" width="700" alt="Telegram"/> 
+
 ## Structure
 
 ``` bash
@@ -143,8 +147,6 @@ This project is only an experimentation for a school project and has therefore n
     ├── test_nlu_stories.yml
     └── test_poll_stories.yml
 ```
-
-## Roadmap
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
