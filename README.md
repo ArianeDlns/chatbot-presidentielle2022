@@ -22,7 +22,7 @@ The `.bin` file must be downloaded and placed in `data/word2vec/`.
 cd actions/data
 mkdir word2vec
 cd word2vec 
-wget https://s3.us-east-2.amazonaws.com/embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
+wget https://embeddings.net/embeddings/frWac_non_lem_no_postag_no_phrase_500_skip_cut100.bin
 ```
 
 ### Update credentials
@@ -75,6 +75,10 @@ This project is only an experimentation for a school project and has therefore n
 
 ### Telegram chatbot
 <p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/exemple.png" width="250" alt="Telegram"/> 
+
+### Rasa diagram
+
+<p align="center"> <img src="https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/develop/img/rasa_diagram.png" width="700" alt="Telegram"/> 
 
 ## Structure
 
@@ -144,15 +148,13 @@ This project is only an experimentation for a school project and has therefore n
     └── test_poll_stories.yml
 ```
 
-## Roadmap
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT]()
+[GNU General Public License v3.0](https://github.com/ArianeDlns/chatbot-presidentielle2022/blob/main/LICENSE)
 
 ## Project status
 In development - project deadline: :calendar: 13 April 22'
